@@ -1,0 +1,14 @@
+{
+  "formTitle":"屋苑平面圖",
+  "componentName": "ImageSubGallery",
+  "crudMode": "R",
+  "entityName": "floor-plan-sub-gallery",
+  "imageGroups": [{
+          "uniqueIdentifier":9,
+          "name": "地下及其他",
+          "image": "assets/images/background/11.jpg",
+          "noOfImage":10
+        }
+
+  ]
+}

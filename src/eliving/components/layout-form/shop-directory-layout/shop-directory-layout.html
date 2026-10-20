@@ -1,0 +1,53 @@
+<!-- Themes Expandable Full image with CTA -->
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="onBackToHome()">
+          <ion-icon name="custom-hsHome"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content>
+      <ion-grid no-padding *ngIf="data != null">
+          <ion-row > 
+              <ion-col col-12 col-lg-4 no-padding no-margin *ngFor="let group of data.recordGroup;">
+                  <ion-list>
+                      <ul no-margin no-padding class="collapsible">
+                          <li margin >
+                              <!-- Expandable Full image with CTA Header-->
+                              <div class="collapsible-header">
+                                  <ion-item no-margin padding no-lines background-size [style.background-image]="'url(' + group.backgroundImage + ')'">
+                                      <h2 item-title float-left>{{group.title}}</h2>
+                                      <button ion-button float-right button-clear-outline outline round (click)="toggleGroup(group)">
+                                          {{group.button}}
+                                    </button>
+                                  </ion-item>
+                              </div>
+                              <!-- Expandable Full image with CTA Body -->
+                              <div class="item-accordion" [style.height.px]="getGroupHeight(group)" [hidden]="!isGroupShown(group)">
+                                  <ion-item full default-button no-lines cursor-pointer *ngFor="let item of group.records;" [style.height.px]="item.height">
+                                      <h2 padding-left subitem-title>{{item.name}}</h2>
+                                      <h2 padding-left subitem-subtitle>{{item.address}}</h2>
+                                      <h2 padding-left subitem-subtitle>{{item.phone}}</h2>
+                                      <ion-icon item-end white icon-small>
+                                         <!--<i class="icon icon-chevron-right"></i> --> 
+                                      </ion-icon>
+                                  </ion-item>
+                              </div>
+                              <!--end-->
+                          </li>
+                      </ul>
+                  </ion-list>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </ion-content>
+  <!---Fab Button-->
+  

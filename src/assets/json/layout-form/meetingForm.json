@@ -1,0 +1,36 @@
+{
+  "formTitle": "會議議程及紀錄",
+  "fileIcon": "icon-file",
+  "documents": [{
+      "name": "傲雲峰第八屆業主委員會第二次會議會議議程",
+      "size": "365K",
+      "docURL": "assets/eliving/pdf/agenda/1.pdf"
+    },
+    {
+      "name": "傲雲峰第八屆業主委員會第一次會議會議紀錄",
+      "size": "1577K",
+      "docURL": "assets/eliving/pdf/minutes/ST_SKYTOW_minute_87.pdf"
+    },
+    {
+      "name": "傲雲峰第八屆業主委員會第一次會議會議議程",
+      "size": "314K",
+      "docURL": "assets/eliving/pdf/agenda/2.pdf"
+    }, {
+      "name": "傲雲峰2018年度周年業主大會會議",
+      "size": "1295K",
+      "docURL": "assets/eliving/pdf/minutes/ST_SKYTOW_minute_86.pdf"
+    }, {
+      "name": "傲雲峰第七屆業主委員會第八次會議會議議程",
+      "size": "405K",
+      "docURL": "assets/eliving/pdf/agenda/3.pdf"
+    }, {
+      "name": "傲雲峰第七屆業主委員會第七次會議會議紀錄",
+      "size": "428K",
+      "docURL": "assets/eliving/pdf/minutes/ST_SKYTOW_minute_85.pdf"
+    }, {
+      "name": "傲雲峰第七屆業主委員會第六次會議會議紀錄",
+      "size": "512K",
+      "docURL": "assets/eliving/pdf/minutes/ST_SKYTOW_minute_84.pdf"
+    }
+  ]
+}

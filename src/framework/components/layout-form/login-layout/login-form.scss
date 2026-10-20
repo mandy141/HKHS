@@ -1,0 +1,146 @@
+/*  #Style Login + logo
+================================================*/
+login-form {
+
+  [loginLabel]
+  {
+    border-bottom:none !important;
+  }
+
+  .button-md
+  {
+    background-color: transparent;
+  }
+
+  .item-md,.label-md, .label-md[stacked] {
+    font-size: 1.7rem !important;
+  }
+
+  .button-outline-ios
+  {
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+  }
+
+  .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: #ffffff !important;
+  }
+
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner
+  {
+    border-bottom-color: #ffffff !important;
+  }
+
+  .button-outline-md{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: none;
+  }
+  ion-col {
+    position: relative;
+
+    [button-clear] {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  [footer] {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    p {
+      font-size: $text-font-size;
+      color: #ffffff;
+    }
+  }
+
+  [new-reg] {
+    float: right;
+  }
+
+  [login-title] {
+    font-size: $h1-font-size;
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin: 35px auto 20px;
+  }
+
+
+  ion-item {
+    padding: 0 !important;
+    //padding-bottom: 15px !important;
+
+    /*[error-field] {
+      margin: 0 !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      right: 0 !important;
+      font-size: $text-font-size;      
+    }*/
+
+    .item-inner {
+      border-bottom-color: #ffffff;/*theme-colors('mainColors', 'primary') !important;*/
+      box-shadow: none !important;
+    }
+  
+    ion-label {
+      margin: 0 !important;
+    }
+  }
+
+  [row-padding-bottom] {
+    padding-bottom: 15px !important;
+  }
+
+  [login-failed-label] {
+    padding-left: 1rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  [validation-color] {
+    color: theme-colors('textColors', 'validation') !important;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  }
+
+  [button-clear-outline] {
+    margin-top: 10%;
+    width: 100%;
+    display: block;
+    float: left;
+  }
+
+  [button-margin-top-zero] {
+    margin-top: 0px;
+  }
+
+  [col-position-center] {
+    display: flex; justify-content: center;
+  }  
+
+  [social] {
+    margin: 20px auto 0;
+    overflow: hidden;
+
+    button {
+      margin: 1%;
+      width: 48.5%;
+      display: block;
+      float: left;
+    }
+
+    > button:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+}

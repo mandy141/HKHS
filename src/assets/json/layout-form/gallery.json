@@ -1,0 +1,97 @@
+{
+  "formTitle":"房協之友-活動剪影",
+  "headerImage": "assets/eliving/logo_background/banner-bg.png",
+  "selectAll":"所有類別",
+  "cancelText":"返回",
+  "lblYear":"年份",
+  "componentName": "ImageSubGallery",
+  "crudMode": "R",
+  "entityName": "photobook-sub-gallery",
+  "imageGroups": [{
+            "uniqueIdentifier": 1,
+            "year": "2019",
+            "name": "迎豬接福財神到",
+            "image": "assets/eliving/album/a9.jpg",
+            "noOfImage": 10
+        },
+        {
+          "uniqueIdentifier": 2,
+          "year": "2019",
+          "name": "新春錦鯉椰汁年糕 2019  ",
+          "image": "assets/eliving/album/a10.jpg",
+          "noOfImage": 7
+        },
+        {
+          "uniqueIdentifier": 3,
+          "year": "2019",
+          "name": "復活節卡通造型蛋糕DIY",
+          "image": "assets/eliving/album/a3.jpg",
+          "noOfImage": 15
+        },
+        {
+          "uniqueIdentifier": 4,
+          "year": "2019",
+          "name": "紅豆銅鑼燒",
+          "image": "assets/eliving/album/a4.jpg",
+          "noOfImage": 11
+        },
+        {
+          "uniqueIdentifier": 6,
+          "year": "2019",
+          "name": "賀年食品收集行動",
+          "image": "assets/eliving/album/a6.jpg",
+          "noOfImage": 9
+        },
+        {
+          "uniqueIdentifier": 7,
+          "year": "2019",
+          "name": "苗圃種植計劃2019(第一期)",
+          "image": "assets/eliving/album/a7.jpg",
+          "noOfImage": 9
+        },
+        {
+          "uniqueIdentifier": 8,
+          "year": "2019",
+          "name": "利是回收重用大行動 ",
+          "image": "assets/eliving/album/a8.jpg",
+          "noOfImage": 6
+        },
+        {
+          "uniqueIdentifier":9,
+          "year": "2019",
+          "name": "有機黑芝麻豆渣復活節兔子餅乾",
+          "image": "assets/eliving/album/1/1.jpg",
+          "noOfImage":14
+        },
+        {
+          "uniqueIdentifier": 10,
+          "year": "2019",
+          "name": "獵蛋奇兵挑戰賽",
+          "image": "assets/eliving/album/a2.jpg",
+          "noOfImage": 11
+        },
+        {
+          "uniqueIdentifier": 11,
+          "year": "2019",
+          "name": "金筆揮毫賀雲峄2019",
+          "image": "assets/eliving/album/a11.jpg",
+          "noOfImage": 13
+        },
+        {
+          "uniqueIdentifier": 12,
+          "year": "2019",
+          "name": "2019新春風水講座",
+          "image": "assets/eliving/album/a12.jpg",
+          "noOfImage": 3
+        },
+        {
+          "uniqueIdentifier": 13,
+          "year": "2018",
+          "name": "2018繽FUN聖誕嘉年華",
+          "image": "assets/eliving/album/a13.jpg",
+          "noOfImage": 20
+        }
+        
+
+  ]
+}

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<!--Theme Small item + header-->
+<ion-content  *ngIf="isLoggedIn()"  after_loin>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>         
+            <ion-item no-lines cursor-pointer [ngClass]="animateClass" *ngFor="let item of data.floorPlanGroups"
+              (click)="onShowDtl(item)">
+              <ion-avatar item-start>
+                <img [src]="item.image" alt="{{item.name}}" />
+              </ion-avatar>
+              <!-- Title -->
+              <h2 item-title item-title_after_loin>{{item.name}}</h2>
+            </ion-item>                      
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-content  *ngIf="!isLoggedIn()">
+    <ion-grid no-padding *ngIf="data != null">
+      <ion-row>
+        <ion-col col-12>
+          <ion-list no-margin>         
+              <ion-item no-lines cursor-pointer [ngClass]="animateClass" *ngFor="let item of data.floorPlanGroups"
+                (click)="onShowDtl(item)">
+                <ion-avatar item-start>
+                  <img [src]="item.image" alt="{{item.name}}" />
+                </ion-avatar>
+                <!-- Title -->
+                <h2 item-title>{{item.name}}</h2>
+              </ion-item>                      
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  

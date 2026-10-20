@@ -1,0 +1,109 @@
+<!--
+  Generated template for the QrPaymentLayoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content after_login>
+  <div *ngIf="data != null">
+    <!--Segment Section -->
+    <ion-toolbar no-padding>
+        <div *ngIf="data != null" qr_toolbar>
+          <ion-segment has-header [(ngModel)]="selectedItem">
+            <ion-segment-button *ngFor="let page of data.pages" value="{{page.pageId}}">
+              {{page.pageName}}
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+    </ion-toolbar>
+    <div *ngFor="let page of data.pages;let pageIndex = index">
+       <div *ngIf="isEnabled(page.pageId)">
+      <ion-grid *ngFor="let rec of page.records;">
+        <!-- List -->
+        <ion-row>
+          <ion-col text-center col-4 *ngIf="rec.address != null && rec.address != '' ">
+           <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.lblAddress}}:</ion-label></ion-item>
+        </ion-col>
+        <ion-col text-center col-8 *ngIf="rec.address != null && rec.address != '' ">
+          <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.address}}</ion-label></ion-item>
+       </ion-col>
+        </ion-row> 
+        <ion-row>
+          <ion-col text-center col-4 *ngIf="rec.accountNo != null && rec.accountNo != '' ">
+           <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.lblAccountNoTitle}}:</ion-label></ion-item>
+        </ion-col>
+        <ion-col text-center col-8 *ngIf="rec.accountNo != null && rec.accountNo != '' ">
+          <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.accountNo}}</ion-label></ion-item>
+       </ion-col>
+        </ion-row> 
+        <ion-row> 
+          <ion-col text-center col-4 *ngIf="rec.issueDate != null && rec.issueDate != '' ">
+            <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.lblIssueDateTitle}}:</ion-label></ion-item>
+          </ion-col>
+          <ion-col text-center col-8 *ngIf="rec.issueDate != null && rec.issueDate != '' ">
+            <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.issueDate}}</ion-label></ion-item>
+          </ion-col>
+        </ion-row> 
+        <ion-row> 
+          <ion-col text-center col-4 *ngIf="rec.payFee != null && rec.payFee != '' ">
+            <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.lblPayFeeTitle}}:</ion-label></ion-item>
+          </ion-col>
+          <ion-col text-center col-8 *ngIf="rec.payFee != null && rec.payFee != '' ">
+            <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.payFee}}</ion-label></ion-item>
+          </ion-col>
+        </ion-row> 
+        <ion-row> 
+          <ion-col text-center col-4 *ngIf="rec.dueDate != null && rec.dueDate != '' ">
+            <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.lblDueDateTitle}}:</ion-label></ion-item>
+          </ion-col>
+          <ion-col text-center col-8 *ngIf="rec.dueDate != null && rec.dueDate != '' ">
+            <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.dueDate}}</ion-label></ion-item>
+          </ion-col>
+        </ion-row> 
+        <ion-row> 
+          <ion-col text-center *ngIf="rec.qrImgString != null && rec.qrImgString != '' ">
+            <ion-item  *ngIf="page.pageId == 0" text-center no-lines cursor-pointer ><ion-label stacked  text-special>{{rec.lblQrCodeTitle}}</ion-label></ion-item>
+            <ion-item  *ngIf="page.pageId == 1" text-center no-lines cursor-pointer ><ion-label stacked  text-special1>{{rec.lblQrCodeTitle}}</ion-label></ion-item>
+          </ion-col>
+        </ion-row>
+       <ion-row> 
+        <ion-col text-center *ngIf="rec.qrImgString != null && rec.qrImgString != ''">
+          <ion-item text-center no-lines cursor-pointer >
+            <ion-card card-center no-margin cursor-pointer text-center (click)="openImage(rec.qrImgString)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                <img [src]="rec.qrImgString" />                                
+            </ion-card>
+          </ion-item>
+        </ion-col>
+       </ion-row> 
+       <ion-row> 
+        <ion-col text-center offset-lg-2 *ngIf="rec.qrCodeCheckSumSting != null && rec.qrCodeCheckSumSting != '' ">
+          <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{rec.qrCodeCheckSumSting}}</ion-label></ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center offset-lg-2>
+            <button full ion-button (click)="onClose()">{{rec.btnExit}}</button>     
+        </ion-col>
+    </ion-row>
+    </ion-grid>
+  </div>
+    </div>
+    <ion-fab bottom right *ngIf="data != null && data.paymentUrl != null && data.paymentUrl != undefined && data.paymentUrl != ''">
+      <button ion-fab (click)="onClick(data.paymentUrl)"><img src="../assets/icon/icon_alipay.png"></button>
+    </ion-fab>
+  </div>
+  
+</ion-content>

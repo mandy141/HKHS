@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="onBackToHome()">
+              <ion-icon name="custom-hsHome"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content after_login>
+  <ion-grid *ngIf="data != null">   
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.recStatusText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.recStatusValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.nameText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.nameValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.telText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.telValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.emailText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.emailValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.refNoText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.refNoValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.submitTimeText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.submitTimeValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.locationText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.locationValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 >                   
+          <ion-item>
+            <ion-label stacked>{{data.catgText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-8 >                   
+        <ion-item>
+          <ion-label stacked>{{data.catgValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 >                   
+          <ion-item>
+            <ion-label stacked>{{data.detailText}}</ion-label>   
+          </ion-item>
+      </ion-col>
+      <ion-col col-12 >                   
+        <ion-item>
+          <ion-label stacked>{{data.detailValue}}</ion-label>   
+        </ion-item>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+          <ion-list>
+              <ion-item text-wrap *ngFor="let item of data.imageValue; let i= index">
+                <ion-thumbnail item-start >
+                  <!--<img src="../assets/theme/theme2/theme2_TopBar.png" />-->
+                  <img [src]="item.image" />
+                </ion-thumbnail>
+              </ion-item>
+            </ion-list>  
+      </ion-col>
+  </ion-row> 
+  </ion-grid>
+</ion-content>

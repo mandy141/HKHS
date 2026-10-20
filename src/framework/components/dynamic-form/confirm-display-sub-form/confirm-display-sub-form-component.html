@@ -1,0 +1,60 @@
+<ion-grid padding-left-right-zero>
+    <ion-row>
+        <ion-col [attr.col-12]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                [attr.col-11]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                [attr.col-10]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                [attr.col-9]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                [attr.col-8]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                [attr.col-7]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                [attr.col-6]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                [attr.col-5]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                [attr.col-4]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                [attr.col-3]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                [attr.col-2]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                [attr.col-1]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null" 
+                default-label-font
+                [class]="confirmLabelClass(inputFieldModel)" [ngStyle]="toJSONObject(confirmLabelStyle(inputFieldModel))">{{inputFieldModel.label}}:</ion-col>
+        <ion-col [attr.col-12]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                [attr.col-11]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                [attr.col-10]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                [attr.col-9]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                [attr.col-8]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                [attr.col-7]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                [attr.col-6]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                [attr.col-5]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                [attr.col-4]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                [attr.col-3]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                [attr.col-2]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                [attr.col-1]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null">
+        <fieldset *ngFor="let inputSubFormModel of inputFieldModel.inputFormModels; let i = index" confirm-group>
+            <legend >{{inputFieldModel.subFormArrayLabel}} {{i+1}}</legend>
+            <ion-grid padding-left-right-zero>
+            <ion-row>
+                <ng-container *ngFor="let subFormInputFieldModel of inputSubFormModel.inputFieldModels">
+                    <ng-container *ngIf="subFormInputFieldModel.requireConfirm">                                                  
+                        <ion-col [attr.col-12]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                                [attr.col-11]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                                [attr.col-10]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                                [attr.col-9]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                                [attr.col-8]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                                [attr.col-7]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                                [attr.col-6]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                                [attr.col-5]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                                [attr.col-4]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                                [attr.col-3]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                                [attr.col-2]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                                [attr.col-1]="subFormInputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null">                            
+                            <ng-container [ngSwitch]="subFormInputFieldModel.controlType">            
+                                <confirm-display-field-component *ngSwitchDefault [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[inputFieldModel.key].at(stringToNumber(i))"></confirm-display-field-component> 
+                                <confirm-display-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[inputFieldModel.key].at(stringToNumber(i))"></confirm-display-field-group-component>
+                                <confirm-display-sub-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[inputFieldModel.key].at(stringToNumber(i))"></confirm-display-sub-form-component>
+                            </ng-container>
+                        </ion-col>                                             
+                    </ng-container>                                  
+                </ng-container>
+            </ion-row>
+            </ion-grid>
+        </fieldset>
+        </ion-col>
+    </ion-row>
+</ion-grid>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content after_login padding default-label-font *ngIf="data != null" (ionScroll)="detectBottom()" padding>
+  <ion-scroll [innerHTML]="data.tcText+data.tcText1" overflow-scroll="true">
+    
+  </ion-scroll>
+  <!--<button disabled ion-button style="position: relative; bottom: 0px; " *ngIf="!bottomReached">{{data.closeText}}</button>
+    <button ion-button style="position: relative; bottom: 0px; " *ngIf="bottomReached"  (click)="onBackToHome()" >{{data.closeText}}</button>
+  -->
+  <button ion-button style="position: relative; bottom: 0px; " (click)="onBackToHome()" >{{data.closeText}}</button>
+</ion-content>

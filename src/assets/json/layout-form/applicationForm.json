@@ -1,0 +1,32 @@
+{
+    "formTitle":"設定",
+    "fileIcon":"icon-file",
+    "headerImage": "assets/eliving/logo_background/banner-bg.png",
+    "selectAll": "所有類別",
+    "cancelText": "返回",
+    "houseRulesType":"類別",
+    "documents": [{
+            "title": "重設密碼",
+            "name": "重設密碼",
+            "size": "365K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_110.pdf"
+          },
+          {
+            "title": "字體大小",
+            "name": "字體大小",
+            "size": "1577K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_109.pdf"
+          }, 
+          {
+            "title": "訊息提示",
+            "name": "訊息提示",
+            "size": "314K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_108.pdf"
+          }, {
+            "title": "免責聲明及隠私政策",
+            "name": "免責聲明及隠私政策",
+            "size": "1295K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_107.pdf"
+          }
+    ]
+  }

@@ -1,0 +1,82 @@
+{
+    "crudMode": "R",
+    "entityName": "sample-input-form-notice-detail",
+    "inputFormCloseButtonLabel": "關閉",
+    "inputFormInnerTitle": "",
+    "inputFormNextButtonLabel": "下一步",
+    "inputFormPrevButtonLabel": "上一步",
+    "inputFormShowTabBar": false,
+    "inputFormSubmitButtonLabel": "提交",
+    "inputFormSubmitButtonRemark": "*提交後不可修改",
+    "inputFormTitle": "暫停升降機服務",
+    "inputFormTabs" : [
+        {
+            "showTabTitle": false,
+            "tabIndex": "0",
+            "tabTitle": "Sample 01",
+            "tabTitleClass": "",
+            "tabTitleStyle": "",
+            "tabType": "confirmation"
+        }       
+    ],
+    "inputFieldModels" : [
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "lblTitle",
+            "controlType": "label",
+            "controlStyle": "",
+            "label": "暫停升降機服務 (26/04/2019)",
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        },
+         {
+           "colWidth": "1",
+           "hidden": false,
+           "key": "lblRefNo",
+           "controlType": "label",
+           "controlStyle": "",
+           "label": "參考編號:GW/SKYT/N/19/210",
+           "locateAtTabIndex": "0",
+           "requireConfirm": false,
+           "disable": false
+         }, 
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "lblDesc",
+            "controlType": "label",
+            "controlStyle": "",
+            "label": "詳情請參閱附加檔案<br>日期由: 29 / 04 / 2019(星期一): 29 / 04 / 2019(星期一)<br>時間由: 10: 00 至: 13: 00 ",
+            "innerHTML":true,
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        },        
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "btnLinkButton",
+            "controlType": "linkbutton",
+            "controlStyle": "",
+            "linkClickAction": "this.configSrv.openURL('assets/eliving/pdf/notice/ST_SKYTOW_noticeAtth_5311.pdf')",
+            "label": "下載",
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        }, {
+          "colWidth": "1",
+          "hidden": false,
+          "key": "noticeDate",
+          "controlType": "label",
+          "controlStyle": "",
+          "label": "發出日期: 26/04/2019",
+          "locateAtTabIndex": "0",
+          "requireConfirm": false,
+          "disable": false
+        }
+        
+        
+    ]    	
+}

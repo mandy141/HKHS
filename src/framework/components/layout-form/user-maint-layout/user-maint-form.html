@@ -1,0 +1,170 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="custom-menu"></ion-icon>
+        </button>
+        <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="onBackToHome()">
+                <ion-icon name="custom-hsHome"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<!--Content-->
+<ion-content after_login>
+    <ion-grid input-form-width *ngIf="data">
+        <ion-row>
+            <ion-col col-12>
+                <p default-title-style>{{data.innerTitle}}</p>                  
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="input-content-min-height">
+        <ion-grid *ngIf="data && currentStep == 1">
+            <ion-row>
+                <ion-col col-12 col-sm-12 col-md-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6>
+                    <ion-item no-lines transparent>
+                        <h2 word-break>{{data.lblInputMsg}}</h2>
+                    </ion-item>
+                    <ion-grid>
+                        <ion-row *ngIf="loginWithName()">
+                            <ion-col col-12>
+                                <ion-item transparent>          
+                                    <ion-label stacked>{{data.lblUserName}}</ion-label>                              
+                                    <ion-input required type="text" [(ngModel)]="inputUserName"></ion-input>                                        
+                                </ion-item>  
+                            </ion-col>
+                        </ion-row>                        
+                        <ion-row *ngIf="!authWithName()">
+                            <ion-col col-12 col-lg-5>
+                                <!---DDL County Code-->
+                                <!--<ion-item transparent padding-country-code>
+                                    <ion-label></ion-label>
+                                    <ion-select [(ngModel)]="selectCountryCode" interface='action-sheet'>
+                                        <ion-option *ngFor="let opt of data.optCountyCodes" [value]="opt.key" text-wrap>{{opt.desc}}</ion-option>
+                                    </ion-select>
+                                </ion-item>-->
+                                <!---Input field Country Code-->
+                                <ion-item transparent>          
+                                    <ion-label stacked>{{data.lblCountryCode}}</ion-label>                              
+                                    <ion-input required type="text" [(ngModel)]="inputCountryCode"></ion-input>                                        
+                                </ion-item>  
+                            </ion-col>
+                            <ion-col col-12 col-lg-7>
+                                <!---Input field Phone No-->
+                                <ion-item transparent>
+                                    <ion-label stacked>{{data.lblPhoneNo}}</ion-label>
+                                    <ion-input required type="text" [(ngModel)]="inputPhoneNo"></ion-input>                                        
+                                </ion-item>  
+                            </ion-col> 
+                        </ion-row>
+                    </ion-grid> 
+                    <ion-item no-lines transparent>
+                        <p *ngIf="sStep01ValidationMsg" validation-label word-break>{{sStep01ValidationMsg}}</p>
+                    </ion-item>                            
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid *ngIf="data && currentStep == 2">
+            <ion-row>
+                <ion-col col-12 col-sm-12 col-md-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6>
+                    <ion-item no-lines transparent>
+                        <h2 word-break>{{data.lblPasscodeSentMsg}}</h2>
+                        <p>{{inputPhoneNoDesc}} ({{sPasscodeSentTime}})</p>
+                    </ion-item>
+                    <ion-item no-lines transparent>
+                        <h2 word-break>{{data.lblInputPasscodeMsg}}</h2>                                
+                    </ion-item>
+                    <ion-grid>
+                        <ion-row>                                
+                            <ion-col col-12>
+                                <!---Input field Passcode-->
+                                <ion-item transparent>
+                                    <ion-label stacked>{{data.lblPasscode}}</ion-label>
+                                    <ion-input required type="password" [(ngModel)]="inputPasscode"></ion-input>                                        
+                                </ion-item>  
+                            </ion-col> 
+                        </ion-row>
+                        <ion-row>
+                            <ion-col offset-4 col-8 col-lg-6 offset-lg-6>
+                                <button full ion-button (click)="onSendSMS()" [disabled]="!isAllowResendSMS">
+                                    {{data.btnResendPasscode}} {{showCounter}}
+                                </button>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid> 
+                    <ion-item no-lines transparent>
+                        <p *ngIf="sPasscodeResentMsg" word-break>{{sPasscodeResentMsg}}</p>
+                        <p *ngIf="sStep02ValidationMsg" validation-label word-break>{{sStep02ValidationMsg}}</p>
+                    </ion-item>                            
+                </ion-col>
+            </ion-row>
+        </ion-grid>        
+        <ion-grid *ngIf="data && currentStep == 3">
+            <ion-row>
+                <ion-col col-12 col-sm-12 col-md-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6>
+                    <ion-item no-lines transparent>
+                        <h2 word-break>{{data.lblResetPasswordMsg}}</h2>
+                    </ion-item>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col col-12>
+                                <ion-item no-lines transparent>
+                                    <p word-break>{{data.lblInvalidPasswordMsg}}</p>
+                                </ion-item>
+                            </ion-col>                                
+                            <ion-col col-12>
+                                 <!---Input field Password-->
+                                 <ion-item transparent>
+                                        <ion-label stacked>{{data.lblOldPassword}}</ion-label>
+                                        <ion-input required type="password" [(ngModel)]="inputOldPassword"></ion-input>                                        
+                                    </ion-item>
+                                <!---Input field Password-->
+                                <ion-item transparent>
+                                    <ion-label stacked>{{data.lblNewPassword}}</ion-label>
+                                    <ion-input required type="password" [(ngModel)]="inputPassword"></ion-input>                                        
+                                </ion-item>
+                                <!---Input field Confirm Password-->
+                                <ion-item transparent>
+                                    <ion-label stacked>{{data.lblConfirmNewPassword}}</ion-label>
+                                    <ion-input required type="password" [(ngModel)]="inputConfirmPassword"></ion-input>                                        
+                                </ion-item>  
+                            </ion-col> 
+                        </ion-row>
+                    </ion-grid> 
+                    <ion-item no-lines transparent>
+                        <p word-break>{{data.lblForgetRemarks}}</p>
+                    </ion-item>     
+                    <ion-item no-lines transparent>
+                        <p *ngIf="sStep03ValidationMsg" validation-label word-break>{{sStep03ValidationMsg}}</p>
+                    </ion-item>                            
+                </ion-col>
+            </ion-row>
+        </ion-grid>       
+        <ion-grid *ngIf="data && currentStep == 4">
+            <ion-row>
+                <ion-col col-12 col-sm-12 col-md-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6>
+                    <ion-item no-lines transparent>
+                        <h2 word-break>{{data.lblFinishMsg}}</h2>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>     
+    </div>   
+    <!--Button section-->
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12 col-sm-12 col-md-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6>
+                <div *ngIf="data">
+                    <button full ion-button (click)="onNextStep()" *ngIf="currentStep != 4" [disabled]="!isAllowNextStep()">
+                        {{data.btnNext}}
+                    </button>
+                    <button full ion-button (click)="onFinished()" *ngIf="currentStep == 4">
+                        {{data.btnFinish}}
+                    </button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

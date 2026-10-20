@@ -1,0 +1,76 @@
+{
+    "formTitle": "勵德邨",
+    "crudMode": "R",
+    "headerItems": [{
+        "headerImg": "assets/ckah/hkhs_logo.svg",
+        "headerBg": "assets/eliving/logo_background/blue-sky-banner.jpg"
+    },{
+        "headerImg": "assets/ckah/hkhs_logo.svg",
+        "headerBg": "assets/eliving/logo_background/banner-1018818_1920.jpg"
+    }],
+    "bannerItems": [],
+    "dashboardItems": [
+    {
+        "backgroundImage": "assets/images/background/22.jpg",
+        "title": "屋邨資訊",
+        "button": "更多",
+        "iconFile":"icon-file",
+        "iconForm":"icon-chevron-right",
+        "openForm": {
+            "key": "notice-page",
+            "title": "通告",
+            "icon": "icon-file-document-box",
+            "componentName": "NoticeForm",
+            "entityName": "notice-layout",
+            "crudMode": "R"            
+          },                
+        "records": [{
+            "desc": "26/4/2019 - 屋苑公共天線電視頻道",                
+            "height": "50",
+            "openDtlForm":{                                                
+                "componentName": "InputFormPage",
+                "entityName": "notice-record-input-form",
+                "crudMode": "R",
+                "additionalParams":[{"key":"uniqueIdentifier","value":"1"}]          
+              }
+        },
+        {
+            "desc": "26/4/2019 - 搭棚維修工程",                
+            "height": "50"
+        },
+        {
+            "desc": "25/4/2019 - 搭棚維修工程",                
+            "height": "50"
+        },
+        {
+            "desc": "25/4/2019 - 高空墮物",                
+            "height": "50"
+        },
+        {
+            "desc": "25/4/2019 - 高壓清洗污水渠工程",                
+            "height": "50"
+        }]
+    }],   
+    "shortcutItems": [    
+        {"backgroundImg": "custom-info", 
+            "title": "房協之友", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "icon-library", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        },
+        {"backgroundImg": "custom-management", 
+            "title": "樂得耆所", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "icon-library", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        },
+        {"backgroundImg": "bulb", 
+            "title": "生活資訊", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "bulb", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        },
+        {"backgroundImg": "md-paper", 
+            "title": "繳付租金", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "bulb", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        }
+    ]
+}

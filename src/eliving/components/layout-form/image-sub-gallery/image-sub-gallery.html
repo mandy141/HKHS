@@ -1,0 +1,132 @@
+<!-- Theme Image Sub-Gallery for Category 1 -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  *ngIf="isLoggedIn()"  after_loin>
+  <ion-grid no-padding *ngIf="data != null" mobile-gallery>
+      <ion-row no-padding>
+          <ion-col col-12 *ngFor="let item of data.images;let i = index;" gallery-padding >
+              <ion-card no-margin cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                  <img [src]="item.image" />                                
+                  <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                      <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                  </div>
+              </ion-card>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <ion-grid no-padding *ngIf="data != null" desktop-gallery>
+      <ion-row no-padding  *ngIf="data.images.length > 1">
+          <ion-col col-4 gallery-padding >
+            <ng-container *ngFor="let item of data.images;let i = index;" >
+              <ion-card *ngIf="i % 3 == 0" no-margin-left cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                  <img [src]="item.image" />                                
+                  <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                      <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                  </div>
+              </ion-card>
+            </ng-container>
+          </ion-col>
+          <ion-col col-4 gallery-padding >
+              <ng-container *ngFor="let item of data.images;let i = index;" >
+                <ion-card *ngIf="i % 3 == 1" no-margin-left cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                    <img [src]="item.image" />                                
+                    <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                        <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                    </div>
+                </ion-card>
+              </ng-container>
+          </ion-col>
+          <ion-col col-4 gallery-padding >
+              <ng-container *ngFor="let item of data.images;let i = index;" >
+                <ion-card *ngIf="i % 3 == 2" no-margin-left cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                    <img [src]="item.image" />                                
+                    <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                        <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                    </div>
+                </ion-card>
+              </ng-container>
+          </ion-col>
+      </ion-row>
+      <ion-row no-padding  *ngIf="data.images.length == 1">
+        <ion-col col-12 *ngFor="let item of data.images;let i = index;" gallery-padding >
+            <ion-card no-margin cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                <img [src]="item.image" />                                
+                <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                    <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                </div>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-content  *ngIf="!isLoggedIn()">
+    <ion-grid no-padding *ngIf="data != null" mobile-gallery>
+        <ion-row no-padding>
+            <ion-col col-12 *ngFor="let item of data.images;let i = index;" gallery-padding >
+                <ion-card no-margin cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                    <img [src]="item.image" />                                
+                    <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                        <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid no-padding *ngIf="data != null" desktop-gallery>
+        <ion-row no-padding  *ngIf="data.images.length > 1">
+            <ion-col col-4 gallery-padding >
+              <ng-container *ngFor="let item of data.images;let i = index;" >
+                <ion-card *ngIf="i % 3 == 0" no-margin-left cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                    <img [src]="item.image" />                                
+                    <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                        <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                    </div>
+                </ion-card>
+              </ng-container>
+            </ion-col>
+            <ion-col col-4 gallery-padding >
+                <ng-container *ngFor="let item of data.images;let i = index;" >
+                  <ion-card *ngIf="i % 3 == 1" no-margin-left cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                      <img [src]="item.image" />                                
+                      <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                          <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                      </div>
+                  </ion-card>
+                </ng-container>
+            </ion-col>
+            <ion-col col-4 gallery-padding >
+                <ng-container *ngFor="let item of data.images;let i = index;" >
+                  <ion-card *ngIf="i % 3 == 2" no-margin-left cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                      <img [src]="item.image" />                                
+                      <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                          <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                      </div>
+                  </ion-card>
+                </ng-container>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding  *ngIf="data.images.length == 1">
+            <ion-col col-12 *ngFor="let item of data.images;let i = index;" gallery-padding >
+                <ion-card no-margin cursor-pointer (click)="openImage(i)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+                    <img [src]="item.image" />                                
+                    <div *ngIf="item.name && item.name.length > 0" gallery-title>
+                        <h2 item-title text-wrap [title]="item.name">{{item.name}}</h2>                    
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>
+  

@@ -1,0 +1,58 @@
+{
+  "formTitle": "房苑資訊",
+  "componentName":"InputFormPage",
+  "crudMode":"R",
+  "entityName": "notice-record-input-form",
+  "headerImage": "",
+  "selectAll": "所有類別",
+  "cancelText": "返回",
+  "noiticeType": "類別",
+  "noticeItems": [{
+    "uniqueIdentifier": "1",
+    "typeColor": "orangered",
+    "typeDesc": "一般事宜",
+    "desc": "屋苑公共天線電視頻道 (26/04/2019)",
+    "fileurl": "assets/eliving/pdf/notice/ST_SKYTOW_noticeAtth_5315.pdf"
+  },
+  {
+    "uniqueIdentifier": "2",
+    "typeColor": "orange",
+    "typeDesc": "搭棚維修工程",
+    "desc": "搭棚維修工程 (25/04/2019)",
+    "fileurl": ""
+  },
+  {
+    "uniqueIdentifier": "3",
+    "typeColor": "orangered",
+    "typeDesc": "一般事宜",
+    "desc": "高空墮物 (25/04/2019)",
+    "fileurl": ""
+  }, {
+    "uniqueIdentifier": "4",
+    "typeColor": "orange",
+    "typeDesc": "搭棚維修工程",
+    "desc": "搭棚維修工程 (25/04/2019)",
+    "fileurl": ""
+  }, 
+  {
+    "uniqueIdentifier": "5",
+    "typeColor": "blue",
+    "typeDesc": "清潔服務",
+    "desc": "高壓清洗污水渠工程 (25/04/2019)",
+    "fileurl": ""
+  }, {
+    "uniqueIdentifier": "6",
+    "typeColor": "lightBlue",
+    "typeDesc": "升降機服務",
+    "desc": "暫停升降機服務 (25/04/2019)",
+    "fileurl": ""
+  },{
+    "uniqueIdentifier": "8",
+    "typeColor": "orange",
+    "typeDesc": "搭棚維修工程",
+    "desc": "搭棚維修工程 (25/04/2019)",
+    "fileurl": ""
+  }
+
+]
+}

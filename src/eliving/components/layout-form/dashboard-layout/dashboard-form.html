@@ -1,0 +1,306 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons right>
+          <button ion-button icon-only (click)="onBackToHome()">
+            <ion-icon name="custom-hsHome"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-buttons end>
+          <button styleBulb ion-button icon-only (click)="clickLife(data.headerIconLife)">
+            <ion-icon name="custom-bulb_header" ></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-buttons end>
+          <button ion-button icon-only (click)="clickMgt(data.headerIconMgt)">
+            <ion-icon name="custom-mgtOffice"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<!--Theme Profile- Profile With Slider-->
+<ion-content  *ngIf="isLoggedIn()"  after_login>
+  <!-- Header -->
+  <!--<div no-margin no-padding no-lines dashboard-header *ngIf="data && data.headerBg" [ngStyle]="{'background-image': 'url(' + data.headerBg + ')'}">
+      <ion-thumbnail>
+          <img *ngIf="data && data.headerImg" [src]="data.headerImg">
+      </ion-thumbnail>
+  </div>-->
+  <ion-slides *ngIf="data && data.headerItems && data.headerItems.length > 0" no-margin no-padding no-lines dashboard-header [pager]="showHeaderPager(data.headerItems)" autoplay="2000" loop="true" speed="2000" #headerSlides>
+    <ion-slide *ngFor="let item of data.headerItems" [ngStyle]="{'background-image': 'url(' + item.headerBg + ')'}">
+      <ion-thumbnail>
+          <img [src]="item.headerImg">
+      </ion-thumbnail>
+    </ion-slide>
+  </ion-slides>
+  <!-- Slider -->
+  <!--<ion-grid *ngIf="data && data.bannerItems && data.bannerItems.length > 0">    
+    <ion-row>
+      <ion-col col-12 text-center padding-top offset-lg-1 col-lg-10 offset-xl-1 col-xl-10> 
+        <ion-grid>
+          <ion-row>
+            <ion-col col-1 *ngIf="isDesktop()">
+              <span banner-arrow-left cursor-pointer>
+                <i class="icon icon-chevron-left" (click)="bannerPrev()"></i>                
+              </span>
+            </ion-col> 
+            <ion-col 
+              [attr.col-10]="isDesktop() ? '' : null"
+              [attr.col-12]="!isDesktop() ? '' : null">
+              <ion-slides pager="true" #banner>
+                <ion-slide *ngFor="let item of data.bannerItems;let i = index" (click)="onBannerItemClick(item.openURL)">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-12 text-center>
+                        <ion-card padding box-shadow cursor-pointer>
+                          <img [src]="item.backgroundImg">
+                          <ion-card-content text-center>
+                            <span text-uppercase font-bold ion-text color="accent">{{item.title}}</span>
+                            <h1 card-title margin-top text-wrap>{{item.subTitle}}</h1>
+                          </ion-card-content>              
+                        </ion-card>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-slide>
+              </ion-slides>
+            </ion-col> 
+            <ion-col col-1 *ngIf="isDesktop()">
+              <span banner-arrow-right cursor-pointer>
+                <i class="icon icon-chevron-right" (click)="bannerNext()"></i>    
+              </span>
+            </ion-col> 
+          </ion-row>
+        </ion-grid>   
+      </ion-col>
+    </ion-row>
+  </ion-grid>--> 
+  <!-- News -->
+  <!--<ion-grid *ngIf="data && data.news && data.news.length > 0">
+    <ion-row >
+      <ion-col col-12 col-lg-6 *ngFor="let item of data.news; let i= index">
+        <ion-card text-left box-shadow margin-bottom padding cursor-pointer (click)="onNewsItemClick(item.openURL)">
+          <img [src]="item.image" />
+          <ion-card-content no-padding margin-top>
+            <span font-bold font-small ion-text color="accent">{{item.title}}</span>
+            <p card-body-text>{{item.desc}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-3>
+        <!-- Short Cut -->
+        <ion-grid *ngIf="data">
+            <ion-row>
+                <ion-col col-6 col-lg-12 *ngFor="let item of data.shortcutItems;let i = index">
+                  <ion-card box-shadow btn-shortcut-card-padding (click)="onShortcutItemClick(item)">     
+                      <!--<ion-card-content btn-shortcut-image-container cursor-pointer [style.background-image]="'url(' + item.backgroundImg + ')'">-->
+                        <!--<div btn-shortcut-card-content [style.min-height]="item.minHeight">
+                          <span btn-shortcut-card-title>{{item.title}}</span>
+                        </div>-->
+                        
+                      <ion-card-content dashboard-icon>
+                          <ion-icon  [name]="item.backgroundImg"></ion-icon>
+                          {{item.title}}
+                      </ion-card-content>
+                      <!--<button ion-button outline item-end icon-start>
+                          <ion-icon name="star"></ion-icon>
+                          Left Icon
+                        </button>-->
+                  </ion-card>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col col-12 col-lg-9>
+        <!-- Dashboard Items -->
+        <ion-grid *ngIf="data && data.dashboardItems && data.dashboardItems.length > 0">
+            <ion-row >
+                <ion-col col-12 no-padding no-margin *ngFor="let dashboardItem of data.dashboardItems;" dashboard-item-width>
+                    <ion-list>
+                        <ul no-margin no-padding class="collapsible">
+                            <li margin >
+                                <!-- Expandable Full image with CTA Header-->
+                                <div class="collapsible-header">
+                                    <!--<ion-item no-margin padding no-lines background-size [style.background-image]="'url(' + dashboardItem.backgroundImage + ')'" >-->
+                                      <ion-item no-margin padding no-lines background-size dash_item_bar>
+                                        <h2 item-title float-left>{{dashboardItem.title}}</h2>
+                                        <button ion-button float-right button-clear-outline outline round (click)="onDashboardItemClick(dashboardItem.openForm)">
+                                            {{dashboardItem.button}}
+                                      </button>
+                                    </ion-item>
+                                </div>
+                                <!-- Expandable Full image with CTA Body -->
+                                <div class="item-accordion" [style.height.px]="getGroupHeight(dashboardItem)">
+                                    <ion-item full default-button *ngFor="let item of dashboardItem.records;" [style.height.px]="item.height" 
+                                    [attr.cursor-pointer]="item.openDtlForm || (item.fileURL && item.fileURL.length > 0) ? '' : null"
+                                    (click)="onDashboardRecordClick(item)">
+                                        <h2 subitem-title>{{item.desc}}</h2>
+                                        <ion-icon *ngIf="item.fileURL && item.fileURL.length > 0" item-end>
+                                          <i class="icon {{dashboardItem.iconFile}}"></i>
+                                        </ion-icon>
+                                        <ion-icon *ngIf="item.openDtlForm" item-end>
+                                          <i class="icon {{dashboardItem.iconForm}}"></i>
+                                        </ion-icon>
+                                    </ion-item>
+                                </div>
+                                <!--end-->
+                            </li>
+                        </ul>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid> 
+      </ion-col>
+    </ion-row>
+  </ion-grid>     
+</ion-content>
+<ion-content  *ngIf="!isLoggedIn()">
+    <!-- Header -->
+    <!--<div no-margin no-padding no-lines dashboard-header *ngIf="data && data.headerBg" [ngStyle]="{'background-image': 'url(' + data.headerBg + ')'}">
+        <ion-thumbnail>
+            <img *ngIf="data && data.headerImg" [src]="data.headerImg">
+        </ion-thumbnail>
+    </div>-->
+    <ion-slides *ngIf="data && data.headerItems && data.headerItems.length > 0" no-margin no-padding no-lines dashboard-header [pager]="showHeaderPager(data.headerItems)" autoplay="2000" loop="true" speed="2000" #headerSlides>
+      <ion-slide *ngFor="let item of data.headerItems" [ngStyle]="{'background-image': 'url(' + item.headerBg + ')'}">
+        <ion-thumbnail>
+            <img [src]="item.headerImg">
+        </ion-thumbnail>
+      </ion-slide>
+    </ion-slides>
+    <!-- Slider -->
+    <!--<ion-grid *ngIf="data && data.bannerItems && data.bannerItems.length > 0">    
+      <ion-row>
+        <ion-col col-12 text-center padding-top offset-lg-1 col-lg-10 offset-xl-1 col-xl-10> 
+          <ion-grid>
+            <ion-row>
+              <ion-col col-1 *ngIf="isDesktop()">
+                <span banner-arrow-left cursor-pointer>
+                  <i class="icon icon-chevron-left" (click)="bannerPrev()"></i>                
+                </span>
+              </ion-col> 
+              <ion-col 
+                [attr.col-10]="isDesktop() ? '' : null"
+                [attr.col-12]="!isDesktop() ? '' : null">
+                <ion-slides pager="true" #banner>
+                  <ion-slide *ngFor="let item of data.bannerItems;let i = index" (click)="onBannerItemClick(item.openURL)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-12 text-center>
+                          <ion-card padding box-shadow cursor-pointer>
+                            <img [src]="item.backgroundImg">
+                            <ion-card-content text-center>
+                              <span text-uppercase font-bold ion-text color="accent">{{item.title}}</span>
+                              <h1 card-title margin-top text-wrap>{{item.subTitle}}</h1>
+                            </ion-card-content>              
+                          </ion-card>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-slide>
+                </ion-slides>
+              </ion-col> 
+              <ion-col col-1 *ngIf="isDesktop()">
+                <span banner-arrow-right cursor-pointer>
+                  <i class="icon icon-chevron-right" (click)="bannerNext()"></i>    
+                </span>
+              </ion-col> 
+            </ion-row>
+          </ion-grid>   
+        </ion-col>
+      </ion-row>
+    </ion-grid>--> 
+    <!-- News -->
+    <!--<ion-grid *ngIf="data && data.news && data.news.length > 0">
+      <ion-row >
+        <ion-col col-12 col-lg-6 *ngFor="let item of data.news; let i= index">
+          <ion-card text-left box-shadow margin-bottom padding cursor-pointer (click)="onNewsItemClick(item.openURL)">
+            <img [src]="item.image" />
+            <ion-card-content no-padding margin-top>
+              <span font-bold font-small ion-text color="accent">{{item.title}}</span>
+              <p card-body-text>{{item.desc}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>-->
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-lg-3>
+          <!-- Short Cut -->
+          <ion-grid *ngIf="data">
+              <ion-row>
+                  <ion-col col-6 col-lg-12 *ngFor="let item of data.shortcutItems;let i = index">
+                    <ion-card box-shadow btn-shortcut-card-padding (click)="onShortcutItemClick(item)">     
+                        <!--<ion-card-content btn-shortcut-image-container cursor-pointer [style.background-image]="'url(' + item.backgroundImg + ')'">-->
+                          <!--<div btn-shortcut-card-content [style.min-height]="item.minHeight">
+                            <span btn-shortcut-card-title>{{item.title}}</span>
+                          </div>-->
+                          
+                        <ion-card-content dashboard-icon>
+                            <ion-icon  [name]="item.backgroundImg"></ion-icon>
+                            {{item.title}}
+                        </ion-card-content>
+                        <!--<button ion-button outline item-end icon-start>
+                            <ion-icon name="star"></ion-icon>
+                            Left Icon
+                          </button>-->
+                    </ion-card>
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col col-12 col-lg-9>
+          <!-- Dashboard Items -->
+          <ion-grid *ngIf="data && data.dashboardItems && data.dashboardItems.length > 0">
+              <ion-row >
+                  <ion-col col-12 no-padding no-margin *ngFor="let dashboardItem of data.dashboardItems;" dashboard-item-width>
+                      <ion-list>
+                          <ul no-margin no-padding class="collapsible">
+                              <li margin >
+                                  <!-- Expandable Full image with CTA Header-->
+                                  <div class="collapsible-header">
+                                      <!--<ion-item no-margin padding no-lines background-size [style.background-image]="'url(' + dashboardItem.backgroundImage + ')'">-->
+                                        <ion-item no-margin padding no-lines background-size dash_item_bar>
+                                          <h2 item-title float-left>{{dashboardItem.title}}</h2>
+                                          <button ion-button float-right button-clear-outline outline round (click)="onDashboardItemClick(dashboardItem.openForm)">
+                                              {{dashboardItem.button}}
+                                        </button>
+                                      </ion-item>
+                                  </div>
+                                  <!-- Expandable Full image with CTA Body -->
+                                  <div class="item-accordion" [style.height.px]="getGroupHeight(dashboardItem)">
+                                      <ion-item full default-button *ngFor="let item of dashboardItem.records;" [style.height.px]="item.height" 
+                                      [attr.cursor-pointer]="item.openDtlForm || (item.fileURL && item.fileURL.length > 0) ? '' : null"
+                                      (click)="onDashboardRecordClick(item)">
+                                          <h2 subitem-title>{{item.desc}}</h2>
+                                          <ion-icon *ngIf="item.fileURL && item.fileURL.length > 0" item-end>
+                                            <i class="icon {{dashboardItem.iconFile}}"></i>
+                                          </ion-icon>
+                                          <ion-icon *ngIf="item.openDtlForm" item-end>
+                                            <i class="icon {{dashboardItem.iconForm}}"></i>
+                                          </ion-icon>
+                                      </ion-item>
+                                  </div>
+                                  <!--end-->
+                              </li>
+                          </ul>
+                      </ion-list>
+                  </ion-col>
+              </ion-row>
+          </ion-grid> 
+        </ion-col>
+      </ion-row>
+    </ion-grid>     
+  </ion-content>
+  

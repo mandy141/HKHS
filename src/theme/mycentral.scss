@@ -1,0 +1,142 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+
+
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$split-pane-side-max-width: 23%;
+
+$grid-breakpoints: (
+ xs: 0, // Phone (0px - 575px)
+ sm: 576px, // Phablet (576px - 767px)
+ md: 768px, // Tablet vertical (768px - 991px)
+ lg: 992px, // Tablet horizontal, Desktop (992px and above)
+ xl: 1600px
+);
+
+$grid-max-widths: (
+ lg: 992px
+);
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+/* Custom Theme Colors.Styling the whole website */
+$theme-color-primary: #886623; //#544b77;//Left of the Top Bar, Selected Menu Font Color, Menu Icon Color, Alert Dialog Font Color, Button & Button Border Color, Input Form Title & Tab Color
+$theme-color-secondary: #ffffff; //Whole App Background, 
+$theme-color-tertiary:#ffffff;// rgb(37, 20, 22); //My Application Button Color, Input Form Value
+$theme-color-quaternary:#ffffff; //Right of the Top Bar, My Application DeskTop Header, Input Form Label & Line Color, Input Form Drop Down Field Line, Radio Button Selected Font
+
+$theme-color-danger: #f53d3d; //Validation
+$theme-color-positive: #04b704; //Confirm Reg Status Color
+$theme-color-dark: #333333;
+$theme-color-grey: #efefef; //#f3edec; old //Previous Events Reg Background
+$theme-color-orange: rgba(228, 122, 0, 0.5); //Photo gallery title background
+$theme-color-border:#d7d7d7;
+
+
+$colors: (
+  primary:    $theme-color-primary,
+  secondary:  $theme-color-secondary,
+  danger:     $theme-color-danger,
+  light:      $theme-color-secondary,
+  accent:     $theme-color-dark,
+  dark:       $theme-color-dark,
+  favorite:   $theme-color-positive,
+  // Button Twitter
+  twitter:(
+    base: #64B5F6,
+    contrast: #fff
+  ),
+  // Button Facebook
+  facebook:(
+    base: #3949ab,
+    contrast: #fff
+  ),
+  // Button Google
+  google:(
+    base: #bf360c,
+    contrast: #fff
+  ),
+  // Button Pinterest
+  pinterest:(
+    base: #ff3d00,
+    contrast: #fff
+  ),
+);
+
+$disable-opacity: .6;
+
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+// App Main Sass
+// --------------------------------------------------
+//@import "main";
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+//@import "ionic.theme.default";
+
+// App Animation
+// --------------------------------------------------
+//@import "animate";
+
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+// // App Fontelo Style
+//--------------------------------------------------
+//@import "fontello";
+
+//@import "ionicons";
+
+
+
+
+// Fonts
+// --------------------------------------------------
+
+//@import "roboto";
+//@import "noto-sans";

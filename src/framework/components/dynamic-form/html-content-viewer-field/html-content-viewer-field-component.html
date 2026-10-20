@@ -1,0 +1,4 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_HTML" 
+    [formGroup]="form" item-spacing [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)">       
+    <iframe width="100%" height="500px" [src]="htmlUrl"></iframe>
+</div>

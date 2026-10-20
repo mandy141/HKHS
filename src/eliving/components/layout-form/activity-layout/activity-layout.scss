@@ -1,0 +1,27 @@
+/*  #Style -- Segment - Segment Card
+===========================================*/
+activity-layout {
+
+  [card-title] {
+    line-height: 40px;
+  }
+
+  [card-subtitle] {
+    font-weight: bold !important;
+  }
+
+  [card-body-text] {
+    margin-top: 10px;
+  }
+
+  
+
+  .segment-md {
+    max-width: 600px;
+
+  }
+
+  .segment-md .segment-button {
+    color: #FFFFFF !important;
+  }
+}

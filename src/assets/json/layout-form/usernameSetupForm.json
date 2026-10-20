@@ -1,0 +1,16 @@
+{
+    "formTitle": "登入名稱設定",
+    "innerTitle": "登入名稱設定",
+    "lblSelect": "請選擇",
+    "lblEmail":"電郵地址",
+    "lblMobile":"電話號碼",
+    "btnSubmitUsername": "提交",
+    "lblPasscodeSentMsg": "",
+    "lblPasscode": "驗證碼",
+    "btnSubmitPasscode": "驗證",
+    "lblVerifiedUsernames": "<h3>你已成功確認的登入名稱:</h3><h3>whi*******.com</h3>",
+    "validateEmailPattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
+    "validatePhoneNoPattern": "^[0-9]+$",
+    "lblInvalidPhoneNoMsg": "電話號碼格式不正確",    
+    "lblInvalidEmailMsg": "電郵地址格式不正確"
+}

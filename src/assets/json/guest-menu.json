@@ -1,0 +1,59 @@
+{    
+    "defaultPage" : {
+        "key": "dashboard-page", 
+        "title" : "首頁", 
+        "icon" : "icon-city", 
+        "componentName":"DashBoardForm", 
+        "entityName":"dashboard-layout",
+        "crudMode":"R"
+    },
+    "pushNotiPage" : {
+        "key": "notification-page",
+        "title": "Notifications",
+        "icon": "  icon-information",
+        "componentName": "NotificationForm",
+        "entityName": "notification-layout",
+        "crudMode": "R"
+      },
+    "appProjName": "My Central",
+    "appProjCode": "CENT01",    
+    "appMenuHeaderImgPath": "assets/ckah/hkhs_logo.svg",
+    "appMenuHeaderBgPath": "assets/eliving/logo_background/image_banner_2x.png",
+    "btnLogin" : "登入",
+    "btnLogout" : "登出",
+    "btnChangePassword" : "重設密碼",
+    "btnSetting" : "設定",
+    "btnUserNameSetup" : "登入名稱設定",
+    "lblExitWarning": "更改未保存，你想繼續嗎？",
+    "lblExitYesAns": "是",
+    "lblExitNoAns": "否",
+    "welcomeMessage": "歡迎您! 訪客",
+    "showNotificationShortCut": false,
+    "unreadNotificationCnt": "0",
+    "forms" : [                                     
+        {
+            "key": "latestnews-page",
+            "title": "房協之友",
+            "icon": "custom-menuManagement",
+            "componentName": "LatestNewsForm",
+            "entityName": "latestnews-layout",
+            "crudMode": "R"            
+        },
+        {
+            "key": "proj-info-page",
+            "title": "樂得耆所",
+            "icon": "custom-menuInfo",
+            "componentName": "InputFormPage",
+            "entityName": "proj-info-input-form",
+            "crudMode": "R"            
+        },
+        {
+            "key": "proj-info-page",
+            "title": "聯繫我們",
+            "icon": "icon-md ion-md-laptop",
+            "componentName": "InputFormPage",
+            "entityName": "proj-info-input-form",
+            "crudMode": "R"            
+        }            
+    ]
+}

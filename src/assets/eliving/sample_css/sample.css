@@ -1,0 +1,163 @@
+/*
+Use https://lingojam.com/TexttoOneLine to convert to 1 line and plaste to app.json
+*/
+
+/*
+FONT COLOR
+*/
+
+dashboard-form [banner-arrow-left] i,
+dashboard-form [banner-arrow-right] i 
+{ 
+    -webkit-text-fill-color: #466e84; 
+} 
+
+i 
+{
+    color: #466e84 !important; 
+    -webkit-text-stroke-color: #466e84 !important;
+} 
+
+a,
+p,
+.content-md,
+.item-md,
+.label-md,
+.item-input .label-md,
+[item-title],
+[item-subtitle], 
+[span-small],
+[default-label-font],
+[default-link-button-font],
+[default-value-font], 
+page-input-form [default-form-inner-title-style],
+[default-title-style],  
+input-field-component ion-item .item-inner,
+.selected-menu,
+.segment-md .segment-button, 
+.item-radio-checked.item-md ion-label,
+.alert-md .alert-message,
+.alert-md .alert-button 
+{ 
+    color: #466e84 !important; 
+} 
+
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner,
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner 
+{ 
+    border-bottom-color: #466e84 !important; 
+    -webkit-box-shadow: inset 0 -1px 0 0 #466e84 !important;
+    box-shadow: inset 0 -1px 0 0 #466e84 !important; 
+} 
+
+[confirm-group], 
+[sub-input-form-field-set], 
+username-setup-form [username-type-button] 
+{
+    color: #466e84 !important;
+    border-color: #466e84 !important;
+}
+
+[button-clear-outline] 
+{
+    color: #466e84 !important;
+    border: 1px solid #466e84 !important;
+} 
+
+[new-reg] 
+{
+    color: #466e84 !important;    
+}
+
+.segment-md .segment-button,
+.segment-md .segment-button.segment-activated,
+.item-md.item-block .item-inner
+{
+    border-bottom-color: #466e84 !important;
+} 
+
+username-setup-form [current-username-type-button]
+{
+    color: #f7f7f7 !important;
+    background-color: #466e84 !important
+}
+
+.badge-md,
+dashboard-form .swiper-pagination-bullet.swiper-pagination-bullet-active
+{
+    background-color: #466e84 !important
+}
+
+[default-button]
+{
+    background: #466e84 !important;
+}
+
+.checkbox-md .checkbox-checked,
+.radio-md .radio-checked 
+{
+    border-color: #4c8c9f; background-color: #4c8c9f
+} 
+
+.checkbox-md .checkbox-icon,
+.radio-md .radio-icon,
+fieldset 
+{
+    border-color: #4c8c9f
+} 
+
+.radio-md .radio-checked .radio-inner
+{
+    background-color: #0e6b87
+}
+
+input-field-component ion-item .item-inner
+{
+    border-bottom-color: #4c8c9f
+}
+
+/*
+BUTTON BACKGROUND
+*/
+
+.button-md:hover:not(.disable-hover),
+.button-md
+{
+    background-image: url(assets/eliving/logo_background/banner-bg.png); 
+}
+
+.button-outline-md:hover:not(.disable-hover),
+.button-outline-md 
+{
+    background-image: url();
+    background-color: transparent
+}
+
+.button-clear-md:hover:not(.disable-hover),
+.button-clear-md
+{
+    background-image: url();
+}
+
+/*
+TOOl BAR & CONTENT BACKGROUND
+*/
+
+.toolbar .toolbar-background,
+notice-form [background-size]
+{
+    background-image: url(assets/eliving/logo_background/banner-bg.png);
+}
+
+.item-md 
+{
+    background-color: transparent; 
+}
+
+.content-md, 
+page-input-form ion-content
+{
+    background-image: url(assets/eliving/logo_background/bg.jpg); 
+}

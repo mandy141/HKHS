@@ -1,0 +1,46 @@
+<!-- Theme Segment - Segment List -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<!-- Content-->
+<ion-content>
+
+  <div *ngIf="data != null">
+  <!--Segment Section -->
+  <ion-toolbar no-padding>
+    <div *ngIf="data != null">
+      <ion-segment has-header [(ngModel)]="selectedItem">
+        <ion-segment-button *ngFor="let page of data.pages" value="{{page.pageId}}">
+          {{page.pageName}}
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-toolbar>
+  <ion-grid no-padding *ngFor="let page of data.pages">
+    <!--- SETTINGS PAGE1 SCREEN -->
+    <ion-row *ngIf="isEnabled(page.pageId)">
+        <ion-col col-12 col-lg-4 *ngFor="let item of page.records; let i= index">
+          <ion-card text-left box-shadow margin-bottom padding cursor-pointer (click)="onShowDtl(item)">
+            <img [src]="item.image" />
+            <ion-card-content no-padding margin-top >
+              <span font-bold font-small ion-text color="accent">{{item.title}}</span>
+              <h2 card-title text-capitalize></h2>
+              <p card-body-text>{{item.desc}}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+    </ion-row>   
+  </ion-grid>
+  </div>
+</ion-content>

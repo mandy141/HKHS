@@ -1,0 +1,55 @@
+<!--Theme Styled cards 2-->
+
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="onBackToHome()">
+          <ion-icon name="custom-hsHome"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content after_login>
+    <ion-grid no-padding *ngIf="data!=null">
+      <!--- SETTINGS PAGE1 SCREEN -->
+      <ion-row>
+        <ion-col col-12>
+          <div background-size no-padding [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}"
+            *ngIf=" data.headerImage != null">
+            <!--<div search-bar-bcg>
+            <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems($event)"></ion-searchbar>
+          </div>-->
+            <ion-item class="notice_type" transparent *ngIf="datalist != null">
+              <ion-label>{{data.title}}</ion-label>
+              <ion-select [(ngModel)]="datalist.value" interface='action-sheet'
+                (ionChange)="onDistrict(datalist.title)" class="selector" placeholder="{{data.selectAll}}" cancelText="{{data.cancelText}}">
+                <ion-option value="all">{{data.selectAll}}</ion-option>
+                <ion-option *ngFor="let opt of datalist" [value]="opt.typeDesc" text-wrap>{{opt.type}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+        <ion-col col-12 col-lg-4 *ngFor="let item of data.routes; let i= index">
+          <ion-card text-left box-shadow margin-bottom padding cursor-pointer (click)="onItemClick(item.openURL)">
+            <ion-card-content no-padding margin-top>
+              <ion-badge cursor-pointer [ngStyle]="{'background-color': item.typeColor}" (click)="filterType(item.type)">{{item.type}}</ion-badge>
+              <span font-bold font-small ion-text color="accent"> {{item.number}}</span>
+              <h2 card-title text-capitalize>{{item.route}}</h2>
+              <p card-title>{{item.fee}}</p>
+              <p card-title>{{item.time}}</p>
+              <!--<p card-title>{{item.frequency}}</p>-->
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  

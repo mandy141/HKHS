@@ -1,0 +1,38 @@
+<!-- Themes Expandable Full image with CTA -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>
+          <!--Swipe To Dismiss -->
+          <ion-item no-lines cursor-pointer *ngFor="let item of data.documents" (click)="onItemClick(item.docURL)">
+            <!-- Title -->
+            <h2 item-title>{{item.name}}</h2>
+            <!-- Subtitle -->
+            <!--<h3 item-subtitle>{{item.month}}</h3> -->
+            <!-- ShortDescription -->
+            <span item-end span-small>{{item.size}}</span>
+            <!-- Icon play -->
+            <ion-icon icon-medium item-end>
+              <i class="icon {{data.fileIcon}}"></i>
+            </ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

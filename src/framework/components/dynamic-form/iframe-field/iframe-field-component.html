@@ -1,0 +1,10 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_IFRAME" 
+    [formGroup]="form" [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)"   >
+    <fieldset debug-field-set-spacing [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'darkgreen' : ''">   
+        <legend *ngIf="debugMode"><span debug-field-set-legend>{{inputFieldModel.key}}</span></legend>              
+        <div [style.height]="inputFieldModel.iframeHeight">
+            <iframe map-iframe *ngIf="inputFieldModel.iframeSrcURL" [src]="sanitizer.bypassSecurityTrustResourceUrl(inputFieldModel.iframeSrcURL)" 
+                frameborder="0" allowfullscreen></iframe>
+        </div>>                  
+    </fieldset>       
+</div>

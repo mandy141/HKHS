@@ -1,0 +1,47 @@
+username-setup-form {  
+
+    [after_login]{
+        background: none;
+        background-color: theme-colors('mainColors', 'form');
+      }
+
+      
+    [default-title-style] {
+        color: theme-colors('mainColors', 'primary');
+        font-size: $h2-font-size;
+        text-align: center;
+        font-weight: bold;     
+        margin-bottom: 50px;
+    }
+
+    .input-content-min-height {
+        min-height: calc(100vh - 300px);
+    }
+
+    [validation-label] {
+        padding-left: 1rem;
+        color: theme-colors('textColors', 'validation') !important;
+    }
+
+    [username-type-button] {
+        color: theme-colors('textColors', 'dark') !important;
+        border-color: theme-colors('textColors', 'primary') !important;
+        font-size: $h5-font-size;    
+    }
+
+    [current-username-type-button] {
+        background-color: theme-colors('textColors', 'primary') !important;   
+        color: theme-colors('textColors', 'accent-first') !important;  
+        font-size: $h5-font-size;    
+        font-weight: bold;
+    }
+
+    [left-padding] {
+        padding-left: 1rem;
+    }
+
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md
+    {
+        color: theme-colors('textColors', 'dark') !important;  
+    }
+}

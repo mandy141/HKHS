@@ -1,0 +1,88 @@
+qr-payment1-layout {
+    [col-lg-8]
+    {
+        padding: 0px;
+    }
+    .label-md 
+    {
+        margin: 5px 0 0 0 !important;
+    }
+
+    .item-block 
+    {
+        min-height: 0 !important;
+    }
+
+    .fab-md
+    {
+        color: transparent;
+        background-color: white;
+        padding: 0px 0px;
+    }
+      
+    .fab
+    {
+        border-radius: initial;
+    }
+
+
+    
+      .segment-md 
+      {
+        max-width: 600px;
+      }
+      
+      .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated
+      {
+        color: #000000 !important;
+        border-bottom-color: #FFFFFF !important;
+        font-weight: bold;
+      }
+      .segment-md .segment-button {
+        /*color: theme-colors('mainColors', 'form') !important;*/
+        color: #000000 !important;
+        border-bottom-color: theme-colors('mainColors', 'form') !important;
+        text-transform:initial;
+        font-weight: bold;
+        font-size:1.9rem;
+      }
+
+      [card-center]
+      {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ion-card img 
+      {
+          width: 80% !important;
+      }
+
+      [text-special]
+      {
+        background-color: #D3B5E9;
+        color: #000000;
+        text-align: center !important;
+        font-size: 2.5rem !important;
+        font-weight: bold;
+      }
+
+      [text-special1]
+      {
+        background-color: #EFE5F7;
+        color: #000000;
+        text-align: center !important;
+        font-size: 2.5rem !important;
+        font-weight: bold;
+      }
+
+      [qr_toolbar]
+      {
+        background: url("../assets/theme/theme1/theme1_qr_topbar.png") no-repeat center center fixed !important; 
+        -webkit-background-size: cove !important; 
+        -moz-background-size: cover !important; 
+        -o-background-size: cover !important; 
+        background-size: cover !important; 
+      }
+}

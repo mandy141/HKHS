@@ -1,0 +1,25 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_FILE" 
+    [formGroup]="form" item-spacing [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)"   >
+    <fieldset debug-field-set-spacing [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'darkgreen' : ''">   
+        <legend *ngIf="debugMode"><span debug-field-set-legend>{{inputFieldModel.key}}</span></legend>
+        <ion-item transparent text-wrap no-lines>                                       
+            <div>
+                <span [style.display]="labelDisplayStyle" default-label-font [class]="inputFieldModel.labelClass" [ngStyle]="toJSONObject(inputFieldModel.labelStyle)">{{inputFieldModel.label}}</span><span *ngIf="showMandatoryStar()" default-validation-color>*</span>&nbsp;&nbsp;
+                <button *ngIf="!this.qcs.isApp" ion-button outline button-clear-outline (click)="getImageFromWeb()" [disabled]="inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">
+                    <ion-icon name="photos"></ion-icon>
+                </button>
+                <button *ngIf="this.qcs.isApp" ion-button outline button-clear-outline (click)="getImageFromPhone(1)" [disabled]="inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">
+                    <ion-icon name="camera"></ion-icon>
+                </button>
+                <button *ngIf="this.qcs.isApp" ion-button outline button-clear-outline (click)="getImageFromPhone(0)" [disabled]="inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">
+                    <ion-icon name="photos"></ion-icon>
+                </button>
+            </div>                    
+            
+            <input *ngIf="!this.qcs.isApp" type="file" #fileInput hide-file-upload-field (change)="getImageFromWebCore($event)" />
+
+            <input type="hidden" [formControlName]="inputFieldModel.key" />
+            <img *ngIf="formControl.value" [src]="sanitizer.bypassSecurityTrustUrl(formControl.value)"  preview-max-height/>                            
+        </ion-item>  
+    </fieldset>       
+</div>

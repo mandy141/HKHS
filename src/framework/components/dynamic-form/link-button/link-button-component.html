@@ -1,0 +1,13 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_LINK_BUTTON" 
+    [formGroup]="form" item-spacing [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)"   >
+    <fieldset debug-field-set-spacing [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'darkgreen' : ''">   
+        <legend *ngIf="debugMode"><span debug-field-set-legend>{{inputFieldModel.key}}</span></legend>
+        <ion-item transparent text-wrap no-lines [ngStyle]="toJSONObject(inputFieldModel.ionItemStyle)">                           
+            <ion-label (click)="onLinkClick()"><span default-link-button-font [class]="inputFieldModel.labelClass" [ngStyle]="toJSONObject(inputFieldModel.labelStyle)">{{inputFieldModel.label}}</span>
+                <ion-icon icon-small item-right *ngIf="inputFieldModel.linkIcon">
+                    <i class="icon {{inputFieldModel.linkIcon}}"></i>
+                </ion-icon>
+            </ion-label>                     
+        </ion-item>    
+    </fieldset>       
+</div>

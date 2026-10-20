@@ -1,0 +1,302 @@
+/*  #Style Profile - Profile With  Slider
+================================================*/
+
+dashboard-form {
+
+  .ion-md-bulb:before
+  {
+    font-size: 1.4em;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .ion-md-paper:before
+  {
+    font-size: 1.4em;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  [styleBulb]
+  {
+    margin-bottom: 10px !important;
+    zoom: 0;
+  }
+
+  .label-md
+  {
+    text-align: initial;
+  }
+  .content-md, page-input-form ion-content
+  {
+     /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  }
+
+  .content-ios{
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white !important;
+    
+  }
+
+  .card-ios
+  {
+    background: transparent;
+  }
+
+  .card-md {
+    margin: 10px;
+    border-radius: 2px;
+    width: calc(100% - 20px);
+    font-size: 1.4rem;
+    background: transparent !important;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+
+.card-content-md{
+  padding: 10px 10px;
+}
+  .button-inner {
+    display: block;
+  }
+
+  .swiper-container {
+      padding-bottom: 10px;
+  }
+  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 0 !important;
+  }
+
+
+
+  .swiper-slide img {
+    width: 100%;
+  }
+
+  [category],
+  [small-font] {
+    clear: both;
+    display: block !important;
+  }
+
+
+  [btn-shortcut-image-container] {    
+    //background-size: cover;
+    width:100%;
+    //background-position: center;    
+    background-repeat: no-repeat;
+    position: relative;
+    /*@include darkening-blend-mode;*/
+    border-radius: 2px !important;
+    /*&:before {
+        z-index: 3;
+    }*/    
+  }  
+
+  //Dim the background image
+  [btn-shortcut-image-container]::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    background: transparent;
+    filter: brightness(80%);
+  }
+
+  [btn-shortcut-card-content] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    
+  }  
+
+  
+  [banner-arrow-right] {
+    position: relative;
+    top: 40%;
+    font-size: 3em !important;
+    float: left;     
+    i {
+      -webkit-text-fill-color: theme-colors('mainColors', 'primary');
+    }   
+  }  
+
+  li {
+    list-style-type: none;
+    &[margin] {
+      margin: 5px 10px !important;
+    }
+  }
+
+  .collapsible-header {
+    [background-size]{
+      height: 55px;
+      position: relative;
+      /*margin-bottom: 5px !important;*/
+      border-radius: 0px 20px 0px 0px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+    .item-inner {
+      padding: 0;
+    }
+
+    [button-clear-outline] {
+      position: absolute;
+      right: 20px;
+      bottom: 10px;
+      color: white !important;
+      border-color:  white !important;      
+      text-shadow: 0px 0px 3px #000;
+      white-space:normal;
+      word-break: normal;
+      padding: 5px 25px !important;
+    }
+
+    [item-title] {
+      position: absolute;
+      bottom: 14px;
+      left: 20px;
+      right: 35%;
+      color: white !important;
+      font-size: $h3-font-size !important;
+      text-shadow: 0px 0px 3px #000;
+      white-space:normal;
+      word-break: normal;
+      font-weight: bold;
+    }
+
+    //Dim the background image
+    [background-size]::before {
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      background: white;
+      filter: brightness(80%);
+    }
+  }
+
+  .item-accordion {
+    width: 100%;
+    height: 0;
+    display: block !important;
+    -webkit-transition: all 100ms;
+    transition: all 100ms;
+    overflow: hidden;
+    background-color: theme-colors('mainColors', 'secondary');
+    border: 1px solid #D7D7D7;
+
+   /*
+    ion-item {
+      margin-bottom: 5px;
+
+    }
+*/
+
+
+    i {
+      color: theme-colors('mainColors', 'accent') !important;
+      -webkit-text-stroke-color: #f7f7f7 !important;
+    }
+
+    ion-label {
+      margin: 0;
+    }
+
+
+  }
+
+  [dashboard-header] {
+    height: 195px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    ion-thumbnail {
+      filter: grayscale(0%);
+    }
+
+    ion-slide {
+      height: 195px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    img {
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 9;
+      max-width: 250px;
+    }    
+  }  
+
+  /*[dashboard-header]::before {
+    content: "";
+    display: block;
+    height: 200px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    background: white;
+    filter: brightness(80%);
+  }*/
+
+  [item-title] {
+    z-index: 5;
+    position: relative;
+  }
+  
+  /*@media (min-width: map-get($grid-breakpoints, lg)) {
+    [dashboard-item-width] {
+      -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      width: 50%;    
+    }
+  }*/
+
+  @media (min-width: map-get($grid-breakpoints, xl)) {
+    [dashboard-item-width] {
+      -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      width: 50%;    
+    }
+  }
+
+  .ion-ios-book-outline:before {
+    font-size: 1.4em;
+  }
+}

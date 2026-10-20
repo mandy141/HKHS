@@ -1,0 +1,110 @@
+/*  #Style Styled cards 2
+================================================*/
+living-life-layout {
+
+    [after_login]{
+      background: none;
+      background-color: theme-colors('mainColors', 'form');
+    }
+    [background-size] {
+      //background: url("../images/background/30.jpg");
+      //height: 160px!important;
+      background-color: theme-colors('mainColors', 'secondary');
+      position: relative;
+    }
+
+    [type_select]
+    {
+      border: 1px solid theme-colors('mainColors', 'primary');
+      border-radius: 20px;
+      box-sizing: border-box;
+    }
+    
+      [card-title] {
+        line-height: 40px;
+      }
+   
+      [card-subtitle] {
+        font-weight: bold !important;
+      }
+   
+      [card-body-text] {
+        margin-top: 10px;
+      }
+      .selector {
+        margin: 10px;
+        font-size: $h4-font-size;
+        //line-height: 1.2;
+        //letter-spacing: 0.1px;
+        color: theme-colors('textColors', 'primary');
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center;
+        //border: solid 2px #e8ebf0;
+        background-color: #ffffff;
+        text-align: center;
+        border-radius: 10px;
+      }
+   
+   
+      .segment-md {
+        max-width: 600px;
+   
+      }
+   
+      .segment-md .segment-button {
+        color: #FFFFFF !important;
+      }
+  
+      .select-md .select-placeholder
+      {
+        color:theme-colors('mainColors', 'primary');
+      }
+      .notice_type.item-md.item-block .item-inner{
+        color:theme-colors('mainColors', 'primary');
+        border-bottom: none;
+      }
+     .select-popover {
+        font-size: $h4-font-size !important;
+        max-width: 100% !important;
+      }
+      .select-md {
+        padding: 14px 8px 14px 16px;
+    }
+  
+      .option {
+        font-size: $h4-font-size;
+        line-height: 1.2;
+        letter-spacing: 0.1px;
+        color: theme-colors('textColors', 'primary');
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center;
+        height: 1.6rem;
+      }
+  
+      ion-option .list {
+        font-size: $h4-font-size !important;
+        max-width: 100% !important;
+      }
+  
+      .ion-option-items .item {
+        font-size: $h4-font-size !important;
+        max-width: 100% !important;
+      }
+  
+      .notice_type.item-md.item-block .item-inner{
+        color:theme-colors('mainColors', 'primary');
+        border-bottom: none;
+      }
+  
+      .select-popover {
+        font-size: $h4-font-size !important;
+        max-width: 100% !important;
+      }
+  
+      .select-md {
+        padding: 14px 8px 14px 16px;
+      }
+   }
+   

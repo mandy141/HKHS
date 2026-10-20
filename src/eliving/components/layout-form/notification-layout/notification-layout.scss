@@ -1,0 +1,39 @@
+/*  #Style Styled cards 2
+================================================*/
+notification-layout {
+
+  [after_login]{
+    background: none;
+    background-color: theme-colors('mainColors', 'form');
+  }
+  
+   [card-title] {
+     line-height: 40px;
+   }
+
+   [card-subtitle] {
+     font-weight: bold !important;
+   }
+
+   [card-body-text] {
+     margin-top: 10px;
+   }
+
+   [padding] {
+     padding-top:0 !important;
+     padding-bottom:0 !important;
+   }
+
+   .segment-md {
+     max-width: 600px;
+
+   }
+
+   .segment-md .segment-button {
+     color: #FFFFFF !important;
+   }
+
+   [text-right] {
+        text-align: right;
+    }
+}

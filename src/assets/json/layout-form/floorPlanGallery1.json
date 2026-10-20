@@ -1,0 +1,25 @@
+{
+  "formTitle": "第1座至第3座",
+  "componentName": "ImageSubGallery",
+  "crudMode": "R",
+  "entityName": "floor-plan-sub-gallery",
+  "imageGroups": [{
+          "uniqueIdentifier":1,
+          "name": "第 1 座",
+          "image": "assets/eliving/img/floor_plan/Tower1s.jpg",
+          "noOfImage":3
+        },
+        {
+          "uniqueIdentifier": 2,
+          "name": "第 2 座",
+          "image": "assets/eliving/img/floor_plan/Tower2s.jpg",
+          "noOfImage": 3
+        }, {
+          "uniqueIdentifier": 3,
+          "name": "第 3 座",
+          "image": "assets/eliving/img/floor_plan/Tower3s.jpg",
+          "noOfImage": 3
+        }
+
+  ]
+}

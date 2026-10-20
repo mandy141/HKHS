@@ -1,0 +1,47 @@
+<!--Theme Styled cards 2-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content after_login>
+  <ion-grid no-padding *ngIf="data!=null">
+    <!--- SETTINGS PAGE1 SCREEN -->
+    <ion-row >
+      <ion-col col-12 col-lg-4 *ngFor="let item of data.notifications; let i= index">
+        <ion-card text-left box-shadow padding cursor-pointer (click)="onItemClick(item.openURL)">
+          <ion-card-content no-padding margin-top>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-8>
+                  <span font-bold font-small ion-text color="accent">{{item.title}} ({{item.time}})</span>
+                  <h2 card-title text-capitalize>{{item.desc}}</h2>
+                </ion-col>
+                <ion-col col-4>
+                  <div *ngIf="item.openURL && item.openURL.length > 0" text-right>
+                   <!-- <span span-small>{{item.size}}</span>-->
+                    <ion-icon icon-medium>
+                      <i class="icon {{data.fileIcon}}"></i>
+                    </ion-icon>         
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row><img [src]="item.image" /></ion-row>
+            </ion-grid>                         
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

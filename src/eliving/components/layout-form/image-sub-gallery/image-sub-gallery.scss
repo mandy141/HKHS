@@ -1,0 +1,62 @@
+/*  # Style Image Sub-Gallery for Category 1 (Animals)
+=======================================================*/
+image-sub-gallery {
+
+  [after_loin]
+    {
+      background: none;
+      background-color: theme-colors('mainColors', 'form');
+    }
+    
+  ion-card {
+    position: relative;
+    width: 100% !important;
+    img {
+      width: 100% !important;
+    }
+  }
+
+  [gallery-padding] {
+    padding: 4px !important;
+  }
+
+  [gallery-title] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    //@include gradient-accent (theme-colors('mainColors', 'photo',0.5) 0%, theme-colors('mainColors', 'photo',0.5) 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #040404;
+    bottom: 0;
+    min-height: 45px;
+    border-bottom: 1px solid transparent !important;
+
+    [item-title] {
+      color: theme-colors('textColors', 'accent-first') !important;
+      font-weight: bold;
+    }      
+  }
+//mobile size desktop size
+  [mobile-gallery] {
+    display: block;
+  }
+
+  [desktop-gallery] {
+    display: none;
+  }
+
+  @media (min-width: map-get($grid-breakpoints, lg)) {
+    [mobile-gallery] {
+      display: none;            
+    }
+
+    [desktop-gallery] {
+      display: block;                  
+    }
+  }
+
+  [no-margin-left] {
+    margin-left: 0px;
+  }
+  
+}

@@ -1,0 +1,27 @@
+[header-background-image] {
+    height: 250px;
+  }
+[main-menu] {
+  
+    background-image:none;
+  
+      button {
+          padding-left: 30px;
+      }
+  
+      .item-inner {
+          margin-left: 0 !important;
+      }
+  
+      [icon-small] {
+          margin-top: 18px !important;
+      }
+  
+      [sub-menu] {
+          padding-left: 40px;
+      }
+  
+      [sub-sub-menu] {
+          padding-left: 50px;
+      }    
+  }

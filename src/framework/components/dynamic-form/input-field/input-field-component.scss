@@ -1,0 +1,50 @@
+input-field-component {
+
+    ion-item {            
+        .item-inner {
+          border-bottom-color: theme-colors('mainColors', 'accent-other') !important;
+          box-shadow: none !important;
+      }
+
+      ion-label {
+        margin: 0 !important;
+      }
+    }
+
+    ion-select {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    .checkbox-md.checkbox-disabled, .item-md.item-checkbox-disabled ion-label
+    {
+        opacity: 1;
+    }
+
+    [toUppercase] {
+        input {
+            text-transform: uppercase;
+        }
+    }
+
+    [debug-field-set-spacing] {
+        padding: 0px;
+    }
+
+    [debug-field-set-legend] {
+        color: darkgreen;
+    }
+
+    /*[item-spacing] {            
+        padding-bottom: 1.5rem;
+    }*/ 
+
+    [validation-msg-word-break] {
+        word-break:normal; 
+        white-space: normal;
+    }
+
+    [default-validation-color] {
+        color: theme-colors('textColors', 'validation');
+    }
+}

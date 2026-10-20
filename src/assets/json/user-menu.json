@@ -1,0 +1,83 @@
+{    
+  "defaultPage" : {
+    "key": "dashboard-page", 
+    "title" : "首頁", 
+    "icon" : "icon-city", 
+    "componentName":"DashBoardForm", 
+    "entityName":"dashboard-layout",
+    "crudMode":"R"
+  },
+  "pushNotiPage" : {
+    "key": "notification-page",
+    "title": "Notifications",
+    "icon": "  icon-information",
+    "componentName": "NotificationForm",
+    "entityName": "notification-layout",
+    "crudMode": "R"
+  },
+  "appProjName": "My Central",
+  "appProjCode": "CENT01",    
+  "appMenuHeaderImgPath": "assets/ckah/hkhs_logo.svg",
+  "appMenuHeaderBgPath": "assets/eliving/logo_background/menu-bg.jpg",
+  "btnLogin" : "登入",
+  "btnLogout" : "登出",
+  "btnChangePassword" : "重設密碼",
+  "btnSetting" : "設定",
+  "btnUserNameSetup" : "登入名稱設定",
+  "lblExitWarning": "更改未保存，你想繼續嗎？",
+  "lblExitYesAns": "是",
+  "lblExitNoAns": "否",
+  "welcomeMessage": "歡迎您! 陳大文",
+  "showNotificationShortCut": true,
+  "unreadNotificationCnt": "3",
+  "forms" : [
+          {
+            "key": "notice-page",
+            "title": "屋邨資訊",
+            "icon": "icon-file-document-box",
+            "componentName": "NoticeForm",
+            "entityName": "notice-layout",
+            "crudMode": "R"                    
+          },        
+          {
+            "key": "latestnews-page",
+            "title": "房協之友",
+            "icon": "custom-menuManagement",
+            "componentName": "LatestNewsForm",
+            "entityName": "latestnews-layout",
+            "crudMode": "R"            
+          },
+          {
+            "key": "applicationform-page",
+              "title": "樂得耆所",
+              "icon": "custom-menuInfo",
+              "componentName": "ApplicationForm",
+              "entityName": "application-form-layout",
+              "crudMode": "R"                          
+          },         
+          {
+            "key": "proj-info-page",
+            "icon": "icon-md ion-md-bulb", 
+            "title": "生活資訊", 
+            "componentName": "InputFormPage",
+            "entityName": "proj-info-input-form",
+            "crudMode": "R"   
+          },
+          {
+              "key": "proj-info-page",
+              "title": "聯繫我們",
+              "icon": "icon-md ion-md-laptop",
+              "componentName": "InputFormPage",
+              "entityName": "proj-info-input-form",
+              "crudMode": "R"            
+          }, 
+          {
+            "key": "proj-info-page",
+            "icon": "icon-md ion-md-chatboxes", 
+            "title": "意見回饋", 
+            "componentName": "InputFormPage",
+            "entityName": "proj-info-input-form",
+            "crudMode": "R"   
+          }
+  ] 
+}

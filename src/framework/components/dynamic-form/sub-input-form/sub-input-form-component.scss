@@ -1,0 +1,35 @@
+sub-input-form-component {    
+
+    [debug-field-set-spacing] {
+        padding: 0px;
+    }
+
+    [debug-field-set-legend] {
+        color: darkblue;
+    }
+
+    [margin-top-zero] {
+        margin-top: 0px;
+    }
+
+    [margin-botton-1rem] {
+        margin-bottom: 1rem
+    }
+
+    [default-sub-form-array-label-style] {
+        color: theme-colors('textColors', 'secondary');
+        font-size: $h5-font-size;
+        padding-top: 1rem;
+        padding-left: 1rem;
+    }
+
+    [margin-bottom-zero] {
+        .item-inner {
+            .input-wrapper {
+                ion-label {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}

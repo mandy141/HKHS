@@ -1,0 +1,26 @@
+qr-payment-layout {
+    [col-lg-8]
+    {
+        padding: 0px;
+    }
+    .label-md 
+    {
+        margin: 5px 0 0 0 !important;
+    }
+
+    .item-block 
+    {
+        min-height: 0 !important;
+    }
+
+    .fab-md{
+        color: transparent;
+        background-color: white;
+        padding: 0px 0px;
+      }
+      
+      .fab{
+        border-radius: initial;
+      }
+
+}

@@ -1,0 +1,669 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+
+.theme_3 {
+
+
+    
+    $font-path: "../assets/fonts";
+
+    @import "ionic.globals";
+
+
+    // Shared Variables
+    // --------------------------------------------------
+    // To customize the look and feel of this app, you can override
+    // the Sass variables found in Ionic's source scss files.
+    // To view all the possible Ionic variables, see:
+    // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+    $split-pane-side-max-width: 23%;
+
+    $grid-breakpoints: (
+    xs: 0, // Phone (0px - 575px)
+    sm: 576px, // Phablet (576px - 767px)
+    md: 768px, // Tablet vertical (768px - 991px)
+    lg: 992px, // Tablet horizontal, Desktop (992px and above)
+    xl: 1600px
+    );
+
+    $grid-max-widths: (
+    lg: 992px
+    );
+
+    // Named Color Variables
+    // --------------------------------------------------
+    // Named colors makes it easy to reuse colors on various components.
+    // It's highly recommended to change the default colors
+    // to match your app's branding. Ionic uses a Sass map of
+    // colors so you can add, rename and remove colors as needed.
+    // The "primary" color is the only required color in the map.
+
+    /* Custom Theme Colors.Styling the whole website */
+    $theme-color-primary: #886623; //#544b77;//Left of the Top Bar, Selected Menu Font Color, Menu Icon Color, Alert Dialog Font Color, Button & Button Border Color, Input Form Title & Tab Color
+    $theme-color-secondary: #ffffff; //Whole App Background, 
+    $theme-color-tertiary:#ffffff;// rgb(37, 20, 22); //My Application Button Color, Input Form Value
+    $theme-color-quaternary:#ffffff; //Right of the Top Bar, My Application DeskTop Header, Input Form Label & Line Color, Input Form Drop Down Field Line, Radio Button Selected Font
+
+    $theme-color-danger: #f44336; //Validation
+    $theme-color-positive: #04b704; //Confirm Reg Status Color
+    $theme-color-dark: #333333;
+    $theme-color-grey: #fefff2; //#f3edec; old //Previous Events Reg Background
+    $theme-color-orange: rgba(228, 122, 0, 0.5); //Photo gallery title background
+    $theme-color-border:#d7d7d7;
+
+
+    $colors: (
+    primary:    $theme-color-primary,
+    secondary:  $theme-color-secondary,
+    danger:     $theme-color-danger,
+    light:      $theme-color-secondary,
+    accent:     $theme-color-dark,
+    dark:       $theme-color-dark,
+    favorite:   $theme-color-positive,
+    // Button Twitter
+    twitter:(
+        base: #64B5F6,
+        contrast: #fff
+    ),
+    // Button Facebook
+    facebook:(
+        base: #3949ab,
+        contrast: #fff
+    ),
+    // Button Google
+    google:(
+        base: #bf360c,
+        contrast: #fff
+    ),
+    // Button Pinterest
+    pinterest:(
+        base: #ff3d00,
+        contrast: #fff
+    ),
+    );
+
+    $disable-opacity: .6;
+
+
+
+    // App iOS Variables
+    // --------------------------------------------------
+    // iOS only Sass variables can go here
+
+
+
+    // App Material Design Variables
+    // --------------------------------------------------
+    // Material Design only Sass variables can go here
+
+
+
+
+    // App Windows Variables
+    // --------------------------------------------------
+    // Windows only Sass variables can go here
+
+
+  // App Main Sass
+    // --------------------------------------------------
+    @import "main";
+
+
+    // App Theme
+    // --------------------------------------------------
+    // Ionic apps can have different themes applied, which can
+    // then be future customized. This import comes last
+    // so that the above variables are used and Ionic's
+    // default are overridden.
+
+    //@import "ionic.theme.default";
+
+    // App Animation
+    // --------------------------------------------------
+    //@import "animate";
+
+  
+
+    // Ionicons
+    // --------------------------------------------------
+    // The premium icon font for Ionic. For more info, please see:
+    // http://ionicframework.com/docs/v2/ionicons/
+
+    // // App Fontelo Style
+    //--------------------------------------------------
+    //@import "fontello";
+
+   //@import "ionicons";
+
+
+
+
+    // Fonts
+    // --------------------------------------------------
+
+    //@import "roboto";
+    //@import "noto-sans";
+
+//app.scss
+    // http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+/* Only show the scroll bar of menu when necessary */
+
+.padding-zero {
+    padding: 0px;
+  }
+
+  /* Limit the width of the header bar */
+  /*@media (min-width: map-get($grid-breakpoints, lg)) {
+    ion-navbar.toolbar,
+    ion-header .toolbar[fixed],
+    ion-footer .toolbar[fixed],
+    ion-tabs .tabbar {
+      margin: 0;
+      padding-right: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
+      padding-left: calc((100% - #{map-get($grid-max-widths, lg)}) / 2);
+    }
+   }*/
+
+/* Bug Fix on label didn't disable when set disabled to input field */
+.item-input-disabled ion-label{ opacity : .4; }
+
+/* Only show the scroll bar of menu when necessary */
+.scroll-content{
+    overflow-y: auto !important;
+  }
+
+/* Only show the scroll bar in action sheet when necessary */
+.action-sheet-group { 
+  overflow: auto; 
+}
+
+/* Only show the scroll bar in alert message when necessary */
+.alert-message {
+  overflow: auto; 
+}
+
+.toolbar {
+    .toolbar-background {
+        background: url('../assets/theme/theme3/theme3_TopBar.png');
+    }
+  
+    .toolbar-title {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .radio-md .radio-inner {
+    background-color: theme-colors('mainColors', 'primary')!important;
+  }
+  .radio-md .radio-checked {
+    border-color: theme-colors('mainColors', 'primary')!important;
+  }
+  .item-radio-checked.item-md ion-label {
+    color: theme-colors('mainColors', 'primary')!important;
+  }
+  
+  
+[welcome_text]
+{
+  margin-top: 1rem !important;
+  font-size: 1.5rem !important;
+}
+
+.toggle-md.toggle-checked .toggle-inner
+{
+    background-color: theme-colors('mainColors', 'primary')!important;
+}
+
+[button-clear-outline]
+{
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+}
+
+login-form .button-md, dashboard-form .button-md{
+  background-color: transparent !important;
+}
+
+tenant-feedback-layout .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+  color: theme-colors('mainColors', 'primary')!important;
+  background-color: theme-colors('mainColors', 'form')!important;
+}
+
+
+ap-menu-layout [after_loin], ap-notice-form [after_login], ap-notice-detail-layout [after_login],
+ap-notice1-form [after_login], ap-notice1-detail-layout [after_login],
+ap-notice2-form [after_login], ap-notice2-detail-layout [after_login],
+ap-notice3-form [after_login], ap-notice3-detail-layout [after_login],
+image-gallery [after_loin], living-life-layout [after_login],
+hsc-menu-layout [after_loin], hs-notice-form [after_login], hs-notice-detail-layout [after_login],
+hs-notice1-form [after_login], hs-notice1-detail-layout [after_login],
+hs-notice2-form [after_login], hs-notice2-detail-layout [after_login],
+latestnews-layout  [after_login], activity-media-layout [after_login],
+notice-form [after_login], notice-detail-layout [after_login],
+activity-media-layout [after_loin], image-sub-gallery [after_loin],
+qr-payment-layout [after_login], tenant-feedback-layout [after_login],
+latestnews2-layout [after_login], video-layout [after_login]
+{
+    background: none;
+    background-color: theme-colors('mainColors', 'form')!important;
+}
+
+proj-info-layout [after_login]
+{
+  background-image: url('../assets/theme/theme3/theme3_bg_plain.png') !important;
+}
+
+dashboard-form .content-ios, latestnews-layout .content-ios, latestnews2-layout .content-ios, video-layout .content-ios
+{
+  background-image: url('../assets/theme/theme3/theme3_bg_plain.png') !important;; 
+}
+
+dashboard-form .content-md,  page-input-form ion-content , latestnews-layout .content-md, page-input-form ion-content,
+latestnews2-layout .content-md, video-layout .content-md
+{
+  background-image: url('../assets/theme/theme3/theme3_bg_bubble.png') !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+
+terms-conditions-layout [after_login], dashboard-form [after_login]
+{
+  background-image: url('../assets/theme/theme3/theme3_bg_plain.png') !important;
+}
+
+login-form [white-background]{
+  background-image: url("../assets/theme/theme3/theme3_bg_light.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+dashboard-form  [dash_item_bar]
+{
+  background-image: url("../assets/theme/theme3/theme3_dboradBar_s.png");
+}
+
+
+login-form .checkbox-md .checkbox-icon, tenant-feedback-layout .checkbox-md .checkbox-icon
+  {
+    //border-color:#886623;
+    border-color: theme-colors('textColors', 'primary') !important;
+  }
+  
+
+  login-form .checkbox-md .checkbox-checked .checkbox-inner, tenant-feedback-layout .checkbox-md .checkbox-checked .checkbox-inner 
+  {
+    //border-color:#886623;
+    border-color: theme-colors('textColors', 'primary') !important;
+  }
+  
+
+  login-form .item-md
+  {
+    color: theme-colors('textColors', 'accent-first') !important;
+  }
+
+  
+
+ [dashboard-icon]
+ {
+    font-size: 1.7rem;
+    color: theme-colors('mainColors', 'secondary');
+    display: inline-block;
+    vertical-align: middle;
+ } 
+
+ .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: theme-colors('mainColors', 'primary') !important;;
+  }
+  
+    
+  .button-md
+  {
+    background-color: theme-colors('textColors', 'primary') !important;
+  }
+
+  .active {
+    color: theme-colors('textColors', 'primary');
+  }   
+
+  
+  [btn-shortcut-card-title] {
+    position: relative;
+    font-size: $h2-font-size;
+    z-index: 9;
+    color: theme-colors('textColors', 'accent-first') !important;
+    //text-shadow: 0px 0px 3px #000;    
+    font-weight: bold;    
+  }
+
+  [banner-arrow-left] {
+    position: relative;
+    top: 40%;
+    font-size: 3em !important;
+    float: right;    
+    i {
+      -webkit-text-fill-color: theme-colors('mainColors', 'primary');
+    }
+  } 
+  
+  [btn-shortcut-card-padding] {
+    padding: 0.5rem;
+    width: 100%;
+    margin: 0px;
+    border: 1px solid theme-colors('mainColors', 'secondary');
+    box-sizing: border-box;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  [subitem-title] {
+    padding-left: 15px;
+    padding-right: 15px;
+    color: theme-colors('mainColors', 'primary') !important;
+    line-height: 100%;
+  }
+
+  dashboard-form i {
+    color: theme-colors('mainColors', 'primary') !important;
+    -webkit-text-stroke-color: #f7f7f7 !important;
+  }
+  
+
+[item-push]
+{
+  font-size: 1.5rem !important;
+  color: theme-colors('textColors', 'primary') !important;
+  padding-left: 30px !important;
+}
+.bar-buttons-md[right]
+{
+  padding-right: 10px;
+}
+[display_link]
+{
+    color: theme-colors('textColors', 'primary') !important;
+    background-color: transparent !important;
+    text-decoration: underline;
+    margin-left: -5px;
+}
+
+
+// Settings Style Main Menu
+[header-background-image] {
+    height: 250px;
+    /*
+    background-size: cover;
+    background-position: center;
+    background-image:none;
+    //background-color:#efefef;
+    */
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-color: theme-colors('mainColors', 'form');
+    background-image: url('../assets/theme/theme3/theme3_MenuHeader.png');
+    /*@include darkening-blend-mode;*/
+
+
+    ion-thumbnail {
+      filter: grayscale(0%);
+    }
+
+    img {
+      padding-top: 40px;
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      z-index: 9;
+      max-width: 200px;
+    }
+
+    [item-title] {  
+      color: theme-colors('textColors', 'accent-first') !important;
+      position: relative;
+      z-index: 9;
+      text-shadow: 0px 0px 3px #000;
+      font-weight: bold;
+      font-size: $h5-font-size;
+    }   
+    
+    [notification-button] {
+      color: theme-colors('textColors', 'accent-first') !important;
+      background-color: transparent !important;
+      border: 0px;
+      font-size: $h2-font-size;    
+      height: 2.5rem;
+      ion-badge {
+        color: theme-colors('mainColors', 'primary') !important;
+        background-color: theme-colors('textColors', 'accent-first') !important;
+      }
+}
+
+    [lang-button] {
+      color: theme-colors('textColors', 'accent-first') !important;
+      background-color: transparent !important;
+      border-color: theme-colors('textColors', 'accent-first') !important;
+      text-shadow: 0px 0px 3px #000;  
+      font-size: $h5-font-size;    
+    }
+
+    [current-lang-button] {
+      background-color: theme-colors('textColors', 'accent') !important;   
+      color: theme-colors('textColors', 'secondary') !important;  
+      text-shadow: 0px 0px 0px;  
+      font-size: $h5-font-size;    
+      font-weight: bold;
+    }
+  }
+
+  //Dim the background image
+  /*[header-background-image]::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    background-image: inherit;
+    filter: brightness(60%);
+  }*/
+
+// Settings Icon Header
+ion-header {
+  [class^="icon-"]:before, [class*=" icon-"]:before {
+    width: auto !important;
+    margin-left: 0 !important;
+  }
+}
+
+[main-menu] {
+  
+  background-image:none !important;
+  background-color: theme-colors('mainColors', 'form')!important;
+  //background-color:#f3edec !important;
+
+    button {
+        padding-left: 30px;
+    }
+
+    .item-inner {
+        margin-left: 0 !important;
+    }
+
+    [icon-small] {
+        margin-top: 18px !important;
+    }
+
+    [sub-menu] {
+        padding-left: 40px;
+    }
+
+    [sub-sub-menu] {
+        padding-left: 50px;
+    }    
+}
+
+
+.selected-menu {
+  color: theme-colors('textColors', 'primary');
+  font-weight: bold;
+}
+
+[word-break] {
+  word-break:normal; 
+  white-space: normal;
+}
+
+[cursor-pointer] {
+  cursor: pointer;
+}
+
+[footer-section] {
+  position:fixed;
+  bottom:0;
+  width:100%;
+}
+
+[input-form-width] {
+  max-width: 800px;
+}
+
+[float-none] {
+  float: none !important;
+}
+
+/* Change Font Size */
+
+ion-app.md {
+  font-size: $h4-5-font-size;
+}
+
+.label-md[stacked] {
+  font-size: $h4-5-font-size;
+  word-break: normal;
+  white-space: normal;
+}
+
+[text-wrap] .label-md {
+  font-size: $h4-5-font-size;
+  word-break: normal;
+  white-space: normal;
+  text-align: justify;
+}
+
+.label-md {
+  font-size: $h4-font-size;
+  word-break: normal;
+  white-space: normal;
+  text-align: initial;
+}
+
+.item-md {
+  font-size: $h5-font-size;
+}
+
+.button-md {
+  font-size: $h4-5-font-size;
+  word-break: normal;
+  white-space: normal;
+}
+
+.card-header-md {
+  font-size: $h3-font-size;
+}
+
+.card-content-md {
+  font-size: $h4-font-size;
+}
+
+[default-label-font] {
+  font-size: $h4-5-font-size; 
+  white-space:normal;
+  word-break: normal;
+  color: theme-colors('textColors', 'secondary');
+  text-align: justify;
+}
+
+[default-value-font] {
+  font-size: $h4-5-font-size; 
+  white-space:normal;
+  word-break: normal;
+  color: theme-colors('textColors', 'accent');
+  font-weight: bold;
+}
+
+/* Change Disable Field Opacity */
+.radio-disabled, .item-radio-disabled ion-label {
+  opacity: $disable-opacity !important;
+}
+
+.segment-md.segment-disabled, .segment-md .segment-button-disabled {
+  opacity: .7 !important;
+}
+
+.segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+  opacity: 1 !important;
+}
+
+.select-disabled, .item-select-disabled ion-label {
+  opacity: $disable-opacity !important;
+}
+
+.item-input-disabled ion-label, .text-input[disabled] {
+  opacity: $disable-opacity !important;
+}
+
+a[disabled], button[disabled], [ion-button][disabled] {
+  opacity: $disable-opacity !important;
+}
+
+/* Left Align Menu Item */
+[menu-text-align-left] {
+  .item-inner {
+    .input-wrapper {
+      ion-label {
+          text-align: left;
+      }
+    }
+  }  
+}
+
+.item-ios
+{
+  background-color: transparent !important;
+}
+
+
+ion-spinner {
+  width: 70px !important;
+  height: 70px !important;
+}
+
+
+
+}

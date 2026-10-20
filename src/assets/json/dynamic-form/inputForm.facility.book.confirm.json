@@ -1,0 +1,356 @@
+{
+  "crudMode": "C",
+  "entityName": "facility-book-confirm-input-form",
+  "inputFieldValues": {
+      "bookings": [
+          {
+              "bookTime": "18:30-19:25",
+              "price": "200.00"
+          },
+          {
+              "bookTime": "19:30-20:25",
+              "price": "200.00"
+          },
+          {
+              "bookTime": "20:30-21:25",
+              "price": "200.00"
+          }
+      ]
+  },
+  "inputFormCloseButtonLabel": "關閉",
+  "inputFormInnerTitle": "設施預訂及查詢",
+  "inputFormNextButtonLabel": "下一步",
+  "inputFormPrevButtonLabel": "上一步",
+  "inputFormShowTabBar": false,
+  "inputFormSubmitButtonLabel": "提交",
+  "inputFormSubmitButtonRemark": "",
+  "inputFormTitle": "設施預訂及查詢",
+  "result": {
+      "inputFormNextAction": "nav",
+      "inputFormNextForm": {
+          "componentName": "InputFormPage",
+          "crudMode": "C",
+          "entityName": "facility-book-confirm-input-form",
+          "key": "facility-book-confirm-input-form",
+          "additionalParams": [
+              {
+                  "key": "uniqueIdentifier",
+                  "value": "9"
+              },
+              {
+                  "key": "navigateMode",
+                  "value": "push"
+              }
+          ]
+      }
+  },
+  "userIdentity": {
+      "token": "AN9MGefrPn3OH__TYHS3nQEAAAARGsyTcrVmdkiV2rpcI3jaxpDWx1bF5UI3jEWMaUP_cRU8z0cmCDxtmi5y6pLPRf0wsKkP60klZ0L3ihSDz-gX6VYFKS05oJho1pg6avvRODRlNaXP0mB7--habLmThlBmxQljQ71tWXPBVi2Gn7jbFMBaI2j2D4Js2Jzbv8U3Mh5q-xXm0xbAME7YQC7hSJR6LEZRiNerhZGUu2d6vJCez3Ib-ZRUvxLFLNQGRqbSIPxJbK1fLb_FsEBeVWvo3QpW-T5YgPTETBcKo6m-ZCY43VKu1Kl2xomH4jABZ2ZtDHR9Up07ZERHYOogjoqWDGoZAKGYpP7X7niMHKl4-MTWjFuO7wFG2hFeY0O7HxB1GiZaC6-LpVcMCX2xXP7ZXWE="
+  },
+  "inputFormTabs": [
+      {
+          "showTabTitle": false,
+          "tabIndex": "0",
+          "tabTitle": "網球場2",
+          "tabTitleClass": "",
+          "tabTitleStyle": "",
+          "tabType": "confirmation"
+      }
+  ],
+  "inputFieldModels": [
+      {
+          "colWidth": "1-2",
+          "key": "bookDate",
+          "label": "日期",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": true,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "{\"margin-top\":\"30px\"}",
+          "placeHolder": "請選擇",
+          "showPlaceHolder": true,
+          "controlType": "dropdown",
+          "isAsyncOptions": false,
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+              "width": "1-2",
+              "labelWidth": "1-3",
+              "valueWidth": "2-3"
+          },
+          "locateAfterConfirmation": false,
+          "disable": false,
+          "cancelText": "返回",
+          "options": [
+              {
+                  "key": "19/12/2019",
+                  "desc": "19/12/2019 (五)"
+              },
+              {
+                  "key": "20/12/2019",
+                  "desc": "20/12/2019 (六)"
+              },
+              {
+                  "key": "21/12/2019",
+                  "desc": "21/12/2019 (日)"
+              },
+              {
+                  "key": "22/12/2019",
+                  "desc": "22/12/2019 (一)"
+              },
+              {
+                  "key": "23/12/2019",
+                  "desc": "23/12/2019 (二)"
+              },
+              {
+                  "key": "24/12/2019",
+                  "desc": "24/12/2019 (三)"
+              },
+              {
+                  "key": "25/12/2019",
+                  "desc": "25/12/2019 (四)"
+              },
+              {
+                  "key": "26/12/2019",
+                  "desc": "26/12/2019 (五)"
+              },
+              {
+                  "key": "27/12/2019",
+                  "desc": "27/12/2019 (六)"
+              },
+              {
+                  "key": "28/12/2019",
+                  "desc": "28/12/2019 (日)"
+              }
+          ],
+          "defValue": "19/12/2019",
+          "validations": [
+              {
+                  "type": "required",
+                  "message": "請選取日期"
+              }
+          ]
+      },
+      {
+          "isAsyncOptions": false,
+          "defValue": "TENNIS2",
+          "hidden": true,
+          "colWidth": "1-2",
+          "key": "facId",
+          "label": "設施",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "{\"margin-top\":\"30px\"}",
+          "placeHolder": "請選擇",
+          "showPlaceHolder": true,
+          "controlType": "dropdown",
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+              "width": "1-2",
+              "labelWidth": "1-3",
+              "valueWidth": "2-3"
+          },
+          "locateAfterConfirmation": false,
+          "disable": false,
+          "cancelText": "返回",
+          "options": [
+              {
+                  "key": "TENNIS2",
+                  "desc": "網球場2"
+              }
+          ]
+      },
+      {
+          "key": "total",
+          "label": "總金額",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": true,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "",
+          "controlType": "textbox",
+          "textInputType": "",
+          "textInputUpperCase": true,
+          "validationStyle": "",
+          "validationClass": "",
+          "colWidth": "1",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabel": "",
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+              "width": "1-2",
+              "labelWidth": "1-3",
+              "valueWidth": "2-3"
+          },
+          "confirmValueIsLink": false,
+          "locateAfterConfirmation": false,
+          "validations": [],
+          "disable": false,
+          "defValue": "200"
+      },
+      {
+          "subFormArrayLabel": "時段",
+          "key": "bookings",
+          "label": "時段",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "",
+          "labelHidden": true,
+          "controlType": "subformarray",
+          "hidden": true,
+          "defaultSubFormArrayCnt": "0",
+          "minSubFormArrayCnt": "0",
+          "maxSubFormArrayCnt": "99",
+          "btnSubFormAdd": "新增",
+          "btnSubFormRemove": "移除",
+          "btnSubFormRemoveColWidth": "2/3",
+          "btnSubFormAddHidden": false,
+          "btnSubFormRemoveHidden": false,
+          "colWidth": "1",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+              "width": "1",
+              "labelWidth": "1",
+              "valueWidth": "1"
+          },
+          "templateinputFieldModels": [
+              {
+                  "key": "bookTime",
+                  "label": "時段",
+                  "labelClass": "",
+                  "labelStyle": "",
+                  "labelPlacement": "stacked",
+                  "labelHidden": false,
+                  "defValue": "",
+                  "controlClass": "",
+                  "controlStyle": "",
+                  "inputClass": "",
+                  "inputStyle": "",
+                  "validations": [],
+                  "controlType": "textbox",
+                  "textInputType": "",
+                  "textInputUpperCase": true,
+                  "validationStyle": "",
+                  "validationClass": "",
+                  "colWidth": "1",
+                  "requireConfirm": true,
+                  "confirmLabelClass": "",
+                  "confirmLabelStyle": "",
+                  "confirmValueClass": "",
+                  "confirmValueStyle": "",
+                  "confirmColWidth": {
+                      "width": "1",
+                      "labelWidth": "1-6",
+                      "valueWidth": "5-6"
+                  }
+              },
+              {
+                  "key": "price",
+                  "label": "價錢",
+                  "labelClass": "",
+                  "labelStyle": "",
+                  "labelPlacement": "stacked",
+                  "labelHidden": false,
+                  "defValue": "",
+                  "controlClass": "",
+                  "controlStyle": "",
+                  "inputClass": "",
+                  "inputStyle": "",
+                  "validations": [],
+                  "controlType": "textbox",
+                  "textInputType": "",
+                  "textInputUpperCase": true,
+                  "validationStyle": "",
+                  "validationClass": "",
+                  "colWidth": "1",
+                  "requireConfirm": true,
+                  "confirmLabelClass": "",
+                  "confirmLabelStyle": "",
+                  "confirmValueClass": "",
+                  "confirmValueStyle": "",
+                  "confirmColWidth": {
+                      "width": "1",
+                      "labelWidth": "1-6",
+                      "valueWidth": "5-6"
+                  }
+              }
+          ],
+          "disable": false
+      },
+      {
+          "colWidth": "1",
+          "validationClass": "red-color",
+          "locateAfterConfirmation": true,
+          "requireConfirm": false,
+          "key": "bookConfirm",
+          "label": "我已確定預訂以上場地及設施",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "",
+          "labelHidden": false,
+          "disable": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "",
+          "placeHolder": "",
+          "showPlaceHolder": false,
+          "controlType": "checkbox",
+          "isAsyncOptions": false,
+          "validationStyle": "",
+          "locateAtTabIndex": "0",
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "defValue": "false",
+          "validations": [
+              {
+                  "type": "customvalidationrule",
+                  "custValidationRules": [
+                      {
+                          "validationRule": "!(@{bookConfirm}.value == true)",
+                          "message": "請確認預訂場地"
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+}

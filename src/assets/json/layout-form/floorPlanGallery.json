@@ -1,0 +1,44 @@
+{
+  "formTitle":"屋苑平面圖",
+  "componentName": "ImageSubGallery",
+  "crudMode": "R",
+  "entityName": "floor-plan-sub-gallery",
+  "imageGroups": [{
+          "uniqueIdentifier":1,
+          "name": "第1座",
+          "image": "assets/images/background/11.jpg",
+          "noOfImage":10
+        },
+        {
+          "uniqueIdentifier": 3,
+          "name": "第2座",
+          "image": "assets/images/background/12.jpg",
+          "noOfImage": 12
+        },
+        {
+          "uniqueIdentifier": 6,
+          "name": "第3座",
+          "image": "assets/images/background/13.jpg",
+          "noOfImage": 18
+        },
+        {
+          "uniqueIdentifier": 8,
+          "name": "第4座",
+          "image": "assets/images/background/14.jpg",
+          "noOfImage": 19
+        },
+        {
+          "uniqueIdentifier": 15,
+          "name": "第5座",
+          "image": "assets/images/background/15.jpg",
+          "noOfImage": 5
+        },
+        {
+          "uniqueIdentifier": 19,
+          "name": "第6座",
+          "image": "assets/images/background/16.jpg",
+          "noOfImage": 4
+        }
+
+  ]
+}

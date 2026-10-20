@@ -1,0 +1,157 @@
+tenant-feedback-layout {
+    button
+    {
+        background-color: transparent !important;
+    }
+    
+
+    .item-block {
+            min-height: 0px !important;
+        }
+    
+    [header_text]
+    {
+        font-size: 1.6rem !important;
+        margin: 15px 8px 15px 20px !important;
+    }
+
+    .label-md
+    {
+        margin: 5px 8px 5px 0 !important;
+    }
+
+    .button-md
+    {
+        background-color: transparent;
+    }
+
+
+    .button-outline-ios
+    {
+        color: #ffffff !important;
+        border: 1px solid #ffffff !important;
+    }
+
+    .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+        color: #ffffff !important;
+    }
+
+  .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner
+  {
+    border-bottom-color: #ffffff !important;
+  }
+
+  .button-outline-md{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: none;
+  }
+  ion-col {
+    position: relative;
+
+    [button-clear] {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  [footer] {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    p {
+      font-size: $text-font-size;
+      color: #ffffff;
+    }
+  }
+
+
+  [login-title] {
+    font-size: $h1-font-size;
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 200px;
+    display: block;
+    margin: 35px auto 20px;
+  }
+
+
+  ion-item {
+    padding: 0 !important;
+    //padding-bottom: 15px !important;
+
+    /*[error-field] {
+      margin: 0 !important;
+      position: absolute !important;
+      bottom: 0 !important;
+      right: 0 !important;
+      font-size: $text-font-size;      
+    }*/
+
+    .item-inner {
+      border-bottom-color: #ffffff;/*theme-colors('mainColors', 'primary') !important;*/
+      box-shadow: none !important;
+    }
+  
+    ion-label {
+      margin: 0 !important;
+    }
+  }
+
+  [row-padding-bottom] {
+    padding-bottom: 15px !important;
+  }
+
+  [login-failed-label] {
+    padding-left: 1rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  [validation-color] {
+    color: theme-colors('textColors', 'validation') !important;
+    text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  }
+
+  [button-clear-outline] {
+    margin-top: 10%;
+    width: 100%;
+    display: block;
+    float: left;
+  }
+
+  [text-center] {
+    text-align: center;
+}
+
+    .button-md
+    {
+        margin: 0;
+    }
+    [ion-buttons]
+    {
+        margin: 0;
+    }
+
+    [remark_label]
+    {
+        font-size: 1.3rem !important;
+    }
+
+    [title_label]
+    {
+        font-size: 1.5rem !important;
+    }
+    .radio-md .radio-icon
+    {
+        margin-top: -4px;
+    }
+
+}

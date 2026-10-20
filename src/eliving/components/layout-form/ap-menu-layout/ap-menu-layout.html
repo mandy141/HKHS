@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar [ngClass]="theme">
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<!--Theme Small item + header-->
+<ion-content after_loin>
+  <ion-grid no-padding>
+    <ion-row *ngIf="data != null">
+      <ion-col col-12>
+          <div background-size no-padding [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}" *ngIf=" data.headerImage != null">
+            <!--<div search-bar-bcg>
+              <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems($event)"></ion-searchbar>
+            </div>-->
+          </div>
+      </ion-col>
+      <ion-col col-12>
+          <ion-list no-margin>
+            <ion-item cursor-pointer *ngFor="let item of data.menuItem; let i= index" (click)="onItemClick(item.openForm)">
+                <!-- Title -->
+                <h2 item-title>{{item.title}}</h2>
+              </ion-item>  
+          </ion-list>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

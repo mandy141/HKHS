@@ -1,0 +1,48 @@
+/*  #Style Full image with CTA
+===========================================*/
+meeting-layout {
+  ion-list-header {
+    [header-subtitle] {
+      margin-left: 15px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .item-inner {
+      margin-left: 0 !important;
+    }
+
+    .label-ios,
+    .label-md {
+      margin: 25px 8px 15px 0;
+    }
+
+    [social] {
+      margin-top: 7px;
+    }
+  }
+
+  [header-subtitle],
+  [header-title] {
+    color: theme-colors('textColors', 'accent-first') !important;
+    margin-left: 15px;
+  }
+
+  ion-item-options {
+    border-bottom: 1px solid transparent !important;
+  }
+
+  ion-item {
+    margin-left: 15px;
+    border-bottom: 1px solid rgb(222, 222, 222) !important;
+    align-items: center;
+  }
+
+  ion-list {
+    align-items: center !important;
+  }
+
+  .grid {
+    max-width: 800px;
+  }
+}

@@ -1,0 +1,119 @@
+{
+    "formTitle":"常用資訊",
+    "pages":
+    [
+      {
+         "pageId":"1",
+         "pageName": "屋苑聯絡資料",
+         "pageIndex":"0",
+         "records":[
+          {
+             "name": "服務中心",
+             "number": "3520 2200",
+             "url": "http://www.skytower.com.hk",
+             "email": "skytower@goodwell.com.hk"
+          },
+          {
+            "name": "24小時保安控制室",
+            "number": "3520 2325",
+            "url": "http://www.skytower.com.hk",
+            "email": "skytower@goodwell.com.hk"
+          },
+          {
+            "name": "會所",
+            "number": "3542 5960",
+            "url": "http://www.skytower.com.hk",
+            "email": "skytower@goodwell.com.hk"
+          }
+         ]
+      },
+      {
+        "pageId": "2",
+        "pageName": "政府機構",
+        "pageIndex": "1",
+        "records": [{
+            "name": "九龍城警務處",
+            "number": "2711 6955",
+            "url": "",
+            "email": ""
+          }, {
+            "name": "紅磡警務處",
+            "number": "2713 5880",
+            "url": "",
+            "email": ""
+          }, {
+            "name": "旺角警務處",
+            "number": "2398 6200",
+            "url": "",
+            "email": ""
+          }, {
+            "name": "馬頭涌消防處",
+            "number": "2711 0292",
+            "url": "",
+            "email": ""
+          }, {
+            "name": "水務處",
+            "number": "2396 0210",
+            "url": "",
+            "email": ""
+          }, {
+            "name": "伊利沙伯醫院",
+            "number": "2958 8888",
+            "url": "",
+            "email": ""
+          }, {
+            "name": "廣華醫院",
+            "number": "2332 2311",
+            "url": "",
+            "email": ""
+          }
+        ]
+      }, {
+        "pageId": "3",
+        "pageName": "電訊公司",
+        "pageIndex": "2",
+        "records": [{
+          "name": "和記環球電訊",
+          "number": "2121 1228",
+          "url": "",
+          "email": ""
+        }, {
+          "name": "電訊盈科",
+          "number": "1083",
+          "url": "",
+          "email": ""
+        }, {
+          "name": "新世界電訊",
+          "number": "1239",
+          "url": "",
+          "email": ""
+        }]
+      }, {
+        "pageId": "4",
+        "pageName": "巴士公司",
+        "pageIndex": "3",
+        "records": [{
+          "name": "九巴公司",
+          "number": "2745 4466",
+          "url": "http://www.kmb.hk",
+          "email": ""
+        }, {
+          "name": "城巴",
+          "number": "2873 0818",
+          "url": "http://www.citybus.com.hk",
+          "email": ""
+        }]
+      }, {
+        "pageId": "5",
+        "pageName": "其他",
+        "pageIndex": "4",
+        "records": [{
+            "name": "康樂及文化事務署",
+            "number": "2414 5555",
+            "url": "http://www.lcsd.gov.hk/",
+            "email": "enquiries@lcsd.gov.hk"
+          }
+        ]
+      }
+    ]
+  }

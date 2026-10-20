@@ -1,0 +1,50 @@
+<!-- Theme Search Bars - Field + header -->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content after_login>
+  <ion-grid *ngIf="data != null">
+    <ion-row>
+      <!-- List -->
+      <ion-col col-12 col-lg-10 *ngIf="data.formTitle != null && data.formTitle != '' ">
+          <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{data.formTitle}}</ion-label></ion-item>
+      </ion-col>
+      <ion-col col-12 col-lg-10 *ngIf="data.lblRefNo != null && data.lblRefNo != '' ">
+        <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{data.lblRefNo}}</ion-label></ion-item>
+      </ion-col>
+      <ion-col col-12 col-lg-10 *ngIf="data.lblDesc != null && data.lblDesc != ''">
+        <ion-item text-center no-lines cursor-pointer ><ion-label stacked>{{data.lblDesc}}</ion-label></ion-item>
+      </ion-col>
+      <ion-col text-center offset-1 col-10 offset-lg-2 col-lg-8 *ngIf="data.image != null && data.image != ''">
+        <ion-item no-lines cursor-pointer >
+          <ion-card no-margin cursor-pointer (click)="openImage(data.image)"> <!--[ngStyle]="{'background-image': 'url(' + item.image + ')'}"-->
+            <img [src]="img" />                                
+          </ion-card> 
+        </ion-item>
+      </ion-col>
+      <ion-col col-12 col-lg-10>
+        <ion-item text-center no-lines cursor-pointer *ngIf="data.linkbutton != null && data.linkbutton != ''">
+          <ion-label (click)="onLinkClick(data.linkbutton)"><span>{{data.lblLinkTitle}}</span>
+        </ion-label>    
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center offset-1 col-10 offset-lg-2 col-lg-8>
+          <button full ion-button (click)="onClose()">{{data.btnExit}}</button>     
+      </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-content>

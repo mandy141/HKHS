@@ -1,0 +1,43 @@
+{
+    "formTitle":"房協之友",
+    "fileIcon":"icon-file",
+    "headerImage": "assets/eliving/logo_background/banner-bg.png",
+    "selectAll": "所有類別",
+    "cancelText": "返回",
+    "houseRulesType":"類別",
+    "documents": [{
+            "title": "管理服務中心",
+            "name": "簡介",
+            "size": "365K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_110.pdf"
+          },
+          {
+            "title": "管理服務中心",
+            "name": "最新資訊",
+            "size": "1577K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_109.pdf"
+          }, 
+          {
+            "title": "管理服務中心",
+            "name": "活動通告",
+            "size": "314K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_108.pdf"
+          }, {
+            "title": "管理服務中心",
+            "name": "活動花絮",
+            "size": "1295K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_107.pdf"
+          },
+          {
+            "title": "管理服務中心",
+            "name": "活動剪影",
+            "size": "1295K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_107.pdf"
+          }, {
+            "title": "管理服務中心",
+            "name": "房協之友通訊",
+            "size": "405K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_106.pdf"
+          }
+    ]
+  }

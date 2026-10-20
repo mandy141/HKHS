@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{pageTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content after_loin>
+<!--Theme Category 1 (Animals)-->
+<div *ngIf="data != null">
+    <ion-toolbar no-padding>
+      <div *ngIf="data != null">
+        <ion-segment has-header [(ngModel)]="selectedItem">
+          <ion-segment-button *ngFor="let page of data.pages" value="{{page.pageId}}" (click)="segmentChanged(page.pageId)">
+            {{page.pageName}}
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    </ion-toolbar>
+
+    <ion-grid *ngFor="let page of data.pages;let pageIndex = index;" no-padding>  
+      <ion-grid *ngIf="isEnabled(page.pageId)" no-padding>
+        <ion-row *ngIf="page.pageId == 0">
+          <ion-col col-12>
+            <div background-size no-padding [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}" *ngIf=" data.headerImage != null" > 
+              <ion-item class = "gallery_type" *ngIf="page.records[page.pageId] != null">
+                  <ion-select type_select *ngIf="page.pageId == 0" [(ngModel)]="page0Datalist.groupName" interface='action-sheet' (ionChange)="onYear(page.pageId, page0Datalist.groupName)" class="selector" placeholder="{{data.selectAll}}" cancelText="{{data.cancelText}}">
+                      <ion-option value="all" >{{data.selectAll}}</ion-option>
+                    <ion-option *ngFor="let opt of page0Datalist" [value]="opt.groupName"  text-wrap>{{opt.groupName}}</ion-option>
+                  </ion-select>
+                  <!--<ion-select type_select *ngIf="page.pageId == 1" [(ngModel)]="page1Datalist.groupName" interface='action-sheet' (ionChange)="onYear(page.pageId, page1Datalist.groupName)" class="selector" placeholder="{{data.selectAll}}" cancelText="{{data.cancelText}}">
+                    <ion-option value="all" >{{data.selectAll}}</ion-option>
+                  <ion-option *ngFor="let opt of page1Datalist" [value]="opt.groupName"  text-wrap>{{opt.groupName}}</ion-option>
+                </ion-select>-->
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row no-padding *ngIf="page0DataItemlist != null && page.pageId == 0">
+              <ion-col col-6 col-lg-4 *ngFor="let item0 of page0DataItemlist; let i0 = index;">
+                  <ion-card no-margin cursor-pointer (click)="onShowDtl(item0)"
+                    [ngStyle]="{'background-image': 'url(' + item0.image + ')', 'background-position':'center', 'background-size': 'cover'}">
+                      <div gallery-title>
+                        <!-- <p item-subtitle>{{item0.noOfImage}} image(s)</p>-->
+                          <h2 item-title text-wrap>{{item0.title}}</h2>                    
+                      </div>
+                  </ion-card>
+              </ion-col>
+        </ion-row>
+        <ion-row no-padding *ngIf="page1DataItemlist != null && page.pageId == 1">
+          <ion-col col-6 col-lg-4 *ngFor="let item1 of page1DataItemlist; let i = index;">
+              <ion-card no-margin cursor-pointer (click)="onShowDtl(item1)"
+                [ngStyle]="{'background-image': 'url(' + item1.image + ')', 'background-position':'center', 'background-size': 'cover'}">
+                  <div gallery-title>
+                    <!-- <p item-subtitle>{{item.noOfImage}} image(s)</p>-->
+                      <h2 item-title text-wrap>{{item1.title}}</h2>                    
+                  </div>
+              </ion-card>
+          </ion-col>
+    </ion-row>
+      </ion-grid>   
+    </ion-grid>
+</div>
+</ion-content>

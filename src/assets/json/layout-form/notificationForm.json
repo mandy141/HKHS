@@ -1,0 +1,26 @@
+{
+  "formTitle":"訊息中心",
+  "fileIcon":"icon-file",  
+  "notifications": [{
+          "title": "通知",
+          "time":"04/05/2019",
+          "desc": "搭棚維修工程",       
+          "size":"156KB",   
+          "openURL": "assets/eliving/pdf/notification/ST_SKYTOW_noticeAtth_5330.pdf"
+        },
+        {
+          "title": "通知",
+          "time": "03/05/2019",
+          "desc": "公眾地方滅蟲",
+          "size": "154KB",
+          "openURL": "assets/eliving/pdf/notification/ST_SKYTOW_noticeAtth_5328.pdf"
+        },
+        {
+          "title": "通知",
+          "time":"02/05/2019",
+          "desc": "搭棚維修工程",       
+          "size":"156KB",   
+          "openURL": "assets/eliving/pdf/notification/ST_SKYTOW_noticeAtth_5324.pdf"
+        }
+  ]
+}

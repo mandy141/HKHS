@@ -1,0 +1,55 @@
+<!--Theme Styled cards 2-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content after_login>
+  <ion-grid no-padding *ngIf="data!=null">
+    <!--- SETTINGS PAGE1 SCREEN -->
+    <ion-row>
+      <ion-col col-12>
+        <div background-size no-padding [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}" *ngIf=" data.headerImage != null">
+          <!--<div search-bar-bcg>
+          <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems($event)"></ion-searchbar>
+        </div>-->
+          <ion-item class="notice_type" transparent *ngIf="datalist != null">
+            <!--<ion-label>{{data.title}}</ion-label>-->
+            <ion-select type_select [(ngModel)]="datalist.typeDesc" interface='action-sheet'
+              (ionChange)="onType(datalist.typeDesc)" class="selector" placeholder="{{data.selectAll}}" cancelText="{{data.cancelText}}">
+              <ion-option value="all">{{data.selectAll}}</ion-option>
+              <ion-option *ngFor="let opt of datalist" [value]="opt.typeDesc" text-wrap>{{opt.typeDesc}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col col-12 col-lg-4 *ngFor="let item of data.record; let i= index">
+        <ion-card text-left box-shadow margin-bottom padding cursor-pointer ><!--(click)="onItemClick(item.openURL)"-->
+          <ion-card-content no-padding margin-top>
+            <ion-badge cursor-pointer [ngStyle]="{'background-color': item.typeColor}" (click)="filterType(item.typeDesc)">{{item.typeDesc}}</ion-badge>
+            <span font-bold font-small ion-text color="accent"> {{item.name}}</span>
+            <!--<h2 card-title text-capitalize>{{item.content}}</h2>-->
+            <p *ngIf="item.telNo != ''"><a href="tel:{{item.telNo}}" target="_blank"><ion-icon name="call"></ion-icon>{{item.telNo}}</a></p>
+            <!--<p><a href="{{item.url}}" target="_blank"></a>{{item.url}}</a></p>-->
+            <div text-wrap *ngIf="item.url.lenght != ''"><p><button display_link (click)="onItemClick(item.url)"><ion-icon name="globe"></ion-icon>{{item.url}}</button></p></div>
+            <p *ngIf="item.email != ''"><a href="mailto:{{item.email}}" target="_blank"><ion-icon name="mail"></ion-icon>{{item.email}}</a></p>
+            <!--<p card-title>{{item.frequency}}</p>-->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

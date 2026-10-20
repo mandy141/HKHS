@@ -1,0 +1,202 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="onBackToHome()">
+              <ion-icon name="custom-hsHome"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content after_login>
+          <ion-grid *ngIf="data != null">
+            <ion-row>
+                <ion-col col-2>
+                    <ion-buttons *ngIf="currentStep == 2">
+                        <button (click)="onBackStep()">
+                            <ion-icon name="md-arrow-round-back"></ion-icon>
+                        </button>
+                  </ion-buttons>
+                </ion-col>
+                <ion-col col-8>
+                    <ion-label *ngIf="currentStep == 1" col-12 header_text text-center>{{data.formTitle1}}</ion-label>
+                    <ion-label *ngIf="currentStep == 2" col-12 header_text text-center>{{data.formTitle2}}</ion-label>
+                </ion-col>
+                <ion-col col-2>
+                    <ion-buttons>
+                        <button (click)="onRecordList(data.recordList)">
+                        <ion-icon name="ios-folder-open"></ion-icon>
+                        </button>   
+                    </ion-buttons>
+                </ion-col>
+            </ion-row>     
+        </ion-grid> 
+  <div class="input-content-min-height">
+    <ion-grid *ngIf="data != null && currentStep == 1">
+        <ion-row>
+            <ion-col col-12>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-12>
+                            <ion-item transparent>            
+                              <ion-label stacked>{{data.locationText}}</ion-label>                 
+                                <ion-select [(ngModel)]="datalist_location.textvalue"  class="selector" interface='action-sheet' (ionChange)="onLocType(datalist_location.textvalue)" cancelText="{{data.cancelText}}">
+                                    <ion-option *ngFor="let opt of data.locationItems" [value]="opt.textvalue" text-wrap>{{opt.text}}</ion-option>
+                                </ion-select>                                        
+                            </ion-item>  
+                        </ion-col>
+                    </ion-row>                        
+                    <ion-row>
+                        <ion-col col-12>
+                            <ion-item transparent>          
+                                <ion-label stacked>{{data.locationCatgText}}</ion-label>                              
+                                <ion-select [(ngModel)]="datalist_locationCatg.textvalue" class="selector" interface='action-sheet' (ionChange)="onLocCatgType(datalist_locationCatg.textvalue)" cancelText="{{data.cancelText}}">
+                                    <ion-option *ngFor="let opt1 of datalist_locationCatg" [value]="opt1.textvalue" text-wrap>{{opt1.text}}</ion-option>
+                                </ion-select>                                        
+                            </ion-item>  
+                        </ion-col>
+                    </ion-row>  
+                    <ion-row>
+                        <ion-col col-12>
+                            <ion-item transparent>          
+                                <ion-label stacked>{{data.messageItemText}}</ion-label>                              
+                                <ion-select [(ngModel)]="datalist_msgItem.textvalue" class="selector" interface='action-sheet' (ionChange)="onMsgType(datalist_msgItem.textvalue)"  cancelText="{{data.cancelText}}">
+                                    <ion-option *ngFor="let opt2 of datalist_msgItem" [value]="opt2.textvalue" text-wrap>{{opt2.text}}</ion-option>
+                                </ion-select>                                        
+                            </ion-item>  
+                        </ion-col>
+                    </ion-row> 
+                    <ion-row>
+                        <ion-col col-12>
+                            <ion-item transparent>          
+                                <ion-label stacked>{{data.catgText}}</ion-label>                              
+                                <ion-select [(ngModel)]="datalist_catg.textvalue" class="selector" interface='action-sheet' (ionChange)="onCatgType(datalist_catg.textvalue)" cancelText="{{data.cancelText}}">
+                                    <ion-option *ngFor="let opt3 of datalist_catg" [value]="opt3.textvalue" text-wrap>{{opt3.text}}</ion-option>
+                                </ion-select>                                        
+                            </ion-item>  
+                        </ion-col>
+                    </ion-row> 
+                    <ion-row>
+                        <ion-col col-12>
+                            <ion-item transparent>          
+                                <ion-label stacked>{{data.detailText}}</ion-label>                              
+                                <ion-textarea [(ngModel)]="inputDetail"></ion-textarea>         
+                            </ion-item>  
+                        </ion-col>
+                    </ion-row> 
+                    <ion-row>
+                        <ion-col col-12>
+                            <ion-list>
+                                <ion-item *ngFor="let img of images; index as pos" text-wrap>
+                                  <ion-thumbnail item-start>
+                                    <img [src]="img.fileContent" />
+                                  </ion-thumbnail>
+                                  <!--<ion-buttons item-end  (click)="deleteImage(img, pos)">-->
+                                 <button (click)="deleteImage(img, pos)" item-end>
+                                    <ion-icon name="trash"></ion-icon>
+                                  <!--</ion-buttons>-->
+                                 </button>
+                                </ion-item>
+                              </ion-list>  
+                        </ion-col>
+                    </ion-row> 
+                    <ion-row>
+                        <ion-col col-12>
+                            <button ion-button full round (tap)="presentActionSheet()">{{data.addImageText}}</button>   
+                        </ion-col>
+                    </ion-row> 
+                </ion-grid> 
+                <ion-row>
+                    <ion-col col-12>
+                        <ion-label error-field no-margin >
+                            <span validation-color>{{step2ErrorMsg}}</span>
+                        </ion-label>
+                    </ion-col>
+                </ion-row>  
+                <ion-row>
+                    <ion-col col-12>
+                    <button full ion-button full round (click)="onNextStep()" *ngIf="currentStep != 2" [disabled]="!isAllowNextStep()">{{data.nextText}}</button>
+                </ion-col>
+            </ion-row>                            
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf="currentStep == 2">
+        <ion-list radio-group>
+            <ion-row>
+                <ion-col col-4 transparent>
+                    <ion-item>          
+                        <ion-label stacked>{{data.titleText}}</ion-label>                                                      
+                    </ion-item>  
+                </ion-col>
+                <ion-col col-4 transparent>
+                    <ion-item>
+                        <ion-label stacked>{{data.sirText}}</ion-label>
+                        <ion-radio slot="start" value="MR" (ionSelect)="onInputTitle('MR')" ></ion-radio>
+                      </ion-item>
+                </ion-col>
+                <ion-col col-4 transparent>
+                    <ion-item>
+                        <ion-label stacked>{{data.madamText}}</ion-label>>
+                        <ion-radio slot="start" value="MRS" (ionSelect)="onInputTitle('MRS')"></ion-radio>
+                      </ion-item>  
+                </ion-col>
+            </ion-row>
+        </ion-list>
+        <ion-row>
+                <ion-col col-12 transparent>
+                    <ion-item>
+                        <ion-label stacked>{{data.nameText}}</ion-label>
+                        <ion-input required type="text" [(ngModel)]="inputName"></ion-input>   
+                    </ion-item>
+                </ion-col>
+        </ion-row>
+        <ion-row>
+                <ion-col col-12 transparent>
+                    <ion-item>
+                        <ion-label stacked>{{data.telText}}<span validation-color>*</span></ion-label>
+                        <ion-input required type="tel" maxlength="8" [(ngModel)]="inputTel" max></ion-input>   
+                    </ion-item>
+                </ion-col>
+        </ion-row>
+        <ion-row>
+                <ion-col col-12 transparent>
+                    <ion-item>
+                        <ion-label stacked>{{data.emailText}}</ion-label>
+                        <ion-input type="email" [(ngModel)]="inputEmail"></ion-input>   
+                    </ion-item>
+                </ion-col>
+        </ion-row>
+        <ion-row>
+            <div>
+                <ion-item no-lines transparent>
+                    <ion-label stacked>{{data.requestForReplyText}}</ion-label>
+                    <ion-checkbox checked="true" [(ngModel)]="isRequstForReply"></ion-checkbox>
+                </ion-item>
+            </div>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+                <ion-label remark_label>{{data.remarkText}}</ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+                <span validation-color>{{step2ErrorMsg}}</span>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+                <button full ion-button full round (click)="onSubmit()" [disabled]="!isAllowNextStep()">
+                    {{data.submitText}}
+                   </button>
+            </ion-col>
+        </ion-row>
+        
+    </ion-grid>
+</div>
+</ion-content>  

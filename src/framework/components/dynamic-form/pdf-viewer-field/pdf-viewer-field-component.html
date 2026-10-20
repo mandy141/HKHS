@@ -1,0 +1,7 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_PDF" 
+    [formGroup]="form" item-spacing [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)">       
+    <ion-scroll scrollY="true" style="width: 100%; height: 30rem;">              
+        <pdf-viewer *ngIf="srcURL&&device.isDeskTopBrowser" [src]="srcURL" [render-text]="true" [original-size]="false" [autoresize]="true" style="display: block;"></pdf-viewer>
+        <pdf-viewer *ngIf="srcURL&&!device.isDeskTopBrowser" [src]="srcURL" [render-text]="true" [zoom]="0.5" style="display: block;"></pdf-viewer>
+    </ion-scroll>       
+</div>

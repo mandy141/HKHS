@@ -1,0 +1,21 @@
+{
+  "formTitle": "第 1 座",
+  "fullScreenGallery":"FullScreenGallery",
+  "mode":"openImage",
+  "images": [{
+          "uniqueIdentifier":1,
+          "name": "第 1 座",
+          "image": "assets/eliving/img/floor_plan/Tower1s.jpg"
+        },
+        {
+          "uniqueIdentifier": 3,
+          "name": "第 1 座, 天台",
+          "image": "assets/eliving/img/floor_plan/Tower13_roof_s.jpg"
+        },
+        {
+          "uniqueIdentifier": 6,
+          "name": "第 1 座, 面積表",
+          "image": "assets/eliving/img/floor_plan/Tower13_table_s.jpg"
+        }
+  ]
+}

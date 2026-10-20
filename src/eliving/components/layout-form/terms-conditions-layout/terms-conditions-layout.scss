@@ -1,0 +1,16 @@
+terms-conditions-layout {
+    .content-md, page-input-form ion-content 
+    {
+        overflow: scroll;
+        background-position: center center;
+    }
+
+    
+    [default-label-font] {
+        font-size: $h4-5-font-size; 
+        white-space:normal;
+        word-break: normal;
+        color: theme-colors('textColors', 'secondary');
+        text-align: justify;
+      }
+}

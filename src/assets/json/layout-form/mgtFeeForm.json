@@ -1,0 +1,42 @@
+{
+  "formTitle":"電子管理費查詢",
+  "lblTermsAndCondition":"Terms and Conditions",
+  "termsAndConditionURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+  "fileIcon":"icon-file",
+  "documents": [{
+          "name": "私人車位 - R141",
+          "month":"04/2019",
+          "size":"226KB",
+          "docURL": "assets/eliving/pdf/ebill/carApr.pdf"
+        },
+        {
+          "name": "私人車位 - R141",
+          "month": "03/2018",
+          "size":"226KB",
+          "docURL": "assets/eliving/pdf/ebill/carMar.pdf"
+        }, 
+        {
+          "name": "私人車位 - R141",
+          "month": "02/2019",
+          "size":"226KB",
+          "docURL": "assets/eliving/pdf/ebill/carFeb.pdf"
+        },{
+          "name": "住宅單位 - 5座52樓F室",
+          "month":"04/2019",
+          "size":"226KB",
+          "docURL": "assets/eliving/pdf/ebill/Apr.pdf"
+        },
+        {
+          "name": "住宅單位 - 5座52樓F室",
+          "month": "03/2018",
+          "size":"226KB",
+          "docURL": "assets/eliving/pdf/ebill/Mar.pdf"
+        }, 
+        {
+          "name": "住宅單位 - 5座52樓F室",
+          "month": "02/2019",
+          "size":"226KB",
+          "docURL": "assets/eliving/pdf/ebill/Feb.pdf"
+        }
+  ]
+}

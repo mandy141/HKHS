@@ -1,0 +1,26 @@
+{
+  "formTitle":"屋苑平面圖",  
+  "crudMode": "R",  
+  "floorPlanGroups": [
+        {
+          "uniqueIdentifier": 1,
+          "name": "第1座至第3座",
+          "image": "assets/eliving/img/floor_plan/Tower1s.jpg",
+          "componentName": "ImageSubGallery",
+          "entityName": "floor-plan-sub-gallery"
+        }, {
+          "uniqueIdentifier": 2,
+          "name": "第5座至第7座",
+          "image": "assets/eliving/img/floor_plan/Tower5s.jpg",
+          "componentName": "ImageSubGallery",
+          "entityName": "floor-plan-sub-gallery"
+        },
+        {
+          "uniqueIdentifier":6,
+          "name": "地下及其他",
+          "image": "assets/eliving/img/floor_plan/Location_maps.jpg",
+          "componentName": "ImageSubGallery",
+          "entityName": "floor-plan-sub-gallery"
+        }
+  ]
+}

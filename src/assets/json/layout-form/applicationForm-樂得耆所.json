@@ -1,0 +1,37 @@
+{
+    "formTitle":"樂得耆所",
+    "fileIcon":"icon-file",
+    "headerImage": "assets/eliving/logo_background/banner-bg.png",
+    "selectAll": "所有類別",
+    "cancelText": "返回",
+    "houseRulesType":"類別",
+    "documents": [{
+            "title": "管理服務中心",
+            "name": "樂得耆所居家安老計劃簡介",
+            "size": "365K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_110.pdf"
+          },
+          {
+            "title": "管理服務中心",
+            "name": "健康小貼士",
+            "size": "1577K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_109.pdf"
+          }, 
+          {
+            "title": "管理服務中心",
+            "name": "活動通訊",
+            "size": "314K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_108.pdf"
+          }, {
+            "title": "管理服務中心",
+            "name": "相片集",
+            "size": "1295K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_107.pdf"
+          }, {
+            "title": "管理服務中心",
+            "name": "義工天地",
+            "size": "405K",
+            "docURL": "assets/eliving/pdf/app_form/ST_SKYTOW_form_106.pdf"
+          }
+    ]
+  }

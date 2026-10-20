@@ -1,0 +1,13 @@
+{
+  "name": "MyCentral",
+  "short_name": "ELiving",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/ckah/ckah.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}

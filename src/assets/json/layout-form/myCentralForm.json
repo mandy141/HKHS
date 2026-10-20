@@ -1,0 +1,117 @@
+{
+  "formTitle":"My Central",
+  "headerImage": "assets/images/background/22.jpg",
+  "title":"My Central",
+  "groups": [{      
+      "title": "My Travel",
+      "icon": "icon-map-marker-radius",      
+      "show":false,      
+      "documents": [{
+          "name": "精緻飯店提供典雅客房和套房，部分客房享有海港景觀。飯店供應精緻餐飲，附設 SPA。",
+          "docURL": "",
+          "image": "",
+          "height": "70"
+        }, 
+        {
+          "name": "高樓酒店提供設有按摩浴缸的別緻客房和套房，附設時髦餐廳和 SPA。高樓酒店提供設有按摩浴缸的別緻客房和套房，附設時髦餐廳和 SPA。高樓酒店提供設有按摩浴缸的別緻客房和套房，附設時髦餐廳和 SPA。高樓酒店提供設有按摩浴缸的別緻客房和套房，附設時髦餐廳和 SPA。高樓酒店提供設有按摩浴缸的別緻客房和套房，附設時髦餐廳和 SPA。",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "assets/images/background/23.jpg",
+          "height": "421"
+        }
+      ]
+    },
+    {
+      "title": "My Taste",
+      "icon": "icon-food",
+      "show": false,
+      "documents": [{
+          "name": "Hotels",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Sightseeting",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Air Ticket",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        }
+      ]
+    }, {
+      "title": "My Fun",
+      "icon": "icon-movie",
+      "show": false,
+      "documents": [{
+          "name": "Hotels",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Sightseeting",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Air Ticket",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        }
+      ]
+    }, {
+      "title": "My Well Being",
+      "icon": "icon-human-child",
+      "show": false,
+      "documents": [{
+          "name": "Hotels",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Sightseeting",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Air Ticket",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        }
+      ]
+    }, {
+      "title": "My Home",
+      "icon": "icon-home",
+      "show": false,
+      "documents": [{
+          "name": "Hotels",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Sightseeting",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        },
+        {
+          "name": "Air Ticket",
+          "docURL": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+          "image": "",
+          "height": "70"
+        }
+      ]
+    }
+  ]
+}

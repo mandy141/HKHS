@@ -1,0 +1,21 @@
+{
+  "formTitle":"屋苑平面圖",      
+  "fullScreenGallery":"FullScreenGallery",
+  "mode":"openImage",
+  "images": [{
+          "uniqueIdentifier":1,
+          "name": "1-10樓",
+          "image": "assets/images/background/11.jpg"          
+        },
+        {
+          "uniqueIdentifier": 3,
+          "name": "11-20樓",
+          "image": "assets/images/background/12.jpg"
+        },
+        {
+          "uniqueIdentifier": 6,
+          "name": "21-30樓",
+          "image": "assets/images/background/13.jpg"
+        }
+  ]
+}

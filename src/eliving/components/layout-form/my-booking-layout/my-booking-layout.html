@@ -1,0 +1,74 @@
+<!-- Theme Segment - Segment List -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+<!-- Content-->
+<ion-content after_login>
+
+  <div *ngIf="data != null">
+  <!--Segment Section -->
+  <ion-toolbar no-padding>
+      <div *ngIf="data != null">
+        <ion-segment has-header [(ngModel)]="selectedItem">
+          <ion-segment-button *ngFor="let page of data.pages" value="{{page.pageId}}">
+            {{page.pageName}}
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+  </ion-toolbar>
+  <ion-grid *ngFor="let page of data.pages;let pageIndex = index">    
+    <ion-row *ngIf="isEnabled(page.pageId)" >
+      <ion-col col-12 *ngIf="page.multipleSelect">                   
+          <ion-item>
+              <ion-icon icon-medium item-start name="square-outline" cursor-pointer *ngIf="!isAllAllowPayBookingSelected(page)" (click)="onSelectUnSelectAllAllowPay(page, true)">                         
+              </ion-icon> 
+              <ion-icon icon-medium item-start name="checkbox" cursor-pointer *ngIf="isAllAllowPayBookingSelected(page)" (click)="onSelectUnSelectAllAllowPay(page, false)">                         
+              </ion-icon> 
+              <h2 item-title>{{getSelectedBookingCount(page)}} {{data.lblMultipleSelect}}</h2>
+              <div item-content>            
+                  <ion-icon icon-medium item-end cursor-pointer>
+                    <i class="icon {{data.payIcon}}"></i>
+                  </ion-icon>
+              </div>
+          </ion-item>
+      </ion-col>
+      <ion-col col-12>
+        <div *ngFor="let booking of page.bookings;let recordIndex = index" >
+        <ion-item cursor-pointer ion-long-press (onPressing)="onItemLongPress(page, booking)" (click)="onItemClick(booking)">               
+          <ion-icon icon-medium name="square-outline" item-start *ngIf="page.multipleSelect && booking.allowPay && !booking.selected" (click)="booking.selected = true">            
+          </ion-icon>
+          <ion-icon icon-medium name="checkbox" item-start *ngIf="page.multipleSelect && booking.allowPay && booking.selected" (click)="booking.selected = false">            
+          </ion-icon>
+          <ion-icon icon-medium item-start>
+              <i class="{{booking.icon}}"></i>
+          </ion-icon>       
+          <h2 item-title>{{booking.facName}}</h2>
+          <h3 item-subitem item-linebreak *ngFor="let book_date_str of booking.BookDateTime.split('|')">{{book_date_str}}</h3>
+
+          <h3 item-subitem>{{booking.price}}</h3>
+          <div item-content>            
+            <ion-icon icon-medium item-end cursor-pointer *ngIf="booking.allowPay">
+              <i class="icon {{data.payIcon}}"></i>
+            </ion-icon>
+            <ion-icon icon-medium item-end cursor-pointer *ngIf="booking.allowDelete" (click)="onMarkDelete(booking, pageIndex, recordIndex)">
+              <i class="icon {{data.deleteIcon}}"></i>
+            </ion-icon>
+          </div>
+        </ion-item>
+        </div>        
+      </ion-col>
+    </ion-row>    
+  </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="onBackToHome()">
+              <ion-icon name="md-home"></ion-icon>
+            </button>
+          </ion-buttons>
+      </ion-navbar>
+  </ion-header>
+<ion-content white-background>
+    <div class="input-content-min-height" *ngIf="data">
+        <ion-grid input-form-width>
+            <ion-row>
+                <ion-col col-12>
+                    <p default-title-style>{{data.innerTitle}}</p>                  
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                    <ion-col col-12>
+                        <p default-label-font text-center>{{data.lblBookRefNo}}</p>     
+                    </ion-col>
+                </ion-row>  
+            <ion-row>
+                <ion-col col-12>
+                    <p default-label-font text-center>{{data.lblBookDetails}}</p>     
+                </ion-col>
+            </ion-row>            
+           <!-- <ion-row>
+                <ion-col text-center offset-1 col-10 offset-lg-2 col-lg-8>
+                    <button full ion-button (click)="onBackToHome()">{{data.btnExit}}</button>     
+                </ion-col>
+            </ion-row>
+        -->
+        <ion-row>
+                <ion-col text-center *ngFor="let item of data.shortcutItems;let i = index">
+                        <button full ion-button (click)="onShortcutItemClick(item.openForm)" >{{item.title}}</button>     
+                    <!--<ion-card box-shadow btn-shortcut-card-padding (click)="onShortcutItemClick(item.openForm)">     
+                      <ion-card-content text-center btn-shortcut-image-container cursor-pointer [style.background-image]="'url(' + item.backgroundImg + ')'">
+                          <span btn-shortcut-card-title>{{item.title}}</span>
+                      </ion-card-content>
+                    
+                  </ion-card>
+                  -->
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div> 
+</ion-content>

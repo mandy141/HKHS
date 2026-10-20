@@ -1,0 +1,43 @@
+{
+  "formTitle":"訪客登記記錄",
+  "componentName":"VisitorFinishForm",
+  "entityName":"visitor-finish-layout",
+  "crudMode":"R",
+  "deleteIcon": "icon-delete",
+  "lblDeleteWarning":"記錄將會被取消，確認？",
+  "lblDeleteYesAns": "是",
+  "lblDeleteNoAns": "否",
+  "btnNew":"新增",
+  "newEntityName": "visitor-registration-input-form",
+  "pages":
+  [
+    {
+       "pageId":"registered",
+       "pageName":"已登記",
+       "pageIndex":"0",              
+       "records":[
+        {
+           "uniqueIdentifier":2,
+           "name":"陳大文先生",
+           "recordDateTime": "12/12/2018 12:34:56"
+        },
+       {
+         "uniqueIdentifier": 6,
+         "name": "陳大文先生",
+         "recordDateTime": "10/12/2018 12:34:56"
+       }
+       ]
+    },
+    {
+      "pageId": "cancelled",
+      "pageName": "已取消",
+      "pageIndex": "1",
+      "records": [{
+          "uniqueIdentifier": 3,
+          "name": "王大文先生",
+          "recordDateTime": "12/12/2018 12:34:56"
+        }
+      ]
+    }
+  ]
+}

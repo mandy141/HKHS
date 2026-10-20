@@ -1,0 +1,351 @@
+{
+  "crudMode": "C",
+  "entityName": "visitor-registration-input-form",
+  "inputFormCloseButtonLabel": "關閉",
+  "inputFormInnerTitle": "",
+  "inputFormNextButtonLabel": "下一步",
+  "inputFormPrevButtonLabel": "上一步",
+  "inputFormShowTabBar": false,
+  "inputFormSubmitButtonLabel": "提交",
+  "inputFormSubmitButtonRemark":"",
+  "inputFormTitle": "Visitor Registration",
+  "inputFormTabs": [{
+    "showTabTitle": false,
+    "tabIndex": "0",
+    "tabTitle": "",
+    "tabTitleClass": "",
+    "tabTitleStyle": "",
+    "tabType": "input"
+  }],
+  "inputFieldModels": [
+      {
+        "colWidth": "1",
+        "inputStyle": "",
+        "disable": false,
+        "key": "type",
+        "label": "入閘次數",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "stacked",
+        "labelHidden": false,
+        "hidden": false,
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "placeHolder": "請選擇",
+        "showPlaceHolder": true,
+        "controlType": "dropdown",
+        "isAsyncOptions": false,
+        "validationStyle": "",
+        "validationClass": "",
+        "locateAtTabIndex": "0",
+        "requireConfirm": true,
+        "confirmLabelClass": "",
+        "cancelText": "取消",
+        "confirmLabelStyle": "",
+        "confirmValueClass": "",
+        "confirmValueStyle": "",
+        "confirmColWidth": {
+          "width": "1-2",
+          "labelWidth": "1-3",
+          "valueWidth": "2-3"
+        },
+        "options": [{
+            "key": "01",
+            "desc": "一次"
+          },
+          {
+            "key": "02",
+            "desc": "多次"
+          }
+        ],
+        "defValue": "01",
+        "validations": [{
+          "type": "required",
+          "message": "請選取入閘次數"
+        }],
+        "valueChangeEvents" :[
+          {
+              "type":"func",                    
+              "param":"entryTypeValueChanges"                  
+          }
+        ]
+      },
+      {
+        "key": "fromDate",
+        "label": "到訪日期",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "stacked",
+        "labelHidden": false,
+        "placeHolder": "請選取",
+        "showPlaceHolder": true,
+        "defValue": "",
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "inputStyle": "",
+        "validations": [{
+          "type": "required",
+          "messages": ["請選取到訪日期"]
+        }],
+        "controlType": "datepicker",
+        "displayFormat": "MMM D, YYYY",
+        "pickerFormat": "DD MMM YYYY",
+        "minDate": "2000",
+        "maxDate": "2020-12-31",
+        "validationStyle": "",
+        "validationClass": "red-color",
+        "colWidth": "1",
+        "locateAtTabIndex": "0",
+        "requireConfirm": false
+      },
+      {
+        "key": "toDate",
+        "label": "至",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "stacked",
+        "labelHidden": false,
+        "placeHolder": "請選取",
+        "showPlaceHolder": true,
+        "defValue": "",
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "inputStyle": "",
+        "validations": [{
+          "type": "required",
+          "messages": ["請選取到訪日期"]
+        }],
+        "controlType": "datepicker",
+        "displayFormat": "MMM D, YYYY",
+        "pickerFormat": "DD MMM YYYY",
+        "minDate": "2000",
+        "maxDate": "2020-12-31",
+        "validationStyle": "",
+        "validationClass": "red-color",
+        "colWidth": "1-2",
+        "locateAtTabIndex": "0",
+        "requireConfirm": false,
+        "hidden":true,
+        "disable":true
+      },
+      {
+        "colWidth": "1",
+        "inputStyle": "",
+        "disable": false,
+        "key": "title",
+        "label": "稱呼",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "stacked",
+        "labelHidden": false,
+        "hidden": false,
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "placeHolder": "請選擇",
+        "showPlaceHolder": true,
+        "controlType": "dropdown",
+        "isAsyncOptions": false,
+        "validationStyle": "",
+        "validationClass": "",
+        "locateAtTabIndex": "0",
+        "requireConfirm": true,
+        "confirmLabelClass": "",
+        "cancelText": "取消",
+        "confirmLabelStyle": "",
+        "confirmValueClass": "",
+        "confirmValueStyle": "",
+        "confirmColWidth": {
+          "width": "1-2",
+          "labelWidth": "1-3",
+          "valueWidth": "2-3"
+        },
+        "options": [{
+            "key": "01",
+            "desc": "先生"
+          },
+          {
+            "key": "02",
+            "desc": "小姐"
+          }
+        ],
+        "defValue": "01",
+        "validations": [{
+          "type": "required",
+          "message": "請選取稱呼"
+        }]
+      },
+      {
+        "key": "name",
+        "label": "訪客稱謂",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "stacked",
+        "labelHidden": false,
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "inputStyle": "",
+        "defValue": "",
+        "validations": [{
+            "type": "required",
+            "messages": ["請輸入訪客稱謂"]
+          }
+        ],
+        "controlType": "textbox",
+        "textInputType": "",
+        "validationStyle": "",
+        "validationClass": "",
+        "colWidth": "1",
+        "locateAtTabIndex": "0",
+        "requireConfirm": false
+      }, {
+        "key": "wholeweek",
+        "label": "全星期",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "",
+        "labelHidden": false,
+        "hidden":true,
+        "disable":true,
+        "defValue": "false",
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "inputStyle": "",
+        "validations": [],
+        "controlType": "checkbox",
+        "validationStyle": "",
+        "validationClass": "red-color",
+        "colWidth": "1-2",
+        "locateAtTabIndex": "0",
+        "requireConfirm": false,
+        "valueChangeEvents": [{
+            "type": "rule",
+            "param": "@{wholeweek}.value == true",
+            "trueActions": [{
+              "actionType": "custom",
+              "param": ["this.disableControl(@{weekday});"]
+            }]
+          },
+          {
+            "type": "rule",
+            "param": "@{wholeweek}.value == false",
+            "trueActions": [{
+              "actionType": "custom",
+              "param": ["this.enableControl(@{weekday});"]
+            }]
+          }]
+      } ,{
+        "colWidth": "1-2",
+        "disable": true,
+        "hidden": true,
+        "requireConfirm": false,
+        "key": "weekday",
+        "label": "逢星期",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "stacked",
+        "labelHidden": false,
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "inputStyle": "",
+        "placeHolder": "請選擇",
+        "multipleValue": true,
+        "showPlaceHolder": true,
+        "controlType": "dropdown",
+        "isAsyncOptions": false,
+        "validationStyle": "",
+        "validationClass": "",
+        "locateAtTabIndex": "0",
+        "cancelText": "取消",
+        "options": [{
+            "key": "01",
+            "desc": "一"
+          },
+          {
+            "key": "02",
+            "desc": "二"
+          },
+          {
+            "key": "03",
+            "desc": "三"
+          },
+          {
+            "key": "04",
+            "desc": "四"
+          },
+          {
+            "key": "05",
+            "desc": "五"
+          }, 
+          {
+            "key": "06",
+            "desc": "六"
+          }, 
+          {
+            "key": "07",
+            "desc": "日"
+          }
+        ],
+        "validations": [{
+          "type": "required",
+          "message": "請選取進入時間"
+        }]
+      },
+      {
+        "colWidth": "1",
+        "disable": false,
+        "hidden": false,
+        "requireConfirm": false,
+        "key": "entryTime",
+        "label": "進入時間",
+        "labelClass": "",
+        "labelStyle": "",
+        "labelPlacement": "stacked",
+        "labelHidden": false,
+        "controlClass": "",
+        "controlStyle": "",
+        "inputClass": "",
+        "inputStyle": "",
+        "placeHolder": "請選擇",
+        "multipleValue": false,
+        "showPlaceHolder": true,
+        "controlType": "dropdown",
+        "isAsyncOptions": false,
+        "validationStyle": "",
+        "validationClass": "",
+        "locateAtTabIndex": "0",
+        "cancelText": "取消",
+        "options": [{
+            "key": "01",
+            "desc": "全日"
+          },
+          {
+            "key": "02",
+            "desc": "07:00-23:00"
+          },
+          {
+            "key": "03",
+            "desc": "07:00-12:00"
+          },
+          {
+            "key": "04",
+            "desc": "12:00-18:00"
+          },
+          {
+            "key": "05",
+            "desc": "18:00-23:00"
+          }
+        ],
+        "validations": [{
+          "type": "required",
+          "message": "請選取進入時間"
+        }]
+      }
+  ]
+}

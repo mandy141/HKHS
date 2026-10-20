@@ -1,0 +1,58 @@
+<!--Theme Styled cards 2-->
+
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="onBackToHome()">
+          <ion-icon name="custom-hsHome"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content  *ngIf="isLoggedIn()"  after_loin>
+    <ion-grid no-padding *ngIf="data!=null">
+      <!--- SETTINGS PAGE1 SCREEN -->
+      <ion-row >
+        <ion-col col-12 col-lg-4 *ngFor="let item of data.news; let i= index">
+          <ion-card text-left box-shadow margin-bottom padding cursor-pointer (click)="openImage(item.image)">
+            <img *ngIf="item.image.length > 0" [src]="item.image" />
+            <ion-card-content no-padding margin-top text-wrap>
+              <span font-bold font-small ion-text color="accent">{{item.title}}
+                <ion-icon >
+                  <i class="icon {{data.fileIcon}}" *ngIf="item.openURL && item.openURL!=''"></i>
+                </ion-icon>                
+              </span>
+              <!--<div card-body-text [innerHtml]="item.desc"></div>-->
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-content  *ngIf="!isLoggedIn()">
+      <ion-grid no-padding *ngIf="data!=null">
+        <!--- SETTINGS PAGE1 SCREEN -->
+        <ion-row >
+          <ion-col col-12 col-lg-4 *ngFor="let item of data.news; let i= index">
+            <ion-card text-left box-shadow margin-bottom padding cursor-pointer (click)="openImage(item.image)">
+              <img *ngIf="item.image.length > 0" [src]="item.image" />
+              <ion-card-content no-padding margin-top text-wrap>
+                <span font-bold font-small ion-text color="accent">{{item.title}}
+                  <ion-icon >
+                    <i class="icon {{data.fileIcon}}" *ngIf="item.openURL && item.openURL!=''"></i>
+                  </ion-icon>                
+                </span>
+                <!--<div *ngIf="item.desc != " card-body-text [innerHtml]="item.desc"></div>-->
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  

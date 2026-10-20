@@ -1,0 +1,37 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [formGroup]="form">            
+    <fieldset padding-zero [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'red' : ''">   
+        <legend *ngIf="debugMode"><span class="red-color">{{inputFieldModel.key}}</span></legend>
+        <ion-grid [formGroupName]="inputFieldModel.key" padding-zero [hidden]="inputFieldModel.hidden|| isMatchCRUDModeForDisableHidden(inputFieldModel.hiddenInCRUDMode, mainFormModel.crudMode)">
+            <ion-row>                
+                <ng-container *ngFor="let fieldGroupInputFieldModel of inputFieldModel.fieldgroupFormModel.inputFieldModels">           
+                    <ion-col                         
+                        [attr.col-12]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                        [attr.col-11]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                        [attr.col-10]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                        [attr.col-9]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                        [attr.col-8]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                        [attr.col-7]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                        [attr.col-6]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_HALF? '' : null"
+                        [attr.col-5]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                        [attr.col-4]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                        [attr.col-3]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                        [attr.col-2]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                        [attr.col-1]="fieldGroupInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null"  
+                        padding-zero
+                        [hidden]="fieldGroupInputFieldModel.hidden || isMatchCRUDModeForDisableHidden(fieldGroupInputFieldModel.hiddenInCRUDMode, mainFormModel.crudMode)">
+                        <ng-container [ngSwitch]="fieldGroupInputFieldModel.controlType">                                    
+                            <label-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LABEL"  [inputFieldModel]="fieldGroupInputFieldModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></label-field-component>                   
+                            <link-button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LINK_BUTTON"  [inputFieldModel]="fieldGroupInputFieldModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></link-button-component>                   
+                            <file-upload-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FILE"  [inputFieldModel]="fieldGroupInputFieldModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></file-upload-field-component>                                                                
+                            <sub-input-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="fieldGroupInputFieldModel" [inputFormModel]="inputFieldModel.fieldgroupFormModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></sub-input-form-component>
+                            <input-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="fieldGroupInputFieldModel" [inputFormModel]="inputFieldModel.fieldgroupFormModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></input-field-group-component>
+                            <pdf-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_PDF"  [inputFieldModel]="fieldGroupInputFieldModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></pdf-viewer-field-component>                   
+                            <html-content-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_HTML"  [inputFieldModel]="fieldGroupInputFieldModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></html-content-viewer-field-component>                   
+                            <input-field-component *ngSwitchDefault [inputFieldModel]="fieldGroupInputFieldModel" [form]="form.controls[this.inputFieldModel.key]" [mainFormModel]="mainFormModel"></input-field-component>                            
+                        </ng-container>                            
+                    </ion-col>                            
+                </ng-container>                
+            </ion-row>            
+        </ion-grid>
+    </fieldset>
+</div>

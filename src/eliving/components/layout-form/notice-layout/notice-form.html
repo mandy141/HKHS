@@ -1,0 +1,60 @@
+<!-- Theme Search Bars - Field + header -->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content after_login>
+  <ion-grid no-padding>
+    <ion-row *ngIf="data != null">
+      <ion-col col-12>
+        <div background-size no-padding [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}" *ngIf=" data.headerImage != null">
+          <!--<div search-bar-bcg>
+            <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems($event)"></ion-searchbar>
+          </div>-->
+          <ion-item class= "notice_type" transparent *ngIf="datalist != null">
+            <!--<ion-label>{{data.noiticeType}}</ion-label>-->
+            <ion-select type_select [(ngModel)]="datalist.typeDesc" interface='action-sheet' (ionChange)="onType(datalist.typeDesc)" class="selector" placeholder="{{data.selectAll}}" cancelText="{{data.cancelText}}">
+              <ion-option value="all" >{{data.selectAll}}</ion-option>
+              <ion-option *ngFor="let opt of datalist" [value]="opt.typeDesc"  text-wrap>{{opt.typeDesc}}</ion-option>
+            </ion-select>
+           </ion-item>
+        </div>
+      </ion-col>
+      <!-- List -->
+      <ion-col col-12>
+        <ion-list no-margin>
+          <ion-item no-margin *ngFor="let item of data.noticeItems;" >
+            <ion-grid no-padding>
+              <ion-row>
+                <ion-col col-12 col-lg-2>
+                  <ion-badge cursor-pointer [ngStyle]="{'background-color': item.typeColor}" (click)="filterType(item.typeDesc)">
+                    {{item.typeDesc}}
+                  </ion-badge>                  
+                </ion-col>
+                <!--<ion-col col-10 cursor-pointer (click)="onItemClick(item.openURL)">-->
+                <ion-col col-12 col-lg-10 cursor-pointer (click)="onShowDtl(item)">
+                {{item.desc}} 
+                <ion-icon icon-small *ngIf="item.new == 'Y'">
+                  <i class="icon-star"></i>
+                </ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

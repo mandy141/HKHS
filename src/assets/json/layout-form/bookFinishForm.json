@@ -1,0 +1,29 @@
+{
+  "formTitle":"成功預訂",
+  "innerTitle":"",
+  "lblBookRefNo":"參考編號:00002252",
+  "lblBookDetails":"你已成功預訂桌球室 20/12/2018 09:00-10:00。請到會所付款。",
+  "shortcutItems": [{
+    "backgroundImg": "assets/images/background/0.jpg",
+    "title": "我的預訂",
+    "openForm": {
+      "key": "my-booking",
+      "title": "我的預訂",
+      "componentName": "MyBookingForm",
+      "entityName": "my-booking-layout",
+      "crudMode": "R"
+    }
+},
+{
+    "backgroundImg": "assets/images/background/1.jpg",
+    "title": "設施預訂及查詢",
+    "openForm": {
+      "key": "facility-book-page",
+      "title": "設施預訂及查詢",
+      "componentName": "FacilityBookForm",
+      "entityName": "facility-book-layout",
+      "crudMode": "R"
+    }
+}]
+  
+}

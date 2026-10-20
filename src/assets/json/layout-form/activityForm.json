@@ -1,0 +1,49 @@
+{
+  "formTitle":"活動及興趣班閱覽表",
+  "componentName":"InputFormPage",
+  "crudMode":"R",
+  "entityName": "activity-detail-input-form",
+  "pages":
+  [
+    {
+       "pageId":"activity",
+       "pageName":"活動",
+       "pageIndex":"0",
+       "pageBackgroundImage": "",
+       "records":[
+        {
+           "uniqueIdentifier": 1,
+           "title":"會所增設交易廣場服務事宜",
+           "desc": "由2012年12月17日(星期一)起，會所增設「交易廣場」服務於會所5樓，供住戶展示訊息以出售或徵求物品。有關使用條款請參閱申請表內容。",
+           "image": "assets/images/background/22.jpg"
+        }
+       ]
+    },
+    {
+      "pageId": "class",
+      "pageName": "興趣班",
+      "pageIndex": "1",
+      "pageBackgroundImage": "",
+      "records": [{
+          "uniqueIdentifier": 2,
+          "title": "跆拳道班6/10,13/10,20/10,27/10",
+          "desc": "跆拳道為韓國之國技，改良自中國北京少林。跆拳道是一種手腳並用的武術，亦是一種適合男女老幼的強身運動。",
+          "image": "assets/images/background/23.jpg"
+        },
+        {
+          "uniqueIdentifier": 3,
+          "title": "瑜伽班3/10,10/10,24/10,31/10",
+          "desc": "瑜珈運動可算是現時最流行的健體運動之一，將傳统之瑜珈技術，再配合最新之體適能概念是本課程之特色。",
+          "image": "assets/images/background/20.jpg"
+        }, {
+          "uniqueIdentifier": 4,
+          "title": "幼兒學前泳班2,9,16,23,30/10",
+          "desc": "",
+          "image": "assets/images/background/21.jpg"
+        }
+      ]
+    }
+  ]
+    
+  
+}

@@ -1,0 +1,86 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [formGroup]="form">
+    <fieldset debug-field-set-spacing [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'blue' : ''">   
+        <legend *ngIf="debugMode"><span debug-field-set-legend>{{inputFieldModel.key}}</span></legend>
+        <!-- Label -->               
+        <ion-item transparent no-lines text-wrap [hidden]="inputFieldModel.labelHidden" >               
+            <ion-label><span default-label-font [class]="inputFieldModel.labelClass" [ngStyle]="toJSONObject(inputFieldModel.labelStyle)">{{inputFieldModel.label}}</span></ion-label>                            
+        </ion-item>
+        <ul *ngIf="inputFieldModel.subFormSummaries" margin-top-zero>
+            <li *ngFor="let msg of inputFieldModel.subFormSummaries">
+                <span default-label-font>{{msg}}</span>
+            </li>            
+        </ul>
+        <div [formArrayName]="inputFieldModel.key">
+            <fieldset [style.padding]="inputFieldModel.subFormArrayBorderHidden ? '0px' : '' " [style.margin]="inputFieldModel.subFormArrayBorderHidden ? '0px' : '' " [style.border]="inputFieldModel.subFormArrayBorderHidden ? 'none' : '' " *ngFor="let inputSubFormModel of inputFieldModel.inputFormModels; let i = index" margin-botton-1rem sub-input-form-field-set>   
+                <legend [hidden]="inputFieldModel.subFormArrayBorderHidden"><span>{{inputFieldModel.subFormArrayLabel}} {{i+1}}</span></legend>     
+                <ion-grid [formGroupName]="i" [ngStyle]="toJSONObject(inputFieldModel.subFormIonGridStyle)">
+                    <ion-row>
+                        <!--<ion-col col-8>
+                            <ion-label><span default-label-font default-sub-form-array-label-style [class]="subFormArrayLabelClass" [ngStyle]="toJSONObject(subFormArrayLabelStyle)">{{inputFieldModel.subFormArrayLabel}} {{i+1}}</span></ion-label>
+                        </ion-col>-->
+                        <!--<ion-col col-12>
+                            <ion-item no-lines text-wrap transparent >
+                                <button ion-button float-right outline button-clear-outline (click)="removeSubform(i)" [disabled]="inputFieldModel.inputFormModels.length <= minSubFormArrayCnt || inputFieldModel.uiDisable || inputFieldModel.disable || isAsyncInProgress(i) || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">
+                                    <ion-icon name="close"></ion-icon>
+                                </button>
+                            </ion-item>
+                        </ion-col>-->
+                    </ion-row>
+                    <ion-row>                
+                        <ng-container *ngFor="let subFormInputFieldModel of inputSubFormModel.inputFieldModels">           
+                            <ion-col                                 
+                                [attr.col-12]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                                [attr.col-11]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                                [attr.col-10]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                                [attr.col-9]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                                [attr.col-8]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                                [attr.col-7]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                                [attr.col-6]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_HALF? '' : null"
+                                [attr.col-5]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                                [attr.col-4]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                                [attr.col-3]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                                [attr.col-2]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                                [attr.col-1]="subFormInputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null"
+                                [hidden]="subFormInputFieldModel.hidden || isMatchCRUDModeForDisableHidden(subFormInputFieldModel.hiddenInCRUDMode, mainFormModel.crudMode)"
+                                [ngStyle]="toJSONObject(inputFieldModel.subFormFieldIonColStyle)">
+                                <ng-container [ngSwitch]="subFormInputFieldModel.controlType">    
+                                    <label-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LABEL"  [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></label-field-component>                   
+                                    <link-button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LINK_BUTTON"  [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></link-button-component>                   
+                                    <file-upload-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FILE"  [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></file-upload-field-component>                                
+                                    <sub-input-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="subFormInputFieldModel" [inputFormModel]="inputSubFormModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></sub-input-form-component>                                
+                                    <input-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="subFormInputFieldModel" [inputFormModel]="inputSubFormModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></input-field-group-component>
+                                    <pdf-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_PDF" [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></pdf-viewer-field-component>                   
+                                    <html-content-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_HTML"  [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></html-content-viewer-field-component>                   
+                                    <input-field-component *ngSwitchDefault [inputFieldModel]="subFormInputFieldModel" [form]="form.controls[this.inputFieldModel.key].controls[i]" [mainFormModel]="mainFormModel"></input-field-component>                                    
+                                </ng-container>                            
+                            </ion-col>                            
+                        </ng-container>
+                        <ion-col [hidden]="inputFieldModel.btnSubFormRemoveHidden || inputSubFormModel.btnCurrentSubFormRemoveHidden"
+                            [attr.col-12]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                            [attr.col-11]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                            [attr.col-10]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                            [attr.col-9]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                            [attr.col-8]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                            [attr.col-7]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                            [attr.col-6]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_ONE_HALF? '' : null"
+                            [attr.col-5]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                            [attr.col-4]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                            [attr.col-3]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                            [attr.col-2]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                            [attr.col-1]="inputFieldModel.btnSubFormRemoveColWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null">
+                            <ion-item no-lines text-wrap transparent margin-bottom-zero>
+                                <button ion-button float-right outline button-clear-outline (click)="removeSubform(i)" [disabled]="inputSubFormModel.btnCurrentSubFormRemoveDisable || inputFieldModel.inputFormModels.length <= minSubFormArrayCnt || inputFieldModel.uiDisable || inputFieldModel.disable || isAsyncInProgress() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">
+                                    {{inputFieldModel.btnSubFormRemove}}
+                                </button>
+                            </ion-item>
+                        </ion-col>                
+                    </ion-row>            
+                </ion-grid>
+            </fieldset>
+        </div>
+        <ion-item no-lines text-wrap transparent [hidden]="inputFieldModel.btnSubFormAddHidden">
+            <button ion-button outline button-clear-outline (click)="addSubForm()" [hidden]="inputFieldModel.btnSubFormAddHidden" [disabled]="inputFieldModel.inputFormModels.length >= maxSubFormArrayCnt || inputFieldModel.uiDisable || inputFieldModel.disable || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">{{inputFieldModel.btnSubFormAdd}}</button>        
+            <!--<button ion-button float-right outline button-clear-outline (click)="removeSubform()" [hidden]="inputFieldModel.btnSubFormRemoveHidden" [disabled]="inputFieldModel.inputFormModels.length <= minSubFormArrayCnt || inputFieldModel.uiDisable || inputFieldModel.disable || isAsyncInProgress() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">{{inputFieldModel.btnSubFormRemove}}</button>--> 
+        </ion-item>
+    </fieldset> 
+</div>

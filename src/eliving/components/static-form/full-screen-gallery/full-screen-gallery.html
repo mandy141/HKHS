@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<!--Screen Gallery-->
+
+<ion-content>
+  <ion-slides #slider pager="true" [initialSlide]="index">
+    <ion-slide *ngFor="let item of data.images;">
+      <img [src]="item.image" (click)="clickImg(item.image)" (dblclick)="dblClickImg(item.image)"/>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

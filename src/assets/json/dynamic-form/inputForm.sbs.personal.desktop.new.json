@@ -1,0 +1,1647 @@
+{
+  "crudMode": "C",
+  "entityName": "sample-input-form-01",
+  "inputFormCloseButtonLabel": "關閉",
+  "inputFormInnerTitle": "",
+  "inputFormNextButtonLabel": "下一步",
+  "inputFormPrevButtonLabel": "上一步",
+  "inputFormShowTabBar": true,
+  "inputFormSubmitButtonLabel": "提交",
+  "inputFormSubmitButtonRemark": "*提交後不可修改",
+  "inputFormTitle": "房協之友",    
+  "inputFormTabs": [
+    {
+      "showTabTitle": false,
+      "tabIndex": "0",
+      "tabTitle": "活動花絮",
+      "tabTitleClass": "",
+      "tabTitleStyle": "",
+      "tabType": "input"
+    },
+    {
+      "showTabTitle": false,
+      "tabIndex": "1",
+      "tabTitle": "活動剪影",
+      "tabTitleClass": "",
+      "tabTitleStyle": "",
+      "tabType": "input"
+    }
+  ],
+  "inputFieldModels": [
+    {
+      "btnSubFormAddHidden": false,
+      "btnSubFormRemoveHidden": false,
+      "hidden": false,
+      "btnSubFormRemoveColWidth": "2-3",
+      "key": "registrants",
+      "label": "客戶資料",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "",
+      "labelHidden": true,
+      "controlType": "subformarray",
+      "subFormArrayLabel": "客戶",
+      "defaultSubFormArrayCnt": "1",
+      "minSubFormArrayCnt": "1",
+      "maxSubFormArrayCnt": "4",
+      "btnSubFormAdd": "新增",
+      "btnSubFormRemove": "移除",
+      "colWidth": "1",
+      "locateAtTabIndex": "0",
+      "requireConfirm": true,
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1",
+        "valueWidth": "1"
+      },
+      "subFormArrayCntChangeListenFields": [
+        "idNo"
+      ],
+      "disable": false,
+      "templateinputFieldModels": [
+        {
+          "colWidth": "1-3",
+          "disable": false,
+          "key": "title",
+          "label": "稱呼",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "",
+          "placeHolder": "請選擇",
+          "showPlaceHolder": true,
+          "controlType": "dropdown",
+          "isAsyncOptions": false,
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "cancelText": "取消",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+            "width": "1-2",
+            "labelWidth": "1-3",
+            "valueWidth": "2-3"
+          },
+          "options": [
+            {
+              "key": "1",
+              "desc": "先生"
+            },
+            {
+              "key": "2",
+              "desc": "女士"
+            }
+          ],
+          "validations": [
+            {
+              "type": "required",
+              "message": "請選取稱呼"
+            }
+          ]
+        },
+        {
+          "colWidth": "2-3",
+          "disable": false,
+          "key": "name",
+          "label": "姓名",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "",
+          "controlType": "textbox",
+          "textInputType": "",
+          "textInputUpperCase": true,
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabel": "",
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+            "width": "1-2",
+            "labelWidth": "1-3",
+            "valueWidth": "2-3"
+          },
+          "validations": [
+            {
+              "type": "pattern",
+              "param": [
+                "^.{2,50}$"
+              ],
+              "message": "姓名必須2至50字"
+            },
+            {
+              "type": "required",
+              "message": "請輸入姓名"
+            }
+          ]
+        },
+        {
+          "colWidth": "1-3",
+          "inputStyle": "{\"margin-top\": \"30px\"}",
+          "disable": false,
+          "key": "idType",
+          "label": "證件類型",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "placeHolder": "請選擇",
+          "showPlaceHolder": true,
+          "controlType": "dropdown",
+          "isAsyncOptions": false,
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "cancelText": "取消",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+            "width": "1-2",
+            "labelWidth": "1-3",
+            "valueWidth": "2-3"
+          },
+          "options": [
+            {
+              "key": "01",
+              "desc": "香港身份證"
+            },
+            {
+              "key": "02",
+              "desc": "其他證件類型"
+            }
+          ],
+          "defValue": "01",
+          "validations": [
+            {
+              "type": "required",
+              "message": "請選取證件類型"
+            }
+          ]
+        },
+        {
+          "colWidth": "2-3",
+          "disable": false,
+          "confirmLabel": "證件號碼",
+          "key": "idNo",
+          "label": "證件號碼(如輸入香港身份證號碼，而你的香港身份證號碼是 A123456(7)，請輸入 A1234567 )",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "",
+          "controlType": "textbox",
+          "textInputType": "",
+          "textInputUpperCase": true,
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+            "width": "1-2",
+            "labelWidth": "1-3",
+            "valueWidth": "2-3"
+          },
+          "validations": [
+            {
+              "type": "customvalidationrule",
+              "custValidationRules": [
+                {
+                  "validationRule": "@{idType}.value == '01' && @{idNo}.value != '' && !IsHKID(@{idNo}.value)",
+                  "message": "香港身份證號碼不正確"
+                },
+                {
+                  "validationRule": "this.checkSubFormDuplicate(@{parent.registrants},['idNo'])",
+                  "message": "證件號碼不能重覆"
+                }
+              ],
+              "param": [
+                "idType"
+              ]
+            },
+            {
+              "type": "pattern",
+              "param": [
+                "^[a-zA-Z0-9]{5,30}$"
+              ],
+              "message": "證件號碼不能輸入符號及必須5至30字"
+            },
+            {
+              "type": "required",
+              "message": "請輸入證件號碼"
+            }
+          ]
+        },
+        {
+          "colWidth": "1-3",
+          "disable": false,
+          "key": "mobile",
+          "label": "手提電話",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "",
+          "controlType": "textbox",
+          "textInputType": "",
+          "textInputUpperCase": true,
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabel": "",
+          "confirmLabelClass": "",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+            "width": "1-2",
+            "labelWidth": "1-3",
+            "valueWidth": "2-3"
+          },
+          "validations": [
+            {
+              "type": "pattern",
+              "param": [
+                "^[0-9]{8,20}$"
+              ],
+              "message": "電話號碼格式不正確"
+            },
+            {
+              "type": "required",
+              "message": "請輸入手提電話"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "colWidth": "1",
+      "disable": false,
+      "hidden": false,
+      "key": "agencyTerms",
+      "label": "請說明本「購樓意向登記」的登記人或組成登記人的任何人士，當中是否有持有由地產代理監管局根據地產代理條例(第511章)批出的牌照的人士及\/或公司，而有關人士及\/或公司是有參予發展項目的一手住宅物業的銷售及\/或購買事宜：",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "",
+      "showPlaceHolder": false,
+      "controlType": "radio",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "0",
+      "requireConfirm": true,
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1",
+        "valueWidth": "1"
+      },
+      "options": [
+        {
+          "key": "Y",
+          "contents" : [{"desc": "是"}]            
+        },
+        {
+          "key": "N",
+          "contents" : [{"desc": "否"}]     
+        }
+      ],
+      "validations": [
+        {
+          "type": "required",
+          "message": "請說明本「購樓意向登記」的登記人或組成登記人的任何人士，當中是否有持有由地產代理監管局根據地產代理條例(第511章)批出的牌照的人士及\/或公司，而有關人士及\/或公司是有參予發展項目的一手住宅物業的銷售及\/或購買事宜"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-2",
+      "disable": false,
+      "hidden": false,
+      "key": "contactName",
+      "label": "聯絡人名稱",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "controlType": "textbox",
+      "textInputType": "",
+      "textInputUpperCase": true,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "0",
+      "requireConfirm": true,
+      "confirmLabel": "",
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1-6",
+        "valueWidth": "5-6"
+      },
+      "validations": [
+        {
+          "type": "pattern",
+          "param": [
+            "^.{2,50}$"
+          ],
+          "message": "聯絡人名稱必須2至50字"
+        },
+        {
+          "type": "required",
+          "message": "請輸入聯絡人名稱"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-6",
+      "disable": false,
+      "hidden": false,
+      "key": "contactMobileCountryCode",
+      "label": "區碼",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "controlType": "textbox",
+      "textInputType": "",
+      "textInputUpperCase": true,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "0",
+      "requireConfirm": true,
+      "confirmLabel": "",
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1-4",
+        "labelWidth": "1-2",
+        "valueWidth": "1-2"
+      },
+      "defValue": "852",
+      "validations": [
+        {
+          "type": "pattern",
+          "param": [
+            "^[0-9]{1,10}$"
+          ],
+          "message": "區碼格式不正確"
+        },
+        {
+          "type": "required",
+          "message": "請輸入區碼"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-3",
+      "disable": false,
+      "hidden": false,
+      "key": "contactMobile",
+      "label": "聯絡電話",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "controlType": "textbox",
+      "textInputType": "",
+      "textInputUpperCase": true,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "0",
+      "requireConfirm": true,
+      "confirmLabel": "",
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "3-4",
+        "labelWidth": "1-3",
+        "valueWidth": "2-3"
+      },
+      "validations": [
+        {
+          "type": "pattern",
+          "param": [
+            "^[0-9]{8,20}$"
+          ],
+          "message": "電話號碼格式不正確"
+        },
+        {
+          "type": "required",
+          "message": "請輸入聯絡電話"
+        }
+      ]
+    },
+    {
+      "colWidth": "1",
+      "hidden": false,
+      "key": "option02",
+      "label": "意欲購買的指名住宅物業數目",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "",
+      "labelHidden": false,
+      "disable": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "",
+      "showPlaceHolder": false,
+      "controlType": "radio",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "1",
+      "requireConfirm": true,
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1",
+        "valueWidth": "1"
+      },
+      "options": [
+        {
+          "key": "01",
+          "contents" : [{"desc": "1個"}]
+        },
+        {
+          "key": "02",
+          "contents" : [{"desc": "2個"}]
+        },
+        {
+          "key": "03",
+          "contents" : [{"desc": "3個"}]
+        }
+      ],
+      "validations": [
+        {
+          "type": "required",
+          "message": "請選取 意欲購買的指名住宅物業數目"
+        }
+      ]
+    },
+    {
+      "colWidth": "1",
+      "hidden": false,
+      "key": "option03",
+      "label": "2-意欲購買的戶型",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "",
+      "labelHidden": false,
+      "disable": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "",
+      "showPlaceHolder": false,
+      "controlType": "radio",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "1",
+      "requireConfirm": true,
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1",
+        "valueWidth": "1"
+      },
+      "options": [
+        {
+          "key": "01",
+          "contents" : [{"desc": "2-兩房"}]
+        },
+        {
+          "key": "02",
+          "contents" : [{"desc": "2-三房"}]
+        }
+      ],
+      "validations": [
+        {
+          "type": "required",
+          "message": "請選取 2-意欲購買的戶型"
+        }
+      ]
+    },
+    {
+      "colWidth": "1",
+      "hidden": false,
+      "key": "option03_remark",
+      "controlType": "label",
+      "label": "2-註：登記人意欲購買之戶型資料只供賣方作統計之用。登記人注明意欲購買之戶型並不構成任何要約，亦不影響登記人揀選住宅物業的優先次序。登記人並非必須購買及賣方並不保證登記人必定可購得該戶型之住宅物業。",
+      "locateAtTabIndex": "1",
+      "requireConfirm": true,
+      "disable": false
+    },
+    {
+      "colWidth": "1",
+      "disable": false,
+      "hidden": false,
+      "key": "byAgency",
+      "label": "我\/我們現委托以下地產代理代表本人\/吾等遞交\/修改\/重新申請本購樓意向登記。",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "",
+      "showPlaceHolder": false,
+      "controlType": "radio",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "2",
+      "requireConfirm": true,
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "5-6",
+        "valueWidth": "1-6"
+      },
+      "options": [
+        {
+          "key": "Y",
+          "contents" : [{"desc": "是"}]    
+        },
+        {
+          "key": "N",
+          "contents" : [{"desc": "否"}]    
+        }
+      ],
+      "defValue": "Y",
+      "validations": [
+        {
+          "type": "required",
+          "message": "請說明是否委托地產代理。"
+        }
+      ],
+      "valueChangeEvents": [
+        {
+          "type": "rule",
+          "param": "@{byAgency}.value == 'Y'",
+          "trueActions": [
+            {
+              "actionType": "custom",
+              "param": [
+                "this.enableControl(@{agency});this.enableControl(@{agencyDistict});this.enableControl(@{agencySubDistrict});this.enableControl(@{agentName});this.enableControl(@{agentPhone});this.enableControl(@{agentLisenceNo});@{agency}['fieldModel'].requireConfirm = true;@{agencyDistict}['fieldModel'].requireConfirm = true;@{agencySubDistrict}['fieldModel'].requireConfirm = true;@{agentName}['fieldModel'].requireConfirm = true;@{agentPhone}['fieldModel'].requireConfirm = true;@{agentLisenceNo}['fieldModel'].requireConfirm = true;"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rule",
+          "param": "@{byAgency}.value == 'N'",
+          "trueActions": [
+            {
+              "actionType": "custom",
+              "param": [
+                "this.disableControl(@{agency});this.disableControl(@{agencyDistict});this.disableControl(@{agencySubDistrict});this.disableControl(@{agentName});this.disableControl(@{agentPhone});this.disableControl(@{agentLisenceNo});@{agency}['fieldModel'].requireConfirm = false;@{agencyDistict}['fieldModel'].requireConfirm = false;@{agencySubDistrict}['fieldModel'].requireConfirm = false;@{agentName}['fieldModel'].requireConfirm = false;@{agentPhone}['fieldModel'].requireConfirm = false;@{agentLisenceNo}['fieldModel'].requireConfirm = false;"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "colWidth": "1",
+      "disable": false,
+      "hidden": false,
+      "requireConfirm": true,
+      "key": "agency",
+      "label": "地產代理公司",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "請選擇",
+      "showPlaceHolder": true,
+      "controlType": "dropdown",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "2",
+      "confirmLabelClass": "",
+      "cancelText": "取消",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1-3",
+        "valueWidth": "2-3"
+      },
+      "options": [
+        {
+          "key": "0003",
+          "desc": "中原地產代理有限公司"
+        },
+        {
+          "key": "0282",
+          "desc": "世紀21集團有限公司"
+        },
+        {
+          "key": "0019",
+          "desc": "香港置業(地產代理)有限公司"
+        },
+        {
+          "key": "0002",
+          "desc": "美聯物業"
+        },
+        {
+          "key": "0001",
+          "desc": "利嘉閣地產"
+        },
+        {
+          "key": "9999",
+          "desc": "Other"
+        },
+        {
+          "key": "0286",
+          "desc": "云房網絡(香港)代理有限公司"
+        },
+        {
+          "key": "0260",
+          "desc": "香港(國際)地產商會有限公司"
+        },
+        {
+          "key": "0262",
+          "desc": "香港地產代理商總會有限公司"
+        },
+        {
+          "key": "0135",
+          "desc": "置業18物業代理有限公司"
+        }
+      ],
+      "validations": [
+        {
+          "type": "required",
+          "message": "請選取地產代理公司"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-2",
+      "disable": false,
+      "hidden": false,
+      "requireConfirm": true,
+      "key": "agencyDistict",
+      "label": "主要地區",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "請選擇",
+      "showPlaceHolder": true,
+      "controlType": "dropdown",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "2",
+      "confirmLabelClass": "",
+      "cancelText": "取消",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1-3",
+        "valueWidth": "2-3"
+      },
+      "options": [
+        {
+          "key": "HK",
+          "desc": "香港"
+        },
+        {
+          "key": "KLN",
+          "desc": "九龍"
+        },
+        {
+          "key": "NT",
+          "desc": "新界"
+        },
+        {
+          "key": "OTHERS",
+          "desc": "其他"
+        },
+        {
+          "key": "OVERSEAS",
+          "desc": "海外"
+        },
+        {
+          "key": "CHI",
+          "desc": "中國"
+        }
+      ],
+      "validations": [
+        {
+          "type": "required",
+          "message": "請選取主要地區"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-2",
+      "refControlKey": "agencyDistict",
+      "disable": false,
+      "hidden": false,
+      "requireConfirm": true,
+      "key": "agencySubDistrict",
+      "label": "地區",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "請選擇",
+      "showPlaceHolder": true,
+      "controlType": "dropdown",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "2",
+      "confirmLabelClass": "",
+      "cancelText": "取消",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1-3",
+        "valueWidth": "2-3"
+      },
+      "options": [
+        {
+          "key": "9",
+          "desc": "香港仔",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "113",
+          "desc": "金鐘",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "10",
+          "desc": "鴨利洲",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "59",
+          "desc": "畢架山",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "85",
+          "desc": "寶馬山",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "24",
+          "desc": "銅鑼灣",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "22",
+          "desc": "中環",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "8",
+          "desc": "柴灣",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "107",
+          "desc": "長洲",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "47",
+          "desc": "長沙灣",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "990",
+          "desc": "中國",
+          "refControlValue": "CHI"
+        },
+        {
+          "key": "52",
+          "desc": "彩虹",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "65",
+          "desc": "清水灣",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "53",
+          "desc": "鑽石山",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "83",
+          "desc": "愉景灣",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "74",
+          "desc": "錦繡花園",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "77",
+          "desc": "粉嶺",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "81",
+          "desc": "火炭",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "86",
+          "desc": "炮台山",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "29",
+          "desc": "跑馬地",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "6",
+          "desc": "杏花村",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "40",
+          "desc": "何文田",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "37",
+          "desc": "紅磡",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "30",
+          "desc": "渣甸山",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "45",
+          "desc": "佐敦",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "73",
+          "desc": "錦田",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "18",
+          "desc": "堅尼地城",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "102",
+          "desc": "嘉湖山莊",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "36",
+          "desc": "九龍灣",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "50",
+          "desc": "九龍城",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "58",
+          "desc": "九龍塘",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "67",
+          "desc": "葵涌",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "96",
+          "desc": "葵芳",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "97",
+          "desc": "葵興",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "31",
+          "desc": "觀塘",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "48",
+          "desc": "荔枝角",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "98",
+          "desc": "荔景",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "33",
+          "desc": "藍田",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "108",
+          "desc": "南丫島",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "109",
+          "desc": "大嶼山",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "91",
+          "desc": "李鄭屋",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "87",
+          "desc": "鯉景灣",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "62",
+          "desc": "樂富",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "105",
+          "desc": "聯和墟",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "82",
+          "desc": "馬鞍山",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "39",
+          "desc": "馬頭圍",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "112",
+          "desc": "馬灣",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "49",
+          "desc": "美孚",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "28",
+          "desc": "中半山",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "41",
+          "desc": "旺角",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "92",
+          "desc": "南昌",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "57",
+          "desc": "牛池灣",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "35",
+          "desc": "牛頭角",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "1",
+          "desc": "北角",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "998",
+          "desc": "其他",
+          "refControlValue": "OTHERS"
+        },
+        {
+          "key": "999",
+          "desc": "非本地",
+          "refControlValue": "OVERSEAS"
+        },
+        {
+          "key": "93",
+          "desc": "白田",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "103",
+          "desc": "八鄉",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "110",
+          "desc": "坪洲",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "12",
+          "desc": "薄扶林",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "2",
+          "desc": "鰂魚涌",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "14",
+          "desc": "淺水灣",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "64",
+          "desc": "西貢",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "111",
+          "desc": "西環",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "4",
+          "desc": "西灣河",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "19",
+          "desc": "西營盤",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "51",
+          "desc": "新蒲崗",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "34",
+          "desc": "秀茂坪",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "75",
+          "desc": "沙頭角",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "80",
+          "desc": "沙田",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "46",
+          "desc": "深水?",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "69",
+          "desc": "深井",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "104",
+          "desc": "十八鄉",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "5",
+          "desc": "筲箕灣",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "61",
+          "desc": "石硤尾",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "17",
+          "desc": "石澳",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "88",
+          "desc": "石排灣",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "20",
+          "desc": "石瑭咀",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "78",
+          "desc": "上水",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "21",
+          "desc": "上環",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "89",
+          "desc": "壽臣山",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "7",
+          "desc": "小西灣",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "94",
+          "desc": "蘇屋",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "15",
+          "desc": "赤柱",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "106",
+          "desc": "打鼓嶺",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "25",
+          "desc": "大坑",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "95",
+          "desc": "大坑東",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "42",
+          "desc": "大角咀",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "101",
+          "desc": "大欖涌",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "76",
+          "desc": "大埔",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "16",
+          "desc": "大潭",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "79",
+          "desc": "大圍",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "99",
+          "desc": "大窩口",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "3",
+          "desc": "太古城",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "27",
+          "desc": "山頂",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "26",
+          "desc": "天后",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "71",
+          "desc": "天水圍",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "38",
+          "desc": "土瓜灣",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "63",
+          "desc": "將軍澳",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "44",
+          "desc": "尖沙咀",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "100",
+          "desc": "青龍頭",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "68",
+          "desc": "青衣",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "66",
+          "desc": "荃灣",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "55",
+          "desc": "慈雲山",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "70",
+          "desc": "屯門",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "84",
+          "desc": "東涌",
+          "refControlValue": "NT"
+        },
+        {
+          "key": "13",
+          "desc": "華富",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "23",
+          "desc": "灣仔",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "54",
+          "desc": "圍頭磡",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "11",
+          "desc": "黃竹坑",
+          "refControlValue": "HK"
+        },
+        {
+          "key": "56",
+          "desc": "黃大仙",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "43",
+          "desc": "油麻地",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "32",
+          "desc": "油塘",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "60",
+          "desc": "又一村",
+          "refControlValue": "KLN"
+        },
+        {
+          "key": "72",
+          "desc": "元朗",
+          "refControlValue": "NT"
+        }
+      ],
+      "validations": [
+        {
+          "type": "required",
+          "message": "請選取地區"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-2",
+      "disable": false,
+      "hidden": false,
+      "requireConfirm": true,
+      "key": "agentName",
+      "label": "營業員名稱",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "controlType": "textbox",
+      "textInputType": "",
+      "textInputUpperCase": true,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "2",
+      "confirmLabel": "",
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1-3",
+        "valueWidth": "2-3"
+      },
+      "validations": [
+        {
+          "type": "pattern",
+          "param": [
+            "^.{2,50}$"
+          ],
+          "message": "營業員名稱必須2至50字"
+        },
+        {
+          "type": "required",
+          "message": "請輸入營業員名稱"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-2",
+      "disable": false,
+      "hidden": false,
+      "requireConfirm": true,
+      "key": "agentPhone",
+      "label": "營業員聯絡電話",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "controlType": "textbox",
+      "textInputType": "",
+      "textInputUpperCase": true,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "2",
+      "confirmLabel": "",
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1-3",
+        "valueWidth": "2-3"
+      },
+      "validations": [
+        {
+          "type": "pattern",
+          "param": [
+            "^[0-9]{8,20}$"
+          ],
+          "message": "電話號碼格式不正確"
+        },
+        {
+          "type": "required",
+          "message": "請輸入營業員聯絡電話"
+        }
+      ]
+    },
+    {
+      "colWidth": "1-2",
+      "disable": false,
+      "hidden": false,
+      "requireConfirm": true,
+      "key": "agentLisenceNo",
+      "label": "代理牌照號碼",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "stacked",
+      "labelHidden": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "controlType": "textbox",
+      "textInputType": "",
+      "textInputUpperCase": true,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "2",
+      "confirmLabel": "",
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "1-3",
+        "valueWidth": "2-3"
+      },
+      "validations": [
+        {
+          "type": "pattern",
+          "param": [
+            "^.{6,20}$"
+          ],
+          "message": "代理牌照號碼必須6至20字"
+        },
+        {
+          "type": "required",
+          "message": "請輸入代理牌照號碼"
+        }
+      ]
+    },
+    {
+      "linkClickAction": "window.open('{{HOST}}\/BLFW_BASE\/production\/dnld_blob_object.php?defn_cd=PRIVACY&lang=CHI&platform=DESKTOP&download_token=AQAAABa0oG57wpTzqT8c3YPzqR9HnHnAhyld-uYHk2aWm5wHm8GDPgDfHW9KaYzQVgp2ZbZhsolvNzzt2DEfjqgS-HB_lZqMa5WY6I-BpCjQ_ZB4Oex3Ipp-ptD5j2SYdNFhWeEeiLX7Rlo2G-ffU0RdRQLWZ6XQMMpnYlfRYIy3MhY44_JT23eV5MhTXxmTQeHrsubOo7UlxBbHwLqn8vDShx6afI4r1aAicT5sfh36Tn8nh_qCx2ywCwLRJPMFedn5dRbAs5p1d1iXwRaRJYaZD7U_1k-zNDfwjnw0gHjo-rLyMLeDaGp6NaCAHA6OIRvbq4x2x6jOZG6dXKI9i4aw6jqvEIMqOYVeYgqoPP5cSidB9wbZIEH8J6n600F75NOuwNC7NM_0H-MeeEJMqdPdAX40Kng60iEpk87rnBFmxGE5gBxzg1jUua1SYgmebUeLru0oHs5jKelnBcB1b74uob1Z3DpWFM0F9-S3wueR2MXReVBAdz79cYzVPbSVFA4p6f1B-K2g-ac4YVKcDrFzxzQuyjcDFTgNWiWhPbO2Vli_6t-VC4GJNrzJp6I9_dseHkbYo6eLktHQuOE0GooNgW0oJFbXmDR6iQ==','_system')",
+      "linkIcon": "icon-file-pdf",
+      "colWidth": "1",
+      "hidden": false,
+      "key": "privacyLink",
+      "controlType": "linkbutton",
+      "controlStyle": "",
+      "label": "請按此連結查閱客户推廣及個人資料(私隱)條例的通知",
+      "locateAtTabIndex": "3",
+      "requireConfirm": false,
+      "disable": false
+    },
+    {
+      "colWidth": "1",
+      "hidden": false,
+      "key": "privacyTermsCheck",
+      "label": "本人\/吾等反對使用本人\/吾等的個人資料於擬作出的直接促銷。",
+      "labelClass": "",
+      "labelStyle": "",
+      "labelPlacement": "",
+      "labelHidden": false,
+      "disable": false,
+      "controlClass": "",
+      "controlStyle": "",
+      "inputClass": "",
+      "inputStyle": "",
+      "placeHolder": "",
+      "showPlaceHolder": false,
+      "controlType": "radio",
+      "isAsyncOptions": false,
+      "validationStyle": "",
+      "validationClass": "",
+      "locateAtTabIndex": "3",
+      "requireConfirm": true,
+      "confirmLabelClass": "",
+      "confirmLabelStyle": "",
+      "confirmValueClass": "",
+      "confirmValueStyle": "",
+      "confirmColWidth": {
+        "width": "1",
+        "labelWidth": "5-6",
+        "valueWidth": "1-6"
+      },
+      "options": [
+        {
+          "key": "Y",
+          "contents" : [{"desc": "是"}]    
+        },
+        {
+          "key": "N",
+          "contents" : [{"desc": "否"}]
+        }
+      ],
+      "validations": [
+        {
+          "type": "required",
+          "message": "請說明是否反對使用你的個人資料於擬作出的直接促銷。"
+        }
+      ]
+    }
+  ]
+}

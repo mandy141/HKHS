@@ -1,0 +1,88 @@
+/*  # Themes Small item + header
+================================================*/
+floor-plan-layout {
+  [after_loin]
+  {
+    background: none;
+    //background-color: #EFEFEF !important;
+    background-color: theme-colors('mainColors', 'form') !important;;
+
+  }
+
+  .item-md ion-avatar img, .item-md ion-avatar ion-img
+  {
+    border-radius: 10%;
+  }
+
+  ion-avatar, ion-thumbnail {
+    -webkit-filter: none;
+    filter: none;
+  }
+
+  .fade-in-left-item {
+    -webkit-animation: fadeInLeft 800ms;
+    -moz-animation: fadeInLeft 800ms;
+    -o-animation: fadeInLeft 800ms;
+    animation: fadeInLeft 800ms;
+  }
+  
+  ion-list-header {
+    [header-subtitle] {
+      margin-left: 15px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .item-inner {
+      margin-left: 0 !important;
+    }
+
+    .label-ios,
+    .label-md {
+      margin: 25px 8px 15px 0;
+    }
+
+    [social] {
+      margin-top: 7px;
+    }
+  }
+
+  [item-title]
+  {
+    color: theme-colors('textColors', 'accent-first') !important;
+  }
+
+  [item-title_after_loin]
+  {
+    color: theme-colors('textColors', 'dark') !important;
+  }
+
+  
+  [header-subtitle],
+  [header-title] {
+    color: theme-colors('textColors', 'accent-first') !important;
+    margin-left: 15px;
+  }
+
+  ion-item-options {
+    border-bottom: 1px solid transparent !important;
+  }
+
+  ion-item {
+    margin-left: 15px ;
+    border-bottom: 1px solid rgb(222, 222, 222) !important;   
+    align-items: center;
+  }
+
+  ion-list
+  {
+    align-items: center !important;
+  }
+
+  .grid{
+    max-width: 800px;  
+  }
+  
+
+  
+}

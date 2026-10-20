@@ -1,0 +1,231 @@
+<ion-split-pane when="md" [ngClass]="theme">
+  <ion-menu [content]="content">
+    <!--<ion-header header-background-image [ngStyle]="menuHeaderStyle">-->
+      <ion-header header-background-image >
+        <ion-thumbnail cursor-pointer (click)="navToHomePage()">
+            <img *ngIf="configSrv.CURRENT_MENU_MODEL && configSrv.CURRENT_MENU_MODEL.appMenuHeaderImgPath" [src]="configSrv.CURRENT_MENU_MODEL.appMenuHeaderImgPath">
+        </ion-thumbnail>
+        <h2 welcome_text item-title text-center>{{configSrv.CURRENT_MENU_MODEL.welcomeMessage}}</h2>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>              
+              <ion-buttons left *ngIf="configSrv.CURRENT_MENU_MODEL && configSrv.CURRENT_MENU_MODEL.showNotificationShortCut">
+                  <button ion-button outline notification-button small (click)="pushNotiPage()">
+                    <ion-icon name="notifications"></ion-icon>
+                    <ion-badge>{{configSrv.CURRENT_MENU_MODEL.unreadNotificationCnt}}</ion-badge>
+                  </button>
+              </ion-buttons>       
+            </ion-col>
+            <ion-col col-8>
+              <ion-buttons right *ngIf="configSrv.CURRENT_MENU_MODEL">
+                <button right ion-button outline lang-button small (click)="changeLang(ConstantAttributes.LANG_ENG)" [attr.current-lang-button]="currentLang == ConstantAttributes.LANG_ENG? '' : null">ENG</button>
+                <button right ion-button outline lang-button small (click)="changeLang(ConstantAttributes.LANG_CHI)" [attr.current-lang-button]="currentLang == ConstantAttributes.LANG_CHI? '' : null">中文</button>
+              </ion-buttons>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-header>
+  
+    <ion-content main-menu>      
+      <ion-list no-margin no-padding *ngIf="configSrv.CURRENT_MENU_MODEL">
+        <ng-container *ngFor="let p of configSrv.CURRENT_MENU_MODEL.forms">
+          <button *ngIf="p.componentName" ion-item item-title no-lines text-wrap menu-text-align-left (click)="menuItemClick(p)">
+              <ion-icon icon-small item-left>
+                <i class="icon {{p.icon}}"></i>
+              </ion-icon>
+              <span [class]="isActive(p)">{{p.title}}</span>
+              <ion-badge item-end *ngIf="showUnreadNotificationCnt(p)">{{p.unreadNotificationCnt}}</ion-badge>
+          </button>
+          <button *ngIf="p.subMenu" ion-item item-title no-lines text-wrap menu-text-align-left (click)="menuItemClick(p)">
+              <ion-icon icon-small item-left>
+                <i class="icon {{p.icon}}"></i>
+              </ion-icon>
+              {{p.title}}
+              <ion-badge item-end *ngIf="showUnreadNotificationCnt(p)">{{p.unreadNotificationCnt}}</ion-badge>      
+              <ion-icon *ngIf="!p.subMenuShown" icon-small item-right>
+                <i class="icon icon-chevron-down"></i>
+              </ion-icon>    
+              <ion-icon *ngIf="p.subMenuShown" icon-small item-right>
+                <i class="icon icon-chevron-up"></i>
+              </ion-icon>    
+          </button>
+          <ng-container *ngIf="p.subMenu && p.subMenuShown">
+              <ng-container *ngFor="let sp of p.subMenu">
+                <button *ngIf="sp.componentName" ion-item no-lines item-title text-wrap sub-menu menu-text-align-left (click)="menuItemClick(sp)">
+                  <ion-icon icon-small item-left>
+                    <i class="icon {{sp.icon}}"></i>
+                  </ion-icon>
+                  <span [class]="isActive(sp)">{{sp.title}}</span>
+                  <ion-badge item-end *ngIf="showUnreadNotificationCnt(sp)">{{sp.unreadNotificationCnt}}</ion-badge>
+                </button>   
+                <button *ngIf="sp.subMenu" ion-item text-wrap no-lines item-title sub-menu menu-text-align-left (click)="menuItemClick(sp)">
+                    <ion-icon icon-small item-left>
+                      <i class="icon {{sp.icon}}"></i>
+                    </ion-icon>
+                    {{sp.title}}
+                    <ion-badge item-end *ngIf="showUnreadNotificationCnt(sp)">{{sp.unreadNotificationCnt}}</ion-badge>
+                    <ion-icon *ngIf="!sp.subMenuShown" icon-small item-right>
+                      <i class="icon icon-chevron-down"></i>
+                    </ion-icon>    
+                    <ion-icon *ngIf="sp.subMenuShown" icon-small item-right>
+                      <i class="icon icon-chevron-up"></i>
+                    </ion-icon>                       
+                </button>  
+                <ng-container *ngIf="sp.subMenu && sp.subMenuShown">
+                    <ng-container *ngFor="let ssp of sp.subMenu">
+                      <button *ngIf="ssp.componentName" ion-item no-lines text-wrap item-title sub-sub-menu menu-text-align-left (click)="menuItemClick(ssp)">
+                        <ion-icon icon-small item-left>
+                          <i class="icon {{ssp.icon}}"></i>
+                        </ion-icon>
+                        <span [class]="isActive(ssp)">{{ssp.title}}</span>
+                        <ion-badge item-end *ngIf="showUnreadNotificationCnt(ssp)">{{ssp.unreadNotificationCnt}}</ion-badge>
+                      </button>
+                    </ng-container>
+                </ng-container>
+              </ng-container>                   
+          </ng-container>          
+        </ng-container>
+      </ion-list>
+      <!--Login/Logout-->
+      <!--<ion-list no-margin no-padding *ngIf="configSrv.CURRENT_MENU_MODEL && configSrv.CURRENT_MENU_MODEL.appProjCode && configSrv.CURRENT_MENU_MODEL.appProjCode != ''">-->
+        <ion-list no-margin no-padding *ngIf="configSrv.CURRENT_MENU_MODEL && configSrv.CURRENT_MENU_MODEL.appProjCode != ''">
+          <button *ngIf="!isLoggedIn()" ion-item item-title no-lines text-wrap (click)='onLogin()'>
+              <ion-icon icon-small item-left>
+                <i class="icon custom-menuLogin"></i>
+              </ion-icon>
+              <span [class]="isActive({'key':'login-form'})">{{configSrv.CURRENT_MENU_MODEL.btnLogin}}</span>              
+          </button>
+
+          <ion-list no-margin no-padding *ngIf="!isLoggedIn() && configSrv.CURRENT_MENU_MODEL">
+            <button ion-item item-title  menu no-lines text-wrap menu-text-align-left (click)="fontMenuOpen = !fontMenuOpen">
+              <ion-icon icon-small item-left>
+                <i class="icon custom-menuSettings"></i>
+              </ion-icon>
+              {{configSrv.CURRENT_MENU_MODEL.appMenuFont}}
+              <ion-icon *ngIf="!fontMenuOpen" icon-small item-right>
+                <i class="icon icon-chevron-down"></i>
+              </ion-icon>    
+              <ion-icon *ngIf="fontMenuOpen" icon-small item-right>
+                <i class="icon icon-chevron-up"></i>
+              </ion-icon>    
+            </button>
+            <button *ngIf="fontMenuOpen" ion-item item-title sub-sub-menu no-lines text-wrap (click)='onChangeFont("1")'>
+              <span sub-sub-menu>{{configSrv.CURRENT_MENU_MODEL.appFontSizeLarge}}</span>
+            </button>
+            <button *ngIf="fontMenuOpen" ion-item item-title sub-sub-menu no-lines text-wrap (click)='onChangeFont("2")'>
+              <span sub-sub-menu>{{configSrv.CURRENT_MENU_MODEL.appFontSizeMedium}}</span>
+            </button>
+            <button *ngIf="fontMenuOpen" ion-item item-title sub-sub-menu no-lines text-wrap (click)='onChangeFont("3")'>
+              <span sub-sub-menu>{{configSrv.CURRENT_MENU_MODEL.appFontSizeSmall}}</span>
+            </button>
+           </ion-list>
+           <!--
+           <button *ngIf="!isLoggedIn()" ion-item item-title no-lines text-wrap (click)='onPayment()'>
+            <ion-icon icon-small item-left>
+              <i class="icon custom-menuPayment"></i>
+            </ion-icon>
+            <span>{{configSrv.CURRENT_MENU_MODEL.qrPaymentText}}</span>              
+          </button>
+           -->
+           <button *ngIf="!isLoggedIn()" ion-item item-title no-lines text-wrap (click)='onDisclaimer(configSrv.CURRENT_MENU_MODEL.disclaimerPDF)'>
+            <ion-icon icon-small item-left>
+              <i class="icon icon-file-document-box"></i>
+            </ion-icon>
+            <span>{{configSrv.CURRENT_MENU_MODEL.disclaimerText}}</span>              
+          </button>
+       
+          <button *ngIf="isLoggedIn()" ion-item item-title no-lines text-wrap menu-text-align-left (click)="settingMenuOpen = !settingMenuOpen">
+            <ion-icon icon-small item-left>
+              <i class="icon custom-menuSettings"></i>
+            </ion-icon>
+            {{configSrv.CURRENT_MENU_MODEL.btnSetting}}
+            <ion-icon *ngIf="!settingMenuOpen" icon-small item-right>
+              <i class="icon icon-chevron-down"></i>
+            </ion-icon>    
+            <ion-icon *ngIf="settingMenuOpen" icon-small item-right>
+              <i class="icon icon-chevron-up"></i>
+            </ion-icon>    
+          </button>
+          <!--
+          <button *ngIf="isLoggedIn() && settingMenuOpen" ion-item item-title sub-menu no-lines text-wrap (click)='onUserNameSetup()'>
+              <ion-icon icon-small item-left>
+                <i class="icon icon-key"></i>
+              </ion-icon>
+              <span [class]="isActive({'key':'user-name-setup'})">{{configSrv.CURRENT_MENU_MODEL.btnUserNameSetup}}</span>
+          </button>
+           -->
+           
+          <button *ngIf="isLoggedIn() && settingMenuOpen" ion-item item-title sub-menu no-lines text-wrap (click)='onChangePassword()'>
+              <ion-icon icon-small item-left>
+                <i class="icon icon-key"></i>
+              </ion-icon>
+              <span [class]="isActive({'key':'change-password'})">{{configSrv.CURRENT_MENU_MODEL.btnChangePassword}}</span>
+          </button>
+         
+          <button *ngIf="isLoggedIn() && settingMenuOpen" ion-item item-title sub-menu no-lines text-wrap (click)='onLogout()'>
+          <!--<button *ngIf="isLoggedIn()" ion-item item-title sub-menu no-lines text-wrap (click)='onLogout()'>-->
+              <ion-icon icon-small item-left>
+                <i class="icon icon-logout"></i>
+              </ion-icon>
+              <span>{{configSrv.CURRENT_MENU_MODEL.btnLogout}}</span>
+          </button>
+      </ion-list>
+      <ion-list no-margin no-padding *ngIf="isLoggedIn() && configSrv.CURRENT_MENU_MODEL">
+        <!--
+        <button *ngIf="isLoggedIn() && configSrv.CURRENT_MENU_MODEL.tenantFeedBackText != ''" ion-item item-title no-lines text-wrap (click)='onTenantFeedback()'>
+          <ion-icon icon-small item-left>
+            <i class="icon-md ion-md-chatboxes"></i>
+          </ion-icon>
+          <span>{{configSrv.CURRENT_MENU_MODEL.tenantFeedBackText}}</span>              
+        </button>
+        -->
+        <button *ngIf="isLoggedIn()" ion-item item-title no-lines text-wrap menu-text-align-left (click)="fontMenuOpen = !fontMenuOpen">
+          <ion-icon icon-small item-left>
+            <i class="icon custom-menuSettings"></i>
+          </ion-icon>
+          {{configSrv.CURRENT_MENU_MODEL.appMenuFont}}
+          <ion-icon *ngIf="!fontMenuOpen" icon-small item-right>
+            <i class="icon icon-chevron-down"></i>
+          </ion-icon>    
+          <ion-icon *ngIf="fontMenuOpen" icon-small item-right>
+            <i class="icon icon-chevron-up"></i>
+          </ion-icon>    
+        </button>
+        <button *ngIf="isLoggedIn() && fontMenuOpen" ion-item item-title sub-menu no-lines text-wrap (click)='onChangeFont("1")'>
+          <span sub-sub-menu>{{configSrv.CURRENT_MENU_MODEL.appFontSizeLarge}}</span>
+        </button>
+        <button *ngIf="isLoggedIn() && fontMenuOpen" ion-item item-title sub-menu no-lines text-wrap (click)='onChangeFont("2")'>
+          <span sub-sub-menu>{{configSrv.CURRENT_MENU_MODEL.appFontSizeMedium}}</span>
+        </button>
+        <button *ngIf="isLoggedIn() && fontMenuOpen" ion-item item-title sub-menu no-lines text-wrap (click)='onChangeFont("3")'>
+          <span sub-sub-menu>{{configSrv.CURRENT_MENU_MODEL.appFontSizeSmall}}</span>
+        </button>
+       </ion-list>
+       <!--<button *ngIf="isLoggedIn()" ion-item item-title no-lines text-wrap (click)='onPayment()'>
+        <ion-icon icon-small item-left>
+          <i class="icon custom-menuPayment"></i>
+        </ion-icon>
+        <span>{{configSrv.CURRENT_MENU_MODEL.qrPaymentText}}</span>              
+      </button>-->
+       <ion-list *ngIf="isLoggedIn()" no-margin no-padding >
+        <ion-item item-push>
+          <ion-icon icon-small item-left>
+            <i class="icon icon-bell"></i>
+          </ion-icon>    
+          <ion-label class="label-md">{{configSrv.CURRENT_MENU_MODEL.pushMessageText}}</ion-label>
+          <ion-toggle [(ngModel)]="varPush" (ionChange)="onChangePush(varPush)" checked="varPush"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <button *ngIf="isLoggedIn()" ion-item item-title no-lines text-wrap (click)='onDisclaimer(configSrv.CURRENT_MENU_MODEL.disclaimerPDF)'>
+        <ion-icon icon-small item-left>
+          <i class="icon icon-file-document-box"></i>
+        </ion-icon>
+        <span>{{configSrv.CURRENT_MENU_MODEL.disclaimerText}}</span>              
+      </button>
+    </ion-content>
+  
+  </ion-menu>
+  
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav #content swipeBackEnabled="false" main></ion-nav>
+</ion-split-pane>

@@ -1,0 +1,151 @@
+{
+    "formTitle":"鄰近商戶目錄",
+    "componentName": "InputFormPage",
+    "crudMode": "C",
+    "recordGroup": [{
+        "backgroundImage": "assets/images/background/22.jpg",
+        "title": "超級市場",
+        "button": "...",
+        "show":false,      
+        "records": [{
+            "shopID": "1",
+            "name": "百佳 (九龍城廣場)",
+            "address": "九龍城九龍城廣場2樓201舖",
+            "phone": "2718-1173",
+            "height": "77"
+          },
+          {
+            "shopID": "2",
+            "name": "百佳 (紅磡)",
+            "address": "九龍 紅磡 黃埔花園第三期地下1A",
+            "phone": "2334 1426",
+            "height": "77"
+          },
+          {
+            "shopID": "3",
+            "name": "百佳 (黃 埔 花 園)",
+            "address": "九 龍 紅 磡 黃 埔 花 園 第 十 二 期 地 庫 2 號",
+            "phone": "2365-7472",
+            "height": "77"
+          }, {
+            "shopID": "4",
+            "name": "惠康 (真善美村)",
+            "address": "九龍土瓜灣真善美村志真樓地下29-37號舖",
+            "phone": "27125316",
+            "height": "77"
+          }, {
+            "shopID": "5",
+            "name": "惠康 (偉恆昌昌景閣)",
+            "address": "九龍土瓜灣道341-343號地下",
+            "phone": "2764-3175",
+            "height": "77"
+          }, {
+            "shopID": "6",
+            "name": "百佳 (馬頭涌道)",
+            "address": "九龍土瓜灣馬頭涌道90-98號福安大廈地下，4, 5A-B, 6A-B號舖",
+            "phone": "2712 0529",
+            "height": "77"
+          }, {
+            "shopID": "7",
+            "name": "百佳 (馬頭角道)",
+            "address": "九龍馬頭角道 40 號同南工業大廈地下",
+            "phone": "2760 1522",
+            "height": "77"
+          }
+          
+        ]
+      },
+      {
+        "backgroundImage": "assets/images/background/23.jpg",
+        "title": "銀行",
+        "button": "...",
+        "show": false,      
+        "records": [{
+            "shopID": "8",
+            "name": "恆生 (土 瓜 灣 分 行)",
+            "address": "土 瓜 灣 道 3 3 號",
+            "phone": "2822 0228",
+            "height": "77"
+          },
+          {
+            "shopID": "9",
+            "name": "東亞 (馬 頭 圍 道 分 行)",
+            "address": "馬 頭 圍 道 23 至 27 號",
+            "phone": "2362 6715",
+            "height": "77"
+          },
+          {
+            "shopID": "10",
+            "name": "中國工商銀行 (木廠街分行)",
+            "address": "九龍土瓜灣木廠街12-14號",
+            "phone": "2714 5151",
+            "height": "77"
+          },
+          {
+            "shopID": "11",
+            "name": "匯豐 (土瓜灣分行)",
+            "address": "九龍土瓜灣炮仗街142-144A ",
+            "phone": "2748 3322",
+            "height": "77"
+          } 
+        ]
+      },
+      {
+        "backgroundImage": "assets/images/background/23.jpg",
+        "title": "美食指南",
+        "button": "...",
+        "show": false,      
+        "records": [{
+            "shopID": "12",
+            "name": "麵麵棧",
+            "address": "土瓜灣馬頭角道28號金都豪苑13號地下",
+            "phone": "2715 2812",
+            "height": "77"
+          },
+          {
+            "shopID": "13",
+            "name": "紅茶館",
+            "address": "土瓜灣宋皇臺道14-18號 ",
+            "phone": "2768 7211",
+            "height": "77"
+          },
+          {
+            "shopID": "14",
+            "name": "鬍鬚安火鍋茶館",
+            "address": "土瓜灣北帝街105號地下 ",
+            "phone": "2762 7870",
+            "height": "77"
+          } ,
+          {
+            "shopID": "15",
+            "name": "百味軒餐廳小廚",
+            "address": "土瓜灣北帝街107-111福祥大廈地下 ",
+            "phone": "2715 6066",
+            "height": "77"
+          },
+          {
+            "shopID": "16",
+            "name": "創韾廚藝",
+            "address": "土瓜灣馬頭角道33號欣榮花園地下10號舖 ",
+            "phone": "2712 4858",
+            "height": "77"
+          },
+          {
+            "shopID": "17",
+            "name": "大漠",
+            "address": "土瓜灣北帝街27C地下 ",
+            "phone": "2714 4483",
+            "height": "77"
+          },
+          {
+            "shopID": "18",
+            "name": "粥家莊",
+            "address": "土瓜灣北帝街40號地下 ",
+            "phone": "2712 3219",
+            "height": "77"
+          }
+          
+        ]
+      }
+    ]
+  }

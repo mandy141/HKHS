@@ -1,0 +1,236 @@
+{
+  "formTitle":"設施預訂及查詢",
+  "componentName": "InputFormPage",
+  "crudMode": "C",
+  "selectAll": "所有會所",
+  "cancelText": "返回",
+  "clubType": "會所",
+  "facilityGroup": [{
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/01.jpg",
+      "title": "健康舞室",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "健康舞室 (全房) 星期一至五",
+          "uniqueIdentifier": "TENNIS1",
+          "entityName": "facility-book-input-form"
+        },
+        {
+          "name": "健康舞室 (全房) 六、日及公眾假期",
+          "uniqueIdentifier": "TENNIS2",
+          "entityName": "facility-book-input-form"
+        }
+        
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/02.jpg",
+      "title": "聚誼軒",
+      "button": "預訂",
+      "show": false,      
+      "facilities": [{
+          "name": "聚誼軒 1",
+          "uniqueIdentifier": 3,
+          "entityName": "facility-book-input-form"
+        },
+        {
+          "name": "聚誼軒 2",
+          "uniqueIdentifier": 4,
+          "entityName": "facility-book-input-form"
+        },
+        {
+          "name": "聚誼軒 3",
+          "uniqueIdentifier": 5,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/03.jpg",
+      "title": "羽毛球",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "羽毛球",
+          "uniqueIdentifier": 6,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/04.jpg",
+      "title": "美式桌球",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "美式桌球",
+          "uniqueIdentifier": 7,
+          "entityName": "facility-book-input-form"
+        }
+        
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/05.jpg",
+      "title": "籃球",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "籃球",
+          "uniqueIdentifier": 8,
+          "entityName": "facility-book-input-form"
+        }
+        
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/06.jpg",
+      "title": "飛標靶",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "飛標靶",
+          "uniqueIdentifier": 9,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/07.jpg",
+      "title": "多用途室",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "多用途室",
+          "uniqueIdentifier": 10,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/08.jpg",
+      "title": "手工藝室",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "手工藝室",
+          "uniqueIdentifier": 11,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/09.jpg",
+      "title": "嘗樂軒",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "嘗樂軒",
+          "uniqueIdentifier": 12,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/10.jpg",
+      "title": "Osim 按摩椅",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "Osim 按摩椅 1",
+          "uniqueIdentifier": 13,
+          "entityName": "facility-book-input-form"
+        },
+        {
+          "name": "Osim 按摩椅 2",
+          "uniqueIdentifier": 14,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/11.jpg",
+      "title": "鋼琴室",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "鋼琴室",
+          "uniqueIdentifier": 15,
+          "entityName": "facility-book-input-form"
+        },
+        {
+          "name": "鋼琴室 B",
+          "uniqueIdentifier": 16,
+          "entityName": "facility-book-input-form"
+        }
+        ,
+        {
+          "name": "鋼琴室 C",
+          "uniqueIdentifier": 17,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/12.jpg",
+      "title": "壁球",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "壁球",
+          "uniqueIdentifier": 18,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/13.jpg",
+      "title": "星宇影院",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "星宇影院  (星期一至五)",
+          "uniqueIdentifier": 19,
+          "entityName": "facility-book-input-form"
+        },
+        {
+          "name": "星宇影院 (六、日及公眾假期)",
+          "uniqueIdentifier": 20,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    },
+    {
+      "club_name": "傲雲峰會所",
+      "backgroundImage": "assets/images/facility/14.jpg",
+      "title": "乒乓球",
+      "button": "預訂",
+      "show":false,      
+      "facilities": [{
+          "name": "乒乓球室 (別有洞天)",
+          "uniqueIdentifier": 21,
+          "entityName": "facility-book-input-form"
+        },
+        {
+          "name": "乒乓球室 (壁球場)",
+          "uniqueIdentifier": 22,
+          "entityName": "facility-book-input-form"
+        }
+      ]
+    }
+    
+  ]
+}

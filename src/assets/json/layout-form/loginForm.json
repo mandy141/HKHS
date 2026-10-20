@@ -1,0 +1,20 @@
+{
+    "btnForgetPW": "忘記密碼",
+    "btnLogin": "登入",
+    "btnUserRegistration": "新用戶登記",
+    "crudMode": "R",
+    "formTitle": "登入",
+    "imglogo": "assets/ckah/hkhs_logo1.svg",
+    "lblBrowserMsg": "",
+    "lblCopyRightMsg": "",
+    "lblPassword": "密碼",
+    "lblUserName":"用戶名稱",
+    "lblUserNameMandatoryMsg" : "請輸入用戶名稱",
+    "lblPwMandatoryMsg": "請輸入密碼",
+    "loginIDType": "NAME",
+    "showNewReg": false,
+    "showBtnDisclaimer": false,
+    "lblRememberLoginPw": "記住登入名稱密碼",
+    "btnDisclaimer": "Disclaimer",
+    "disclaimerPDF": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+}

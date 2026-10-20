@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="onBackToHome()">
+          <ion-icon name="custom-hsHome"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <!--Theme Small item + header-->
+  <ion-content after_loin>
+      <ion-grid no-padding>
+          <ion-row *ngIf="data != null">
+            <ion-col col-12>
+                <div background-size no-padding [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}" *ngIf=" data.headerImage != null">
+                  <!--<div search-bar-bcg>
+                    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems($event)"></ion-searchbar>
+                  </div>-->
+                  <!--<ion-item class= "notice_type" transparent *ngIf="datalist != null">
+                    <ion-label>{{data.applictionFromType}}</ion-label>
+                    <ion-select type_select [(ngModel)]="datalist.title" interface='action-sheet' (ionChange)="onType(datalist.title)" class="selector" placeholder="{{data.selectAll}}" cancelText="{{data.cancelText}}">
+                      <ion-option value="all" >{{data.selectAll}}</ion-option>
+                      <ion-option *ngFor="let opt of datalist" [value]="opt.title"  text-wrap>{{opt.title}}</ion-option>
+                    </ion-select>
+                   </ion-item>-->
+                </div>
+            </ion-col>
+            <ion-col col-12>
+                <ion-list no-margin>
+                  <ion-item cursor-pointer *ngFor="let item of data.documents; let i= index" (click)="onItemClick(item.docURL, item.name)">
+                      <!-- Title -->
+                      <h2 item-title>{{item.name}}</h2>
+                      <!-- Subtitle -->
+                      <!--<h3 item-subtitle>{{item.month}}</h3> -->
+                      <!-- ShortDescription -->
+                      <!-- <span item-end span-small>{{item.size}}</span>-->
+                      <!-- Icon play -->
+                      <!--<ion-icon icon-medium item-end >
+                        <i class="icon {{data.fileIcon}}"></i>
+                      </ion-icon>-->
+                    </ion-item>  
+                </ion-list>
+              </ion-col>
+          </ion-row>
+        </ion-grid>
+  </ion-content>
+  

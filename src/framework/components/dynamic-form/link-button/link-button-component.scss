@@ -1,0 +1,31 @@
+link-button-component {
+    [item-spacing] {            
+        padding-bottom: 1.5rem;
+    }    
+    
+    [default-link-button-font] {
+        font-size: $h4-5-font-size;
+        color: theme-colors('textColors', 'secondary');
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    [debug-field-set-spacing] {
+        padding: 0px;
+    }
+
+    [debug-field-set-legend] {
+        color: darkgreen;
+    }
+
+    ion-item {            
+        .item-inner {
+          border-bottom-color: theme-colors('mainColors', 'accent-other') !important;
+          box-shadow: none !important;
+      }
+
+      ion-label {
+        margin: 0 !important;
+      }
+    } 
+}

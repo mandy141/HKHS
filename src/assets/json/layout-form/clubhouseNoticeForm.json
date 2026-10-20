@@ -1,0 +1,19 @@
+{
+    "formTitle": "樂得耆所",
+    "componentName":"InputFormPage",
+    "crudMode":"R",
+    "entityName": "clubhouse-notice-record-input-form",
+    "headerImage": "",
+    "selectAll": "所有類別",
+    "cancelText": "返回",
+    "noiticeType": "類別",
+    "noticeItems": [
+    {
+      "uniqueIdentifier": "1",
+      "typeColor": "red",
+      "typeDesc": "會所動向",
+      "desc": " 五月動向 (01/4/2019)",
+      "fileurl": "assets/eliving/clubhouse/ST__clubnotice_1455.jpg"
+    }
+  ]
+  }

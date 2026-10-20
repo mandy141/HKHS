@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<!--Theme Category 1 (Animals)-->
+<ion-content after_loin>
+<ion-grid no-padding *ngIf="data != null">
+  <ion-row>
+    <ion-col>
+      <div background-size no-padding [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}" *ngIf=" data.headerImage != null" > 
+        <ion-item class = "gallery_type" *ngIf="datalist != null">
+            <ion-label>{{data.clubType}}</ion-label>
+            <ion-select type_select [(ngModel)]="datalist.year" interface='action-sheet' (ionChange)="onYear(datalist.year)" class="selector" placeholder="{{data.selectAll}}" cancelText="{{data.cancelText}}">
+                <ion-option value="all" >{{data.selectAll}}</ion-option>
+              <ion-option *ngFor="let opt of datalist" [value]="opt.year"  text-wrap>{{opt.year}}</ion-option>
+            </ion-select>
+        </ion-item>
+      </div>
+    </ion-col>
+  </ion-row>
+    <ion-row no-padding>
+        <ion-col col-6 col-lg-4 *ngFor="let item of data.imageGroups; let i = index;">
+            <ion-card no-margin cursor-pointer (click)="onShowDtl(item)"
+              [ngStyle]="{'background-image': 'url(' + item.image + ')', 'background-position':'center', 'background-size': 'cover'}">
+                <div gallery-title>
+                   <!-- <p item-subtitle>{{item.noOfImage}} image(s)</p>-->
+                    <h2 item-title text-wrap>{{item.name}}</h2>                    
+                </div>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>

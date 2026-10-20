@@ -1,0 +1,95 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="onBackToHome()">
+                <ion-icon name="custom-hsHome"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<!--Content-->
+<ion-content after_login>
+    <ion-grid input-form-width *ngIf="data">
+        <ion-row>
+            <ion-col col-12>
+                <p default-title-style>{{data.innerTitle}}</p>                  
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="input-content-min-height">
+        <ion-grid *ngIf="data">
+            <ion-row>
+                <ion-col col-12 col-sm-12 col-md-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6>  
+                    <fieldset>
+                        <ion-grid>
+                            <ion-row> 
+                                <ion-col col-12 col-lg-6>                                    
+                                    <ion-buttons left-padding>
+                                        <button ion-button outline username-type-button (click)="typeUserName = ConstantAttributes.LOGIN_ID_TYPE_EMAIL" [attr.current-username-type-button]="typeUserName == ConstantAttributes.LOGIN_ID_TYPE_EMAIL? '' : null">{{data.lblEmail}}</button>
+                                        <button ion-button outline username-type-button (click)="typeUserName = ConstantAttributes.LOGIN_ID_TYPE_MOBILE" [attr.current-username-type-button]="typeUserName == ConstantAttributes.LOGIN_ID_TYPE_MOBILE? '' : null">{{data.lblMobile}}</button>
+                                    </ion-buttons>                                       
+                                </ion-col>                                                       
+                                <ion-col col-12>                                                                                         
+                                    <ion-item transparent>
+                                        <ion-label stacked >{{getlblUserName()}}</ion-label>
+                                        <ion-input required [(ngModel)]="inputUsername"></ion-input>                                        
+                                    </ion-item>                             
+                                </ion-col>                        
+                                <ion-col offset-lg-8 col-lg-4 offset-6 col-6>
+                                    <div *ngIf="data">
+                                        <button full ion-button (click)="onSubmitUsername()" [disabled]="!isAllowSubmitUsername() || !isAllowResendSMS">
+                                            {{data.btnSubmitUsername}} {{showCounter}}
+                                        </button>
+                                    </div>
+                                </ion-col>
+                                <ion-col col-12>
+                                    <ion-item no-lines transparent *ngIf="sSubmitUsernameValidationMsg" >
+                                        <p validation-label word-break>{{sSubmitUsernameValidationMsg}}</p>
+                                    </ion-item> 
+                                    <ion-item no-lines transparent *ngIf="sPasscodeSentMsg">
+                                        <h3 word-break>{{sPasscodeSentMsg}}</h3>
+                                    </ion-item>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>      
+                    </fieldset>
+                </ion-col>  
+            </ion-row>
+            <ion-row>
+                <ion-col col-12 col-sm-12 col-md-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6>  
+                    <fieldset>
+                        <ion-grid>
+                            <ion-row>                                                        
+                                <ion-col col-12>                                                            
+                                    <ion-item transparent>
+                                        <ion-label stacked>{{data.lblPasscode}}</ion-label>
+                                        <ion-input required [(ngModel)]="inputPasscode"></ion-input>                                        
+                                    </ion-item>                             
+                                </ion-col> 
+                                <ion-col offset-lg-8 col-lg-4 offset-6 col-6>
+                                    <div *ngIf="data">
+                                        <button full ion-button (click)="onSubmitPasscode()" [disabled]="!isAllowSubmitPasscode()">
+                                            {{data.btnSubmitPasscode}}
+                                        </button>
+                                    </div>
+                                </ion-col>
+                                <ion-col col-12>
+                                    <ion-item no-lines transparent *ngIf="sSubmitPasscodeValidationMsg" >
+                                        <p validation-label word-break>{{sSubmitPasscodeValidationMsg}}</p>
+                                    </ion-item> 
+                                    <ion-item no-lines transparent *ngIf="sUserNameVerifiedMsg">
+                                        <div word-break [innerHtml]="sUserNameVerifiedMsg"></div>
+                                    </ion-item>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid> 
+                    </fieldset>                                              
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

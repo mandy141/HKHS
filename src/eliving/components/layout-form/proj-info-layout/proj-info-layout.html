@@ -1,0 +1,72 @@
+<!--Theme Styled cards 2-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="custom-menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content after_login *ngIf="data != null">
+  <ion-grid padding>
+    <ion-grid>
+      <ion-row container-header-image *ngIf="data.imgBannerbgImgURL != null" [ngStyle]="{'background-image': 'url(' + data.imgBannerbgImgURL + ')', 'height':'20rem'}">
+        <ion-col col-12>
+          <div header-div text-left>
+            <h1 header-title default-label-font>{{data.formTitle}}</h1>
+            <h2 header-subtitle default-label-font></h2>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-row *ngIf="data.title != null">
+      <ion-col col-12 padding-left-right-zero>
+        <ion-item no-lines transparent default-label-font>
+          {{data.title}}
+        </ion-item> 
+      </ion-col>
+    </ion-row> 
+    <ion-row >
+      <ion-col col-12 padding-left-right-zero>
+        <ion-item no-lines transparent default-label-font>{{data.office_hours_title}}</ion-item>  
+        <ion-item no-lines transparent ><span default-label-font [innerHTML]="data.office_hours"></span></ion-item>  
+      </ion-col>
+   </ion-row>
+    <ion-row >
+      <ion-col col-12 padding-left-right-zero>       
+        <ion-item no-lines transparent><p default-label-font>{{data.tel_text}}<a default-label-font href="tel:{{data.tel}}" target="_blank">{{data.tel}}</a></p></ion-item>
+        <ion-item no-lines transparent><p default-label-font>{{data.email_text}}<a default-label-font href="mailto:{{data.email}}" target="_blank">{{data.email}}</a></p></ion-item>
+        <ion-item no-lines transparent><p default-label-font>{{data.fax_text}}{{data.fax}}</p></ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col col-12 padding-left-right-zero>
+        <ion-grid padding-left-right-zero>
+          <ion-row >
+            <ion-col col-12>
+              <iframe-field-component>
+                <div class="undefined ng-untouched ng-pristine ng-valid">
+                   <fieldset debug-field-set-spacing style="border-width: initial; border-style: none; border-image: initial;">
+                    <div style="height: 20rem;">
+                      <iframe allowfullscreen frameborder="0" map-iframe [src]="google_url">
+                      </iframe>
+                    </div>
+                  </fieldset>
+                </div>
+              </iframe-field-component>
+            </ion-col>
+          </ion-row>
+        </ion-grid>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,71 @@
+{
+    "crudMode": "R",
+    "entityName": "sample-input-form-notice-detail",
+    "inputFormCloseButtonLabel": "關閉",
+    "inputFormInnerTitle": "",
+    "inputFormNextButtonLabel": "下一步",
+    "inputFormPrevButtonLabel": "上一步",
+    "inputFormShowTabBar": false,
+    "inputFormSubmitButtonLabel": "提交",
+    "inputFormSubmitButtonRemark": "*提交後不可修改",
+    "inputFormTitle": "房協暫媛出租屋邨租金檢討",
+    "inputFormTabs" : [
+        {
+            "showTabTitle": false,
+            "tabIndex": "0",
+            "tabTitle": "Sample 01",
+            "tabTitleClass": "",
+            "tabTitleStyle": "",
+            "tabType": "confirmation"
+        }       
+    ],
+    "inputFieldModels" : [
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "lblTitle",
+            "controlType": "label",
+            "controlStyle": "",
+            "label": "房協暫媛出租屋邨租金檢討 (24/12/2019)",
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        },
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "lblTitle",
+            "controlType": "label",
+            "controlStyle": "",
+            "label": "Please find attachment",
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        },
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "image",
+            "controlType": "img",
+            "controlStyle": "",
+            "label": "",
+            "imgURL": "assets/images/background/23.jpg",
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        },
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "lblTitle",
+            "controlType": "linkbutton",
+            "controlStyle": "",
+            "linkClickAction": "this.configSrv.openURL('https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf')",
+            "label": "下載",
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        }
+        
+    ]    	
+}

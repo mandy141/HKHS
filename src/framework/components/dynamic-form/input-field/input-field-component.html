@@ -1,0 +1,145 @@
+<div *ngIf="inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_HIDDEN && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_FIELDGROUP" 
+    [formGroup]="form" [ngSwitch]="inputFieldModel.controlType" [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)"   >
+    <fieldset debug-field-set-spacing [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'darkgreen' : ''">   
+        <legend *ngIf="debugMode"><span debug-field-set-legend>{{inputFieldModel.key}}</span></legend>        
+        <ion-item transparent text-wrap 
+            [attr.no-lines]="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_CHECKBOX? '' : null"
+            [ngStyle]="toJSONObject(inputFieldModel.ionItemStyle)">        
+            <!-- Label -->                           
+            <ion-label *ngIf="inputFieldModel.labelPlacement === ConstantAttributes.LABEL_PLACEMENT_FIXED" fixed><span *ngIf="showLoadingIcon()" ><img src="assets/icon/ajax-loader.gif"/>&nbsp;</span><span [style.display]="labelDisplayStyle" default-label-font [class]="inputFieldModel.labelClass" [ngStyle]="toJSONObject(inputFieldModel.labelStyle)" >{{inputFieldModel.label}}</span> <span *ngIf="showMandatoryStar()" default-validation-color>*</span></ion-label>   
+            <ion-label *ngIf="inputFieldModel.labelPlacement === ConstantAttributes.LABEL_PLACEMENT_FLOATING" floating><span *ngIf="showLoadingIcon()"><img src="assets/icon/ajax-loader.gif"/>&nbsp;</span><span [style.display]="labelDisplayStyle" default-label-font [class]="inputFieldModel.labelClass" [ngStyle]="toJSONObject(inputFieldModel.labelStyle)" >{{inputFieldModel.label}}</span> <span *ngIf="showMandatoryStar()" default-validation-color>*</span></ion-label>   
+            <ion-label *ngIf="inputFieldModel.labelPlacement === ConstantAttributes.LABEL_PLACEMENT_STACKED" stacked><span *ngIf="showLoadingIcon()"><img src="assets/icon/ajax-loader.gif"/>&nbsp;</span><span [style.display]="labelDisplayStyle" default-label-font [class]="inputFieldModel.labelClass" [ngStyle]="toJSONObject(inputFieldModel.labelStyle)" >{{inputFieldModel.label}}</span> <span *ngIf="showMandatoryStar()" default-validation-color>*</span></ion-label>   
+            <ion-label *ngIf="inputFieldModel.labelPlacement == ''"><span *ngIf="showLoadingIcon()"><img src="assets/icon/ajax-loader.gif"/>&nbsp;</span><span [style.display]="labelDisplayStyle" default-label-font [class]="inputFieldModel.labelClass" [ngStyle]="toJSONObject(inputFieldModel.labelStyle)" >{{inputFieldModel.label}}</span> <span *ngIf="showMandatoryStar()" default-validation-color>*</span></ion-label>                                                                
+            <!-- Text Field -->
+            <ion-input *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_TEXTBOX"             
+                [formControlName]="inputFieldModel.key" 
+                [type]="inputFieldModel.textInputType"
+                [class]="inputClass" 
+                [ngStyle]="toJSONObject(inputStyle)"            
+                [placeholder]="placeHolder"
+                [disabled]="inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)"
+                [readonly]="inputFieldModel.readonly"
+                [attr.toUppercase]="inputFieldModel.textInputUpperCase? '' : null">
+            </ion-input>
+
+            <!-- Drop Down List Field -->
+            <ion-select *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_DROPDOWN" 
+                [formControlName]="inputFieldModel.key"
+                [class]="inputClass" 
+                [ngStyle]="toJSONObject(inputStyle)"            
+                [placeholder]="placeHolder"
+                interface='action-sheet'
+                [multiple]="inputFieldModel.multipleValue" 
+                [disabled]="inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)"
+                [cancelText]="cancelText"
+                text-wrap>
+                    <ng-container *ngIf="inputFieldModel.isAsyncOptions">
+                        <ng-container *ngIf="inputFieldModel.asyncOptionsModel">
+                            <ion-option *ngFor="let opt of inputFieldModel.asyncOptionsModel.options" [value]="opt.key" text-wrap>{{opt.desc}}</ion-option>
+                        </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="!inputFieldModel.isAsyncOptions">
+                        <ng-container *ngIf="refFormControl">
+                            <ng-container *ngFor="let opt of inputFieldModel.options">
+                                <ion-option *ngIf="opt.refControlValue==refFormControl.value" [value]="opt.key" text-wrap>{{opt.desc}}</ion-option>
+                            </ng-container>
+                        </ng-container>
+                        <ng-container *ngIf="!refFormControl">
+                            <ion-option *ngFor="let opt of inputFieldModel.options" [value]="opt.key" text-wrap>{{opt.desc}}</ion-option>
+                        </ng-container>        
+                    </ng-container>            
+            </ion-select>
+
+            <!-- Checkbox Field -->
+            <ion-checkbox  *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_CHECKBOX" 
+                [formControlName]="inputFieldModel.key"
+                [disabled]="inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">
+            </ion-checkbox>
+
+            <!-- Datepicker Field -->
+            <ion-datetime *ngIf="inputFieldModel.controlType === ConstantAttributes.CONTROL_TYPE_DATEPICKER || inputFieldModel.controlType === ConstantAttributes.CONTROL_TYPE_TIMEPICKER" 
+                    [formControlName]="inputFieldModel.key" 
+                    [displayFormat]="inputFieldModel.displayFormat" 
+                    [pickerFormat]="inputFieldModel.pickerFormat" 
+                    [placeholder]="placeHolder"
+                    [min]="inputFieldModel.minDate" 
+                    [max]="inputFieldModel.maxDate"
+                    [class]="inputClass" 
+                    [ngStyle]="toJSONObject(inputStyle)"
+                    [disabled]="inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)">
+            </ion-datetime>                
+        </ion-item>    
+                    
+        <!-- Radio Group -->
+        <ion-list radio-group *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_RADIO" 
+            [formControlName]="inputFieldModel.key">
+            <ng-container *ngIf="inputFieldModel.isAsyncOptions">
+                <ng-container *ngIf="inputFieldModel.asyncOptionsModel">
+                    <ion-item *ngFor="let opt of inputFieldModel.asyncOptionsModel.options" text-wrap transparent no-lines>
+                        <ion-radio item-start mode="md" [value]="opt.key" [disabled]="opt.disable || inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)"></ion-radio>
+                        <ion-label *ngFor="let content of opt.contents" [class]="content.class" [ngStyle]="toJSONObject(content.style)">{{content.desc}}</ion-label>                                                                    
+                    </ion-item>   
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!inputFieldModel.isAsyncOptions">
+                <ng-container *ngIf="refFormControl">
+                    <ng-container *ngFor="let opt of inputFieldModel.options">
+                        <ion-item *ngIf="opt.refControlValue==refFormControl.value" text-wrap transparent no-lines>
+                            <ion-radio item-start mode="md" [value]="opt.key" [disabled]="opt.disable || inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)"></ion-radio>
+                            <ion-label *ngFor="let content of opt.contents" [class]="content.class" [ngStyle]="toJSONObject(content.style)">{{content.desc}}</ion-label>                            
+                        </ion-item>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="!refFormControl">
+                    <ion-item *ngFor="let opt of inputFieldModel.options" text-wrap transparent no-lines>
+                        <ion-radio item-start mode="md" [value]="opt.key" [disabled]="opt.disable || inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)"></ion-radio>
+                        <ion-label *ngFor="let content of opt.contents" [class]="content.class" [ngStyle]="toJSONObject(content.style)">{{content.desc}}</ion-label>                        
+                    </ion-item>        
+                </ng-container>
+            </ng-container>
+        </ion-list>
+
+        <!-- CheckList-->
+        <ion-list *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_CHECKLIST">
+            <ng-container *ngIf="inputFieldModel.isAsyncOptions">
+                <ng-container *ngIf="inputFieldModel.asyncOptionsModel">
+                    <ion-item [formArrayName]="inputFieldModel.key" *ngFor="let opt of inputFieldModel.asyncOptionsModel.options; let i=index " transparent  no-lines>                        
+                        <ion-checkbox [formControlName]="i" [disabled]="opt.disable || inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)"></ion-checkbox>
+                        <ion-label *ngFor="let content of opt.contents" [class]="content.class" [ngStyle]="toJSONObject(content.style)">{{content.desc}}</ion-label>                                                                    
+                    </ion-item>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngIf="!inputFieldModel.isAsyncOptions">
+                <ion-item [formArrayName]="inputFieldModel.key" *ngFor="let opt of inputFieldModel.options; let i=index " transparent  no-lines>                    
+                    <ion-checkbox [formControlName]="i" [disabled]="opt.disable || inputFieldModel.uiDisable || inputFieldModel.disable || showLoadingIcon() || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ || mainFormModel.crudMode == ConstantAttributes.CRUD_MODE_DELETE || isMatchCRUDModeForDisableHidden(inputFieldModel.disableInCRUDMode, mainFormModel.crudMode)"></ion-checkbox>
+                    <ion-label *ngFor="let content of opt.contents" [class]="content.class" [ngStyle]="toJSONObject(content.style)">{{content.desc}}</ion-label>                                                                    
+                </ion-item>
+            </ng-container>
+        </ion-list>
+
+        <!-- Validation Message -->
+        <ion-item no-lines *ngIf="formControl && formControl.invalid && (formControl.dirty || formControl.touched)" transparent  text-wrap>
+            <div *ngFor="let validation of inputFieldModel.validations">
+                <ng-container *ngIf="formControl.hasError(validation.type)">
+                    <ng-container [ngSwitch]="validation.type">
+                        <ng-container *ngSwitchCase="ConstantAttributes.VALIDATIONS_TYPE_CUSTOM_FUNC">
+                            <p *ngFor="let custMessage of formControl.errors.customvalidationfunc" validation-msg-word-break>
+                                <span default-validation-color [class]="validationClass" [ngStyle]="toJSONObject(validationStyle)">{{custMessage}}</span>
+                            </p>
+                        </ng-container> 
+                        <ng-container *ngSwitchCase="ConstantAttributes.VALIDATIONS_TYPE_ASYNC">
+                                <p *ngFor="let custMessage of formControl.errors.async" validation-msg-word-break>
+                                    <span default-validation-color [class]="validationClass" [ngStyle]="toJSONObject(validationStyle)">{{custMessage}}</span>
+                                </p>
+                            </ng-container>
+                        <ng-container *ngSwitchDefault>
+                            <p *ngFor="let validationMsg of getValidationErrorMsgs(formControl.getError(validation.type), validation.message, validation.messages)" validation-msg-word-break>
+                                <span default-validation-color [class]="validationClass" [ngStyle]="toJSONObject(validationStyle)">{{validationMsg}}</span>
+                            </p>   
+                        </ng-container>            
+                    </ng-container>
+                </ng-container>
+            </div>     
+        </ion-item>
+    </fieldset>       
+</div>

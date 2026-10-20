@@ -1,0 +1,6 @@
+ap-notice3-detail-layout {
+    [after_login]{
+        background: none;
+        background-color: theme-colors('mainColors', 'form');
+      }
+}

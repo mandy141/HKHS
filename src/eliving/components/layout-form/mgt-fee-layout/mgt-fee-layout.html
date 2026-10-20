@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<!--Theme Small item + header-->
+<ion-content>
+  <ion-toolbar no-padding>
+    <div *ngIf="data != null" cursor-pointer (click)="onItemClick(data.termsAndConditionURL)">
+      <h2 header-subtitle>{{data.lblTermsAndCondition}}</h2>
+    </div>
+  </ion-toolbar>
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <ion-list no-margin>
+          <!--Swipe To Dismiss -->          
+            <ion-item no-lines *ngFor="let item of data.documents" >
+              <!-- Title -->
+              <h2 item-title>{{item.name}}</h2>
+              <!-- Subtitle -->
+              <h3 item-subtitle>{{item.month}}</h3>
+              <!-- ShortDescription -->
+              <span item-end span-small>{{item.size}}</span>
+              <!-- Icon play -->
+              <ion-icon icon-medium item-end cursor-pointer (click)="onItemClick(item.docURL)">
+                <i class="icon {{data.fileIcon}}"></i>
+              </ion-icon>
+            </ion-item>                      
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

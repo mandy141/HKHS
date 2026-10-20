@@ -1,0 +1,57 @@
+{
+    "formTitle":"生活資訊",  
+    "headerImage": "",
+    "selectAll": "所有類別",
+    "cancelText": "返回",
+    "transportType": "類別",
+    "routes": [{
+            "district": "巴士公司",
+            "type": "巴士公司",
+            "typeColor": "blue",
+            "number": "九巴公司",
+            "route": "2745 4466",
+            "fee": "http://www.kmb.hk",
+            "time": "",
+            "frequency": ""
+          }, 
+          {
+            "district": "巴士公司",
+            "type": "巴士公司",
+            "typeColor": "blue",
+            "number": "城巴",
+            "route": "2873 0818",
+            "fee": "http://www.citybus.com.hk",
+            "time": "",
+            "frequency": ""
+          },
+          {
+            "district": "政府機構",
+            "type":"政府機構",
+            "typeColor":"red",
+            "number": "康樂及文化事務署",
+            "route": "2414 5555",
+            "fee": "http://www.lcsd.gov.hk/",
+            "time": "enquiries@lcsd.gov.hk",
+            "frequency": ""
+          },
+          {
+            "district": "政府機構",
+            "type": "政府機構",
+            "typeColor": "red",
+            "number": "九龍城警務處",
+            "route": "2711 6955",
+            "fee": "",
+            "time": "",
+            "frequency": ""
+          }, {
+            "district": "政府機構",
+            "type": "政府機構",
+            "typeColor": "red",
+            "number": "紅磡警務處",
+            "route": "2713 5880",
+            "fee": "",
+            "time": "",
+            "frequency": ""
+          }
+    ]
+  }

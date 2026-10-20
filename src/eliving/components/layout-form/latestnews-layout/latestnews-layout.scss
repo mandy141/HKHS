@@ -1,0 +1,57 @@
+/*  #Style Styled cards 2
+================================================*/
+latestnews-layout {
+  .content-ios{
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white !important;
+    
+  }
+
+  .content-md, page-input-form ion-content
+  {
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white !important;
+    background-position: center center;
+    
+  }
+  
+    [card-title] {
+      line-height: 40px;
+    }
+ 
+    [card-subtitle] {
+      font-weight: bold !important;
+    }
+ 
+    [card-body-text] {
+      margin-top: 10px;
+      white-space: normal;
+      font-size: 1.5rem !important;
+    }
+ 
+ 
+ 
+    .segment-md {
+      max-width: 600px;
+ 
+    }
+ 
+    .segment-md .segment-button {
+      color: #FFFFFF !important;
+    }
+
+    [after_loin]
+    {
+      background: none;
+      background-color: theme-colors('mainColors', 'form');
+    }
+ }
+ 

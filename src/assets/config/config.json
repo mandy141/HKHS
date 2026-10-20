@@ -1,0 +1,12 @@
+{
+    "apiHost" : "https://hsblfw.esmart.com.hk",
+    "apiName" : "production/dispatcher.php",
+    "pdf_viewer":"vendors/pdfviewer/web/viewer.html",
+    "upload_file":"production/form_file_upload.php",
+    "appCode" : "ELIVING_V3",
+    "reqProjCode" : "MC",
+    "reqPhaseCode" : "MYCEMC",
+    "appVersion" : "v1.3", 
+    "appVersionCode": "2",
+    "byPassClientValidation" : false
+} 

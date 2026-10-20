@@ -1,0 +1,450 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title (click)="showFormValue()">{{inputFormModel.inputFormTitle}}</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="onBackToHome()">
+            <ion-icon name="custom-hsHome"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content  *ngIf="isLoggedIn()" after_login padding [class]="inputFormModel.inputFormClass" [ngStyle]="toJSONObject(inputFormModel.inputFormStyle)" #inputPageElement>
+    <ion-grid input-form-width *ngIf="availableEntityUniqueIdentifiers && availableEntityUniqueIdentifiers.length > 1">
+      <ion-row>
+          <ion-col col-12>
+              <ion-buttons left>
+                <button left ion-button icon-only switch-button small (click)="switchToPrevEntity()" >
+                    <ion-icon name="arrow-dropleft"></ion-icon>
+                </button>
+                <button left ion-button icon-only switch-button small (click)="switchToNextEntity()" >
+                    <ion-icon name="arrow-dropright"></ion-icon>
+                </button>
+              </ion-buttons>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+    <form [formGroup]="inputForm">
+      <div class="input-content-min-height"> 
+        <ion-grid input-form-width>
+          <ion-row *ngIf="inputFormModel.inputFormInnerTitle && inputFormModel.inputFormInnerTitle.length > 0" >
+            <ion-col col-12>
+              <p default-form-inner-title-style (click)="showFormValue()">{{inputFormModel.inputFormInnerTitle}}</p>                  
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="inputFormModel.inputFormTabs && inputFormModel.inputFormShowTabBar">
+            <ion-col col-12>  
+                <ion-item transparent no-lines text-wrap>               
+                  <ion-segment [ngModel]="curTabIndex" [ngModelOptions]="{standalone: true}" mode="md">
+                      <ion-segment-button [value]="tab.tabIndex" *ngFor="let tab of inputFormModel.inputFormTabs" disabled [attr.small-font-size]="useSmallFont ? '' : null">
+                          {{tab.tabTitle}}
+                      </ion-segment-button>                                    
+                  </ion-segment>
+                </ion-item>
+            </ion-col>  
+          </ion-row>
+          <ion-row *ngIf="inputFormModel.inputFormTabs && inputFormModel.inputFormTabs.length > 0 && inputFormShowTitle(curTabIndex)">
+              <ion-col col-12>  
+                  <ion-item default-tab-title-style no-lines [class]="tabTitleClass(curTabIndex)" [ngStyle]="toJSONObject(tabTitleStyle(curTabIndex))" transparent >
+                    <p>{{inputFormModel.inputFormTabs[curTabIndex].tabTitle}}</p>                  
+                  </ion-item>
+                  <!--<ion-item no-lines text-wrap transparent >
+                      <button ion-button outline (click)="toggleDebugMode()">Toggle Debug Mode</button>        
+                  </ion-item>-->
+              </ion-col>  
+          </ion-row>          
+          <ion-row>
+              <!-- Generate Input Fields By JSON Model -->
+              <ion-col padding-left-right-zero col-12>
+                  <ion-grid padding-left-right-zero>
+                    <ion-row>
+                      <ng-container *ngFor="let inputFieldModel of inputFormModel.inputFieldModels">
+                        <ng-container *ngIf="!inputFieldModel.locateAfterConfirmation">
+                          <ion-col                   
+                            [attr.col-12]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                            [attr.col-11]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                            [attr.col-10]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                            [attr.col-9]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                            [attr.col-8]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                            [attr.col-7]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                            [attr.col-6]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                            [attr.col-5]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                            [attr.col-4]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                            [attr.col-3]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                            [attr.col-2]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                            [attr.col-1]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null"
+                            [hidden]="inputFieldModel.locateAtTabIndex != curTabIndex || inputFieldModel.hidden || isMatchCRUDModeForDisableHidden(inputFieldModel.hiddenInCRUDMode, inputFormModel.crudMode)">
+                            <ng-container [ngSwitch]="inputFieldModel.controlType">
+                              <label-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LABEL"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></label-field-component>                   
+                              <img-banner-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG_BANNER"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-banner-field-component>                   
+                              <img-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-field-component>                   
+                              <iframe-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IFRAME"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></iframe-field-component>                   
+                              <file-upload-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FILE"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></file-upload-field-component>                   
+                              <sub-input-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></sub-input-form-component>
+                              <input-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-group-component>                    
+                              <pdf-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_PDF"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></pdf-viewer-field-component>                   
+                              <html-content-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_HTML"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></html-content-viewer-field-component>                   
+                              <link-button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LINK_BUTTON"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></link-button-component>                   
+                              <input-field-component *ngSwitchDefault [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-component>                            
+                              <!-- Button Component Under Construction -->
+                              <!--<button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_BUTTON" [inputFieldModel]="inputFieldModel" [form]="inputForm"  [mainFormModel]="inputFormModel"
+                                  (formSubmitEvent)="onFormSubmit()" 
+                                  (closeEvent)="onClose()"></button-component>-->                      
+                            </ng-container>
+                          </ion-col>
+                        </ng-container>
+                      </ng-container>
+                    </ion-row>
+                  </ion-grid>
+              </ion-col>                            
+          </ion-row>
+          <ion-row>     
+              <!-- Generate For Confirmation-->           
+              <ion-col padding-left-right-zero col-12 *ngIf="inputFormModel.inputFormTabs && inputFormModel.inputFormTabs.length > 0  && inputFormModel.inputFormTabs[curTabIndex].tabType == ConstantAttributes.TABTYPE_CONFIRMATION">
+                <!--<ion-card>
+                    <ion-card-content>-->
+                      <ion-grid padding-left-right-zero>
+                        <ion-row>
+                          <ng-container *ngFor="let inputFieldModel of inputFormModel.inputFieldModels">
+                            <ng-container *ngIf="inputFieldModel.requireConfirm 
+                                                  && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_LABEL                                                
+                                                  && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_FILE
+                                                  && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_HIDDEN"> <!-- && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_BUTTON -->
+                                <ion-col [attr.col-12]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                                        [attr.col-11]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                                        [attr.col-10]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                                        [attr.col-9]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                                        [attr.col-8]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                                        [attr.col-7]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                                        [attr.col-6]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                                        [attr.col-5]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                                        [attr.col-4]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                                        [attr.col-3]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                                        [attr.col-2]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                                        [attr.col-1]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null">
+                                <ng-container [ngSwitch]="inputFieldModel.controlType">            
+                                  <confirm-display-field-component *ngSwitchDefault [inputFieldModel]="inputFieldModel" [form]="inputForm"></confirm-display-field-component> 
+                                  <confirm-display-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="inputFieldModel" [form]="inputForm"></confirm-display-field-group-component>
+                                  <confirm-display-sub-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="inputFieldModel" [form]="inputForm"></confirm-display-sub-form-component>
+                                </ng-container>
+                              </ion-col>     
+                            </ng-container>
+                          </ng-container>
+                        </ion-row>
+                      </ion-grid>
+                  <!--</ion-card-content>
+                </ion-card>-->
+              </ion-col> 
+          </ion-row>  
+          <ion-row>
+              <!-- Generate Input Fields By JSON Model (For those locateAfterConfirmation = true) -->
+              <ion-col padding-left-right-zero col-12 *ngIf="hasFieldsLocateAfterConfirmation()">
+                  <ion-grid padding-left-right-zero>
+                    <ion-row>
+                      <ng-container *ngFor="let inputFieldModel of inputFormModel.inputFieldModels">
+                          <ng-container *ngIf="inputFieldModel.locateAfterConfirmation">
+                            <ion-col                   
+                              [attr.col-12]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                              [attr.col-11]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                              [attr.col-10]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                              [attr.col-9]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                              [attr.col-8]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                              [attr.col-7]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                              [attr.col-6]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                              [attr.col-5]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                              [attr.col-4]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                              [attr.col-3]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                              [attr.col-2]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                              [attr.col-1]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null"
+                              [hidden]="inputFieldModel.locateAtTabIndex != curTabIndex || inputFieldModel.hidden || isMatchCRUDModeForDisableHidden(inputFieldModel.hiddenInCRUDMode, inputFormModel.crudMode)">
+                              <ng-container [ngSwitch]="inputFieldModel.controlType">
+                                <label-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LABEL"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></label-field-component>                   
+                                <img-banner-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG_BANNER"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-banner-field-component>                   
+                                <img-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-field-component>                   
+                                <iframe-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IFRAME"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></iframe-field-component>                   
+                                <file-upload-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FILE"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></file-upload-field-component>                   
+                                <sub-input-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></sub-input-form-component>
+                                <input-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-group-component>                    
+                                <pdf-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_PDF"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></pdf-viewer-field-component>                   
+                                <html-content-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_HTML"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></html-content-viewer-field-component>                   
+                                <link-button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LINK_BUTTON"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></link-button-component>                   
+                                <input-field-component *ngSwitchDefault [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-component>                            
+                                <!-- Button Component Under Construction -->
+                                <!--<button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_BUTTON" [inputFieldModel]="inputFieldModel" [form]="inputForm"  [mainFormModel]="inputFormModel"
+                                    (formSubmitEvent)="onFormSubmit()" 
+                                    (closeEvent)="onClose()"></button-component>-->                      
+                              </ng-container>
+                            </ion-col>
+                        </ng-container>
+                      </ng-container>
+                    </ion-row>
+                  </ion-grid>
+              </ion-col>                            
+          </ion-row>       
+        </ion-grid> 
+      </div>  
+      <ion-grid input-form-width>
+        <ion-row *ngIf="inputFormModel.crudMode != ConstantAttributes.CRUD_MODE_READ">
+            <ion-col col-12 *ngIf="inputFormModel.inputFormTabs && isLastTab() && sSubmitFailedMsgs">
+              <ion-item no-lines transparent text-wrap server-validation-msg>
+                <ul>
+                  <li *ngFor="let errorMsg of sSubmitFailedMsgs">{{errorMsg}}</li>            
+                </ul>                
+              </ion-item>              
+            </ion-col>
+            <ion-col col-6 *ngIf="isShowBackButton()">
+                <button ion-button outline back-button (click)="goPreTab()">{{inputFormModel.inputFormPrevButtonLabel}}</button>     
+            </ion-col>
+            <ion-col  [attr.col-6]="isShowBackButton()? '' : null"
+                      [attr.col-12]="!isShowBackButton()? '' : null"
+                      *ngIf="isShowNextButton()">
+                <button full ion-button (click)="goNextTab()" [disabled]="!isFormControlValid(curTabIndex)">{{inputFormModel.inputFormNextButtonLabel}}</button> <!-- [disabled]="!isFormControlValid(curTabIndex)" //Commented for Testing -->
+            </ion-col>
+            <ion-col  [attr.col-12]="inputFormModel.inputFormTabs.length == 1 ? '' : null" 
+                      [attr.col-6]="inputFormModel.inputFormTabs.length > 1 ? '' : null"
+                      *ngIf="inputFormModel.inputFormTabs && isLastTab() && inputFormModel.crudMode != ConstantAttributes.CRUD_MODE_READ">              
+                <button full ion-button (click)="onFormSubmit()" [disabled]="!isFormControlValid(null)">{{inputFormModel.inputFormSubmitButtonLabel}}</button>
+                <p text-center>{{inputFormModel.inputFormSubmitButtonRemark}}</p>                            
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="inputFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ && !inputFormModel.inputFormCloseButtonHidden">
+              <ion-col col-12>
+                  <button full ion-button (click)="onClose()">{{inputFormModel.inputFormCloseButtonLabel}}</button>     
+              </ion-col>
+          </ion-row>
+      </ion-grid>  
+    </form>
+    <!-- Not Use Fab Button -->
+    <!--<ion-fab right bottom *ngIf="isShowNextButton()">
+      <button ion-fab (click)="goNextTab()" fab-color [disabled]="!isFormControlValid(curTabIndex)">
+            <ion-icon name="arrow-forward" fab-font-color></ion-icon>
+      </button>
+      </ion-fab>
+      
+      <ion-fab left bottom *ngIf="isShowBackButton()">
+      <button ion-fab (click)="goPreTab()" fab-color>
+            <ion-icon name="arrow-back" fab-font-color></ion-icon>
+      </button>
+    </ion-fab>-->     
+</ion-content>
+<ion-content  *ngIf="!isLoggedIn()" padding [class]="inputFormModel.inputFormClass" [ngStyle]="toJSONObject(inputFormModel.inputFormStyle)" #inputPageElement>
+    <ion-grid input-form-width *ngIf="availableEntityUniqueIdentifiers && availableEntityUniqueIdentifiers.length > 1">
+      <ion-row>
+          <ion-col col-12>
+              <ion-buttons left>
+                <button left ion-button icon-only switch-button small (click)="switchToPrevEntity()" >
+                    <ion-icon name="arrow-dropleft"></ion-icon>
+                </button>
+                <button left ion-button icon-only switch-button small (click)="switchToNextEntity()" >
+                    <ion-icon name="arrow-dropright"></ion-icon>
+                </button>
+              </ion-buttons>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+    <form [formGroup]="inputForm">
+      <div class="input-content-min-height"> 
+        <ion-grid input-form-width>
+          <ion-row *ngIf="inputFormModel.inputFormInnerTitle && inputFormModel.inputFormInnerTitle.length > 0" >
+            <ion-col col-12>
+              <p default-form-inner-title-style (click)="showFormValue()">{{inputFormModel.inputFormInnerTitle}}</p>                  
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="inputFormModel.inputFormTabs && inputFormModel.inputFormShowTabBar">
+            <ion-col col-12>  
+                <ion-item transparent no-lines text-wrap>               
+                  <ion-segment [ngModel]="curTabIndex" [ngModelOptions]="{standalone: true}" mode="md">
+                      <ion-segment-button [value]="tab.tabIndex" *ngFor="let tab of inputFormModel.inputFormTabs" disabled [attr.small-font-size]="useSmallFont ? '' : null">
+                          {{tab.tabTitle}}
+                      </ion-segment-button>                                    
+                  </ion-segment>
+                </ion-item>
+            </ion-col>  
+          </ion-row>
+          <ion-row *ngIf="inputFormModel.inputFormTabs && inputFormModel.inputFormTabs.length > 0 && inputFormShowTitle(curTabIndex)">
+              <ion-col col-12>  
+                  <ion-item default-tab-title-style no-lines [class]="tabTitleClass(curTabIndex)" [ngStyle]="toJSONObject(tabTitleStyle(curTabIndex))" transparent >
+                    <p>{{inputFormModel.inputFormTabs[curTabIndex].tabTitle}}</p>                  
+                  </ion-item>
+                  <!--<ion-item no-lines text-wrap transparent >
+                      <button ion-button outline (click)="toggleDebugMode()">Toggle Debug Mode</button>        
+                  </ion-item>-->
+              </ion-col>  
+          </ion-row>          
+          <ion-row>
+              <!-- Generate Input Fields By JSON Model -->
+              <ion-col padding-left-right-zero col-12>
+                  <ion-grid padding-left-right-zero>
+                    <ion-row>
+                      <ng-container *ngFor="let inputFieldModel of inputFormModel.inputFieldModels">
+                        <ng-container *ngIf="!inputFieldModel.locateAfterConfirmation">
+                          <ion-col                   
+                            [attr.col-12]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                            [attr.col-11]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                            [attr.col-10]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                            [attr.col-9]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                            [attr.col-8]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                            [attr.col-7]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                            [attr.col-6]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                            [attr.col-5]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                            [attr.col-4]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                            [attr.col-3]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                            [attr.col-2]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                            [attr.col-1]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null"
+                            [hidden]="inputFieldModel.locateAtTabIndex != curTabIndex || inputFieldModel.hidden || isMatchCRUDModeForDisableHidden(inputFieldModel.hiddenInCRUDMode, inputFormModel.crudMode)">
+                            <ng-container [ngSwitch]="inputFieldModel.controlType">
+                              <label-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LABEL"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></label-field-component>                   
+                              <img-banner-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG_BANNER"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-banner-field-component>                   
+                              <img-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-field-component>                   
+                              <iframe-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IFRAME"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></iframe-field-component>                   
+                              <file-upload-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FILE"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></file-upload-field-component>                   
+                              <sub-input-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></sub-input-form-component>
+                              <input-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-group-component>                    
+                              <pdf-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_PDF"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></pdf-viewer-field-component>                   
+                              <html-content-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_HTML"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></html-content-viewer-field-component>                   
+                              <link-button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LINK_BUTTON"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></link-button-component>                   
+                              <input-field-component *ngSwitchDefault [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-component>                            
+                              <!-- Button Component Under Construction -->
+                              <!--<button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_BUTTON" [inputFieldModel]="inputFieldModel" [form]="inputForm"  [mainFormModel]="inputFormModel"
+                                  (formSubmitEvent)="onFormSubmit()" 
+                                  (closeEvent)="onClose()"></button-component>-->                      
+                            </ng-container>
+                          </ion-col>
+                        </ng-container>
+                      </ng-container>
+                    </ion-row>
+                  </ion-grid>
+              </ion-col>                            
+          </ion-row>
+          <ion-row>     
+              <!-- Generate For Confirmation-->           
+              <ion-col padding-left-right-zero col-12 *ngIf="inputFormModel.inputFormTabs && inputFormModel.inputFormTabs.length > 0  && inputFormModel.inputFormTabs[curTabIndex].tabType == ConstantAttributes.TABTYPE_CONFIRMATION">
+                <!--<ion-card>
+                    <ion-card-content>-->
+                      <ion-grid padding-left-right-zero>
+                        <ion-row>
+                          <ng-container *ngFor="let inputFieldModel of inputFormModel.inputFieldModels">
+                            <ng-container *ngIf="inputFieldModel.requireConfirm 
+                                                  && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_LABEL                                                
+                                                  && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_FILE
+                                                  && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_HIDDEN"> <!-- && inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_BUTTON -->
+                                <ion-col [attr.col-12]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                                        [attr.col-11]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                                        [attr.col-10]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                                        [attr.col-9]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                                        [attr.col-8]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                                        [attr.col-7]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                                        [attr.col-6]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                                        [attr.col-5]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                                        [attr.col-4]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                                        [attr.col-3]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                                        [attr.col-2]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                                        [attr.col-1]="inputFieldModel.confirmColWidth.width == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null">
+                                <ng-container [ngSwitch]="inputFieldModel.controlType">            
+                                  <confirm-display-field-component *ngSwitchDefault [inputFieldModel]="inputFieldModel" [form]="inputForm"></confirm-display-field-component> 
+                                  <confirm-display-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="inputFieldModel" [form]="inputForm"></confirm-display-field-group-component>
+                                  <confirm-display-sub-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="inputFieldModel" [form]="inputForm"></confirm-display-sub-form-component>
+                                </ng-container>
+                              </ion-col>     
+                            </ng-container>
+                          </ng-container>
+                        </ion-row>
+                      </ion-grid>
+                  <!--</ion-card-content>
+                </ion-card>-->
+              </ion-col> 
+          </ion-row>  
+          <ion-row>
+              <!-- Generate Input Fields By JSON Model (For those locateAfterConfirmation = true) -->
+              <ion-col padding-left-right-zero col-12 *ngIf="hasFieldsLocateAfterConfirmation()">
+                  <ion-grid padding-left-right-zero>
+                    <ion-row>
+                      <ng-container *ngFor="let inputFieldModel of inputFormModel.inputFieldModels">
+                          <ng-container *ngIf="inputFieldModel.locateAfterConfirmation">
+                            <ion-col                   
+                              [attr.col-12]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                              [attr.col-11]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                              [attr.col-10]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                              [attr.col-9]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                              [attr.col-8]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                              [attr.col-7]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                              [attr.col-6]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                              [attr.col-5]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                              [attr.col-4]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                              [attr.col-3]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                              [attr.col-2]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                              [attr.col-1]="inputFieldModel.colWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null"
+                              [hidden]="inputFieldModel.locateAtTabIndex != curTabIndex || inputFieldModel.hidden || isMatchCRUDModeForDisableHidden(inputFieldModel.hiddenInCRUDMode, inputFormModel.crudMode)">
+                              <ng-container [ngSwitch]="inputFieldModel.controlType">
+                                <label-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LABEL"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></label-field-component>                   
+                                <img-banner-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG_BANNER"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-banner-field-component>                   
+                                <img-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IMG"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></img-field-component>                   
+                                <iframe-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_IFRAME"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></iframe-field-component>                   
+                                <file-upload-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FILE"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></file-upload-field-component>                   
+                                <sub-input-form-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_SUBFORMARRAY" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></sub-input-form-component>
+                                <input-field-group-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_FIELDGROUP" [inputFieldModel]="inputFieldModel" [inputFormModel]="inputFormModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-group-component>                    
+                                <pdf-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_PDF"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></pdf-viewer-field-component>                   
+                                <html-content-viewer-field-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_HTML"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></html-content-viewer-field-component>                   
+                                <link-button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_LINK_BUTTON"  [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></link-button-component>                   
+                                <input-field-component *ngSwitchDefault [inputFieldModel]="inputFieldModel" [form]="inputForm" [mainFormModel]="inputFormModel"></input-field-component>                            
+                                <!-- Button Component Under Construction -->
+                                <!--<button-component *ngSwitchCase="ConstantAttributes.CONTROL_TYPE_BUTTON" [inputFieldModel]="inputFieldModel" [form]="inputForm"  [mainFormModel]="inputFormModel"
+                                    (formSubmitEvent)="onFormSubmit()" 
+                                    (closeEvent)="onClose()"></button-component>-->                      
+                              </ng-container>
+                            </ion-col>
+                        </ng-container>
+                      </ng-container>
+                    </ion-row>
+                  </ion-grid>
+              </ion-col>                            
+          </ion-row>       
+        </ion-grid> 
+      </div>  
+      <ion-grid input-form-width>
+        <ion-row *ngIf="inputFormModel.crudMode != ConstantAttributes.CRUD_MODE_READ">
+            <ion-col col-12 *ngIf="inputFormModel.inputFormTabs && isLastTab() && sSubmitFailedMsgs">
+              <ion-item no-lines transparent text-wrap server-validation-msg>
+                <ul>
+                  <li *ngFor="let errorMsg of sSubmitFailedMsgs">{{errorMsg}}</li>            
+                </ul>                
+              </ion-item>              
+            </ion-col>
+            <ion-col col-6 *ngIf="isShowBackButton()">
+                <button ion-button outline back-button (click)="goPreTab()">{{inputFormModel.inputFormPrevButtonLabel}}</button>     
+            </ion-col>
+            <ion-col  [attr.col-6]="isShowBackButton()? '' : null"
+                      [attr.col-12]="!isShowBackButton()? '' : null"
+                      *ngIf="isShowNextButton()">
+                <button full ion-button (click)="goNextTab()" [disabled]="!isFormControlValid(curTabIndex)">{{inputFormModel.inputFormNextButtonLabel}}</button> <!-- [disabled]="!isFormControlValid(curTabIndex)" //Commented for Testing -->
+            </ion-col>
+            <ion-col  [attr.col-12]="inputFormModel.inputFormTabs.length == 1 ? '' : null" 
+                      [attr.col-6]="inputFormModel.inputFormTabs.length > 1 ? '' : null"
+                      *ngIf="inputFormModel.inputFormTabs && isLastTab() && inputFormModel.crudMode != ConstantAttributes.CRUD_MODE_READ">              
+                <button full ion-button (click)="onFormSubmit()" [disabled]="!isFormControlValid(null)">{{inputFormModel.inputFormSubmitButtonLabel}}</button>
+                <p text-center>{{inputFormModel.inputFormSubmitButtonRemark}}</p>                            
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="inputFormModel.crudMode == ConstantAttributes.CRUD_MODE_READ && !inputFormModel.inputFormCloseButtonHidden">
+              <ion-col col-12>
+                  <button full ion-button (click)="onClose()">{{inputFormModel.inputFormCloseButtonLabel}}</button>     
+              </ion-col>
+          </ion-row>
+      </ion-grid>  
+    </form>
+    <!-- Not Use Fab Button -->
+    <!--<ion-fab right bottom *ngIf="isShowNextButton()">
+      <button ion-fab (click)="goNextTab()" fab-color [disabled]="!isFormControlValid(curTabIndex)">
+            <ion-icon name="arrow-forward" fab-font-color></ion-icon>
+      </button>
+      </ion-fab>
+      
+      <ion-fab left bottom *ngIf="isShowBackButton()">
+      <button ion-fab (click)="goPreTab()" fab-color>
+            <ion-icon name="arrow-back" fab-font-color></ion-icon>
+      </button>
+    </ion-fab>-->     
+</ion-content>

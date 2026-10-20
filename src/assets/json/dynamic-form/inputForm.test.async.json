@@ -1,0 +1,420 @@
+{
+    "crudMode": "C",
+    "entityName": "sample-input-form-02",
+    "inputFormCloseButtonLabel": "關閉",
+    "inputFormInnerTitle": "",
+    "inputFormNextButtonLabel": "下一步",
+    "inputFormPrevButtonLabel": "上一步",
+    "inputFormShowTabBar": false,
+    "inputFormSubmitButtonLabel": "提交",
+    "inputFormSubmitButtonRemark": "*提交後不可修改",
+    "inputFormTitle": "Sample Input Form 02",    
+    "inputFormTabs" : [
+        {
+            "showTabTitle": false,
+            "tabIndex": "0",
+            "tabTitle": "Sample 01",
+            "tabTitleClass": "",
+            "tabTitleStyle": "",
+            "tabType": "input"
+        }       
+    ],
+    "inputFieldModels" : [
+        {
+            "colWidth": "1",
+            "hidden": false,
+            "key": "imageBanner",
+            "controlType": "imgBanner",
+            "controlStyle": "",
+            "label": "",
+            "imgBannerbgImgURL": "assets/images/background/23.jpg",
+            "imgBannerTitle": "跆拳道班",
+            "imgBannerSubTitle": "6/10, 13/10, 20/10, 27/10",
+            "locateAtTabIndex": "0",
+            "requireConfirm": false,
+            "disable": false
+        },
+        {
+            "key":"birthday",
+            "label":"Birthday",
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement" : "",
+            "labelHidden" : false,
+            "placeHolder" : "Please Select Birthday",
+            "showPlaceHolder":true,
+            "defValue": "",
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "validations":[
+                {"type":"required","messages":["Please choose a birthday"]}                                
+            ],
+            "controlType":"datepicker",
+            "displayFormat":"DD MMM YYYY",
+            "pickerFormat":"DD MMM YYYY",
+            "minDate":"2000",
+            "maxDate":"2020-12-31",
+            "validationStyle":"",             
+            "validationClass":"red-color",
+            "colWidth": "1/2",
+            "locateAtTabIndex":"0",
+            "requireConfirm":false
+        },
+        {
+            "key":"username",
+            "label":"Username",
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement" : "stacked",
+            "labelHidden" : false,
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "defValue": "",
+            "validations":[
+                {"type":"required","messages":["Username is required."]},
+                {"type":"minlength","param": ["5"], "messages":["Username must be at least 5 characters long."], "applyInCRUDMode": "U"},
+                {"type":"maxlength","param": ["25"], "messages":["Username must not more than 25 characters long."]},
+                {"type":"pattern", "param":  ["^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$"], "messages":["Must contain numbers and letters"]},
+                {"type":"async", "param": ["firstname"]}
+            ],
+            "controlType":"textbox",
+            "textInputType":"",
+            "validationStyle":"",
+            "validationClass":"",
+            "colWidth": "1-2",
+            "locateAtTabIndex":"0",
+            "requireConfirm":false
+        },
+        {
+            "key":"firstname",
+            "label":"First name",            
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement" : "stacked",
+            "labelHidden" : false,
+            "defValue": "",
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "validations":[],
+            "controlType":"textbox",
+            "textInputType":"",
+            "placeHolder":"",
+            "showPlaceHolder":true,
+            "validationStyle":"",
+            "validationClass":"",
+            "colWidth": "1-2",
+            "locateAtTabIndex":"0",
+            "requireConfirm":false 
+        },
+        {
+            "key":"middlename",
+            "label":"Middle name",    
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement" : "stacked",
+            "labelHidden" : false,
+            "defValue": "",
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "validations":[
+                {"type":"required","messages":["Middle name is required."]}                
+            ],
+            "valueChangeEvents" :[                
+                {
+                    "type":"async-rule",
+                    "param":"middlename-async-condition-01",
+                    "additionalListenFields":["lastname"],
+                    "trueActions":[
+                        {                            
+                            "actionType":"disable",                            
+                            "targetFields":["address.addr01","address.addr02"]
+                        },
+                        {                            
+                            "actionType":"setvalue",                            
+                            "targetFields":["address.addr02"],
+                            "param":["'Testing 123 ' + @{lastname}.value"]
+                        },                    
+                        {                            
+                            "actionType":"hide",                            
+                            "targetFields":["unitCnt"]
+                        }
+                    ],                    
+                    "applyInCRUDMode":"C"
+                },
+                {
+                    "type":"async-rule",
+                    "param":"middlename-async-condition-02",
+                    "additionalListenFields":["lastname"],                    
+                    "trueActions":[
+                        {                            
+                            "actionType":"enable",                            
+                            "targetFields":["address.addr01","address.addr02"]
+                        },
+                        {                            
+                            "actionType":"show",                            
+                            "targetFields":["unitCnt"]
+                        }               
+                    ],
+                    "applyInCRUDMode":"C"
+                },
+                {
+                    "type":"rule",                    
+                    "param":"@{middlename}.value != '' && @{lastname}.value != '' && @{lastname}.value == @{middlename}.value",
+                    "additionalListenFields":["lastname"],
+                    "trueActions":[                        
+                        {                            
+                            "actionType":"async-value-generation",                            
+                            "targetFields":["address.addr03"],
+                            "param":["addr03-async-value-generation-01"],
+                            "applyInCRUDMode":"C"
+                        }                        
+                    ]                                   
+                }
+            ],                        
+            "controlType":"textbox",
+            "textInputType":"",            
+            "validationStyle":"",
+            "validationClass":"",
+            "colWidth": "1-3",
+            "locateAtTabIndex":"0",
+            "requireConfirm":false            
+        },
+        {
+            "key":"lastname",
+            "label":"Last name",     
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement" : "stacked",
+            "labelHidden" : false, 
+            "defValue": "",
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "validations":[],
+            "controlType":"textbox",
+            "textInputType":"",            
+            "validationStyle":"",
+            "validationClass":"",
+            "colWidth": "1-3",
+            "locateAtTabIndex":"0",
+            "requireConfirm":false            
+        },     
+        {
+            "key":"unitCnt",
+            "label":"No. of Units",   
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement" : "stacked",
+            "labelHidden" : false,    
+            "defValue": "5",
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "validations":[
+                {"type":"required","messages":["No. of Units is required."]},
+                {"type":"min","param": ["1"], "messages":["No. of Units should be at least 1"]},
+                {"type":"max","param": ["15"], "messages":["No. of Units should not more than 15."]}
+            ],
+            "controlType":"textbox",
+            "textInputType":"number",                        
+            "validationStyle":"",             
+            "validationClass":"",
+            "colWidth": "1-3",
+            "locateAtTabIndex":"0",
+            "requireConfirm":false            
+        },        
+        {
+            "key":"address",          
+            "controlType":"fieldgroup",                                    
+            "colWidth": "1",          
+            "fieldgroupFormModel": {
+                "inputFieldModels":[
+                    {
+                        "key":"addr01",
+                        "label":"Address 1",   
+                        "labelClass": "",
+                        "labelStyle": "",
+                        "labelPlacement" : "stacked",
+                        "labelHidden" : false,
+                        "controlClass": "",
+                        "controlStyle": "",
+                        "inputClass": "",
+                        "inputStyle": "",
+                        "defValue": "",
+                        "validations":[],
+                        "controlType":"textbox",
+                        "textInputType":"",            
+                        "validationStyle":"",             
+                        "validationClass":"",
+                        "colWidth": "1-3",                  
+                        "requireConfirm":true,
+                        "confirmLabelClass":"",
+                        "confirmLabelStyle":"",
+                        "confirmValueClass":"",
+                        "confirmValueStyle":"",
+                        "confirmColWidth": {"width":"1/3","labelWidth":"1","valueWidth":"1"}
+                    },
+                    {
+                        "key":"addr02",
+                        "label":"Address 2",
+                        "labelClass": "",
+                        "labelStyle": "",
+                        "labelPlacement" : "stacked",
+                        "labelHidden" : false,
+                        "defValue": "",
+                        "controlClass": "",
+                        "controlStyle": "",
+                        "inputClass": "",
+                        "inputStyle": "",
+                        "validations":[],
+                        "controlType":"textbox",
+                        "textInputType":"",            
+                        "validationStyle":"",             
+                        "validationClass":"",
+                        "colWidth": "1-3",                  
+                        "requireConfirm":true,
+                        "confirmLabelClass":"",
+                        "confirmLabelStyle":"",
+                        "confirmValueClass":"",
+                        "confirmValueStyle":"", 
+                        "confirmColWidth": {"width":"1/3","labelWidth":"1","valueWidth":"1"}                            
+                    },
+                    {
+                        "key":"addr03",
+                        "label":"Address 3",   
+                        "labelClass": "",
+                        "labelStyle": "",
+                        "labelPlacement" : "stacked",
+                        "labelHidden" : false,
+                        "defValue": "",
+                        "controlClass": "",
+                        "controlStyle": "",
+                        "inputClass": "",
+                        "inputStyle": "",
+                        "validations":[],
+                        "controlType":"textbox",
+                        "textInputType":"",            
+                        "validationStyle":"",             
+                        "validationClass":"",
+                        "colWidth": "1-3",                  
+                        "requireConfirm":true,
+                        "confirmLabelClass":"",
+                        "confirmLabelStyle":"",
+                        "confirmValueClass":"",
+                        "confirmValueStyle":"", 
+                        "confirmColWidth": {"width":"1/3","labelWidth":"1","valueWidth":"1"}
+                    }                    
+                ]
+            },
+            "locateAtTabIndex":"0",
+            "requireConfirm":true,            
+            "confirmColWidth": {"width":"1","labelWidth":"","valueWidth":""}
+        }, 
+        {
+            "key":"option01",
+            "label":"Room",
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement" : "fixed",   
+            "labelHidden" : false,
+            "defValue": "",
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "validations":[{"type":"required","messages":["Please select a room type"]}],
+            "controlType":"radio",
+            "isAsyncOptions":true,
+            "asyncOptRefCtrlKeys":["lastname","unitCnt"],
+            "asyncOptValueChangesCtrlKeys":["lastname"],
+            "validationStyle":"",             
+            "validationClass":"",
+            "colWidth": "1",
+            "locateAtTabIndex":"0",
+            "requireConfirm":false
+        },
+        {
+            "colWidth": "1",
+            "disable": false,
+            "hidden": false,
+            "requireConfirm": false,
+            "key": "agency",
+            "label": "地產代理公司",
+            "labelClass": "",
+            "labelStyle": "",
+            "labelPlacement": "stacked",
+            "labelHidden": false,
+            "controlClass": "",
+            "controlStyle": "",
+            "inputClass": "",
+            "inputStyle": "",
+            "placeHolder": "請選擇",
+            "multipleValue": true,
+            "showPlaceHolder": true,
+            "controlType": "dropdown",
+            "isAsyncOptions": false,
+            "validationStyle": "",
+            "validationClass": "",
+            "locateAtTabIndex": "0",            
+            "cancelText": "取消",            
+            "options": [
+              {
+                "key": "0003",
+                "desc": "中原地產代理有限公司"
+              },
+              {
+                "key": "0282",
+                "desc": "世紀21集團有限公司"
+              },
+              {
+                "key": "0019",
+                "desc": "香港置業(地產代理)有限公司"
+              },
+              {
+                "key": "0002",
+                "desc": "美聯物業"
+              },
+              {
+                "key": "0001",
+                "desc": "利嘉閣地產"
+              },
+              {
+                "key": "9999",
+                "desc": "Other"
+              },
+              {
+                "key": "0286",
+                "desc": "云房網絡(香港)代理有限公司"
+              },
+              {
+                "key": "0260",
+                "desc": "香港(國際)地產商會有限公司"
+              },
+              {
+                "key": "0262",
+                "desc": "香港地產代理商總會有限公司"
+              },
+              {
+                "key": "0135",
+                "desc": "置業18物業代理有限公司"
+              }
+            ],
+            "validations": [
+              {
+                "type": "required",
+                "message": "請選取地產代理公司"
+              }
+            ]
+          }                
+    ]    	
+}

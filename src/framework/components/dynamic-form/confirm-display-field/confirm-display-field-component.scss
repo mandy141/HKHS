@@ -1,0 +1,12 @@
+confirm-display-field-component {
+    .success-badge {
+        font-size: $h4-font-size;
+        color: $theme-color-positive;
+        font-weight: bold;
+    }
+
+    .default-badge {
+        font-size: $h4-font-size;        
+        font-weight: bold;
+    }
+}

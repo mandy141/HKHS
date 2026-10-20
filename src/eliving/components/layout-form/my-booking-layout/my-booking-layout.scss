@@ -1,0 +1,60 @@
+/*  #Style -- Segment - Segment List
+===========================================*/
+my-booking-layout {
+
+  [after_login]{
+    background: none;
+    background-color: theme-colors('mainColors', 'form');
+  }
+
+  [item-linebreak]{
+    white-space: pre-line!important;
+    //display: flex;
+    //flex-flow: column;
+  }
+  
+  [background-size] {
+    height: 250px;
+  }
+  ion-thumbnail {
+    img {
+      margin-bottom: 1px;
+    }
+  }
+
+  .grid {
+    text-align: left;
+    height: 100% !important;
+    padding: 0px;
+  }
+
+  .segment-md 
+  {
+    max-width: 600px;
+  }
+  
+ 
+  .segment-md .segment-button
+  {
+    color: #FFFFFF !important;
+  }
+
+  .grid {
+    max-width: 600px;
+  }
+
+  iframe{
+    background-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+  }
+
+  .item-inner
+  {
+    margin:0 !important;
+  }
+
+  .item-md
+  {
+    padding:0 !important;
+  }
+}

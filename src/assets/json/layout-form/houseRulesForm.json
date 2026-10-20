@@ -1,0 +1,92 @@
+{
+    "formTitle":"屋苑守則",
+    "fileIcon":"icon-file",
+    "headerImage": "assets/eliving/logo_background/banner-bg.png",
+    "selectAll": "所有類別",
+    "cancelText": "返回",
+    "houseRulesType":"類別",
+    "documents": [{
+            "title": "屋苑",
+            "name": "前言",
+            "size": "90K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_1_TC.pdf"
+          },
+          {
+            "title": "屋苑",
+            "name": "物業管理",
+            "size": "258K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_3_TC.pdf"
+          }, 
+          {
+            "title": "屋苑",
+            "name": "大廈守則",
+            "size": "2251K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_19_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "裝修 ",
+            "size": "107K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_4_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "入伙",
+            "size": "51K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_5_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "保險",
+            "size": "75K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_20_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "日常保養 ",
+            "size": "16K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_19_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "保安及防盜",
+            "size": "112K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_8_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "防火",
+            "size": "117K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_9_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "煤氣洩漏處理",
+            "size": "112K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_10_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "防風 ",
+            "size": "76K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_11_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "增值服務 ",
+            "size": "126K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_12_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "交通服務",
+            "size": "223K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_17_TC.pdf"
+          }, {
+            "title": "會所",
+            "name": "優悠家居服務",
+            "size": "114K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_13_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "常用電話號碼 ",
+            "size": "72K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_14_TC.pdf"
+          }, {
+            "title": "屋苑",
+            "name": "結語",
+            "size": "107K",
+            "docURL": "assets/pdf/rule/ST_SKYTOW_rule_15_TC.pdf"
+          }
+    ]
+  }

@@ -1,0 +1,18 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_IMG_BANNER" 
+    [formGroup]="form" [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)"   >
+    <fieldset debug-field-set-spacing [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'darkgreen' : ''">   
+        <legend *ngIf="debugMode"><span debug-field-set-legend>{{inputFieldModel.key}}</span></legend>              
+        <ion-grid no-padding>
+            <ion-row padding container-header-image [style.background-image]="'url(' + inputFieldModel.imgBannerbgImgURL + ')'" [style.height]="inputFieldModel.imgBannerHeight">
+                <ion-col col-12>
+                    <div header-div text-left>
+                        <!--Header title-->
+                        <h1 header-title>{{inputFieldModel.imgBannerTitle}}</h1>
+                        <!--Header subtitle-->
+                        <h2 header-subtitle>{{inputFieldModel.imgBannerSubTitle}}</h2>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>                  
+    </fieldset>       
+</div>

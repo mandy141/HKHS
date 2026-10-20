@@ -1,0 +1,151 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="custom-menu"></ion-icon>
+        </button>
+        <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="onBackToHome()">
+              <ion-icon name="custom-hsHome"></ion-icon>
+            </button>
+          </ion-buttons>
+      </ion-navbar>
+  </ion-header>
+
+<!-- Themes Login + logo -->
+<ion-content white-background>
+    <ion-grid *ngIf="data">
+        <ion-row wrap padding>
+            <ion-col col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+                <ion-grid>
+                    <ion-row *ngIf="data.showNewReg">
+                        <ion-col>
+                            <button ion-button new-reg clear (click)="onUserRegistration()">{{data.btnUserRegistration}}</button>
+                        </ion-col>
+                    </ion-row>
+                    <!---Dislaimer button
+                    <ion-row *ngIf="data.showBtnDisclaimer">
+                        <ion-col>
+                            <button ion-button new-reg round outline (click)="onDisclaimer()">{{data.btnDisclaimer}}</button>
+                        </ion-col>
+                    </ion-row>-->
+                    <ion-row>
+                        <ion-col>
+                            <!---Logo-->
+                            <img padding-bottom [src]="data.imglogo" *ngIf="data.imglogo && data.imglogo.length > 0">
+                            <p login-title word-break *ngIf="data.innerTitle && data.innerTitle.length > 0">{{data.innerTitle}}</p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-12 col-lg-4 *ngIf="loginWithMobile()">
+                            <!---Input field country code-->
+                            <div row-padding-bottom>
+                                <ion-item transparent>
+                                    <ion-label stacked>{{data.lblCountryCode}}</ion-label>                        
+                                    <ion-input required type="text" [(ngModel)]="inputCountryCode"></ion-input>                                      
+                                </ion-item>
+                                <ion-item *ngIf="!isCountryCodeValid" transparent no-lines text-wrap>
+                                    <ion-label error-field no-margin >
+                                        <span validation-color>{{data.lblCountryCodeMandatoryMsg}}</span>
+                                    </ion-label>                  
+                                </ion-item>
+                            </div>
+                        </ion-col>
+                        <ion-col col-12 col-lg-8 *ngIf="loginWithMobile()">
+                            <!---Input field mobile-->
+                            <div row-padding-bottom>
+                                <ion-item transparent>                                
+                                    <ion-label stacked >{{data.lblPhoneNo}}</ion-label>                                
+                                    <ion-input required type="text" [(ngModel)]="inputPhoneNo"></ion-input>                                
+                                </ion-item>
+                                <ion-item *ngIf="!isUsernameValid" transparent no-lines text-wrap>
+                                    <ion-label error-field no-margin>                                    
+                                        <span validation-color>{{data.lblPhoneNoMandatoryMsg}}</span>
+                                    </ion-label>
+                                </ion-item>
+                            </div>
+                        </ion-col>
+                        <ion-col col-12 *ngIf="loginWithName()">
+                            <!---Input field username-->
+                            <div row-padding-bottom>
+                                <ion-item transparent>
+                                    <ion-label stacked >{{data.lblUserName}}</ion-label>                                    
+                                    <ion-input required type="text" [(ngModel)]="inputUserName"></ion-input>                                                                        
+                                </ion-item>
+                                <ion-item *ngIf="!isUsernameValid" transparent no-lines text-wrap>
+                                    <ion-label error-field no-margin>                                    
+                                        <span validation-color>{{data.lblUserNameMandatoryMsg}}</span>
+                                    </ion-label>
+                                </ion-item>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <!---Input field password-->
+                            <div row-padding-bottom>
+                                <ion-item transparent>
+                                    <ion-label stacked>{{data.lblPassword}}</ion-label>
+                                    <ion-input required type="password" [(ngModel)]="inputPassword" (keyup.enter)="onEnter()"></ion-input>                                
+                                </ion-item>
+                                <ion-item *ngIf="!isPasswordValid" transparent no-lines text-wrap>
+                                    <ion-label error-field no-margin>
+                                        <span validation-color>{{data.lblPwMandatoryMsg}}</span>
+                                    </ion-label>
+                                </ion-item>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <div>
+                                <ion-item no-lines transparent>
+                                    <ion-label >{{data.lblRememberLoginPw}}</ion-label>
+                                    <ion-checkbox checked="true" [(ngModel)]="isSaveLogin"></ion-checkbox>
+                                </ion-item>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <div>
+                                <ion-item no-lines transparent>
+                                    <ion-label >{{data.lblTAndCMessage}}</ion-label>
+                                    <ion-checkbox checked="false" [(ngModel)]="isAgree"></ion-checkbox>
+                                </ion-item>
+                            </div>
+                        </ion-col>
+                    </ion-row>   
+                    <ion-row>
+                        <ion-col>
+                            <!---Login button-->
+                            <button text-wrap ion-button float-left button-clear-outline round outline (click)="onDisclaimer()">{{data.btnDisclaimer}}</button>
+                            <button *ngIf="data.showBtnDisclaimer" text-wrap ion-button float-left button-clear-outline round outline (click)="onLogin()">{{data.btnLogin}}</button>
+                            <!---Forgot Password button-->
+                            <!--<button text-wrap ion-button float-left button-clear-outline round outline (click)="onForgotPassword()">{{data.btnForgetPW}}</button>-->             
+                            <!-- Login Failed Message -->
+                            <ion-item no-lines transparent *ngIf="loginFailMsg" >
+                                <p login-failed-label validation-color word-break>{{loginFailMsg}}</p>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            <div>
+                                <ion-item no-lines transparent text-center>
+                                    <ion-label >{{data.lblForPWRemark}}</ion-label>
+                                </ion-item>
+                            </div>
+                        </ion-col>
+                    </ion-row>                  
+                </ion-grid>
+            </ion-col>            
+        </ion-row>
+    </ion-grid>   
+    <div footer *ngIf="data">
+        <h5 *ngIf="!isApp()">{{lblBrowserMsg}}</h5>
+        <p>{{lblCopyRight}}</p>
+        <p style="text-align: right !important;">{{lblAppVersion}}</p>
+    </div> 
+</ion-content>
+

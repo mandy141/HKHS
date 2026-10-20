@@ -1,0 +1,16 @@
+<div *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_IMG" 
+    [formGroup]="form" [class]="controlClass" [ngStyle]="toJSONObject(controlStyle)"   >
+    <fieldset debug-field-set-spacing [style.border]="debugMode ? '' : 'none' " [style.border-color]="debugMode ? 'darkgreen' : ''">   
+        <legend *ngIf="debugMode"><span debug-field-set-legend>{{inputFieldModel.key}}</span></legend>              
+        <ion-grid no-padding>
+            <ion-row padding container-header-image>
+                <ion-col col-12>
+                   <!-- <img [src]="inputFieldModel.imgURL">-->
+                   <ion-label (click)="onLinkClick()">
+                            <img [src]="inputFieldModel.imgURL">
+                   </ion-label>  
+                </ion-col>
+            </ion-row>
+        </ion-grid>                  
+    </fieldset>       
+</div>

@@ -1,0 +1,55 @@
+<ion-header>
+        <ion-navbar>
+            <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+            <ion-buttons end>
+                <button ion-button icon-only (click)="onBackToHome()">
+                  <ion-icon name="md-home"></ion-icon>
+                </button>
+              </ion-buttons>
+          </ion-navbar>
+      </ion-header>
+    <ion-content after_login>
+        <div class="input-content-min-height" *ngIf="data">
+            <ion-grid input-form-width>
+                <!--<ion-row>
+                <ion-col col-12 text-center>
+                        <img [src]="converted_image" />
+                    </ion-col>
+                </ion-row>
+            -->
+                <ion-row>
+                    <ion-col col-12 text-center>
+                        {{data.facName}}
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12 text-center>
+                        <p default-label-font text-center>{{data.bookDateTitle}} {{data.bookDate}}</p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                <ion-col col-12 text-center>
+                        <p default-label-font text-center>{{data.bookTimeTitle}} {{data.bookTime}}</p>
+                </ion-col>
+                </ion-row>
+                <ion-row>
+                <ion-col col-12 text-center>
+                    <p default-label-font text-center>{{data.bookReceiptTitle}}{{data.bookReceipt}}</p>
+                </ion-col>
+                </ion-row> 
+                <ion-row>
+                <ion-col col-12 text-center>
+                    <p default-label-font text-center>{{data.bookAmtTitle}}{{data.bookAmt}}</p>
+                </ion-col>
+                </ion-row>              
+                <ion-row>
+                    <ion-col text-center offset-1 col-10 offset-lg-2 col-lg-8>
+                        <button full ion-button (click)="onClose()">{{data.btnExit}}</button>     
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div> 
+    </ion-content>

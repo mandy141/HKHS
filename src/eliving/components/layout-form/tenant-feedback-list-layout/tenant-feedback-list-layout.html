@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="onBackToHome()">
+              <ion-icon name="custom-hsHome"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content after_login>
+  <ion-grid *ngIf="data != null">    
+    <ion-list no-margin>
+      <ion-col col-12 col-lg-10 cursor-pointer>
+        <!--<ion-item no-lines cursor-pointer >參考編號:CYN202004201001 (2020-04-08 11:36)</ion-item>-->
+        <ion-item cursor-pointer *ngFor="let item of data.tenantItems; let i= index" (click)="onShowDtl(item)">
+          <h5>{{item.refNoText}}:{{item.refNoValue}} ({{item.submitTimeValue}})</h5>
+        </ion-item>
+        </ion-col>
+    </ion-list>
+  </ion-grid>
+</ion-content>

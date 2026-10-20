@@ -1,0 +1,70 @@
+/*  #Style Wizard Big image
+===========================================*/
+user-maint-form {    
+
+  [after_login]{
+    background: none;
+    background-color: theme-colors('mainColors', 'form');
+  }
+
+
+  .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+    color: theme-colors('textColors', 'dark') !important;
+  }
+
+  .swiper-pagination {
+    bottom: 15px !important;
+
+    .swiper-pagination-bullet {
+      background: theme-colors('mainColors', 'primary') !important;
+    }
+  }
+
+  ion-slides {
+    height: 88%;
+    margin-top: 20px;
+  }
+
+  .swiper-pagination {
+    bottom: 20px;
+  }
+
+  .swiper-wrapper {
+    height: 90%;
+  }
+
+  .swiper-container {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+  }
+
+  .scroll-content{
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
+    }      
+
+  [default-title-style] {
+      color: theme-colors('mainColors', 'primary');
+      font-size: $h2-font-size;
+      text-align: center;
+      font-weight: bold;     
+      margin-bottom: 50px;
+  }
+
+  [padding-country-code] {
+    padding-top: 2em;
+    ion-select {
+      padding-bottom: 0px;
+    }
+  }
+
+  [validation-label] {
+    padding-left: 1rem;
+    color: theme-colors('textColors', 'validation') !important;
+  }  
+
+  .input-content-min-height {
+    min-height: calc(100vh - 300px);
+  }
+}

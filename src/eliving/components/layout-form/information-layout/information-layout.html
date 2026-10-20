@@ -1,0 +1,55 @@
+<!-- Theme Segment - Segment List -->
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="custom-menu"></ion-icon>
+      </button>
+      <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="onBackToHome()">
+          <ion-icon name="custom-hsHome"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+    
+  </ion-header>
+  <!-- Content-->
+  <ion-content>
+  
+    <div *ngIf="data != null">
+    <!--Segment Section -->
+    <ion-toolbar no-padding>
+        <div *ngIf="data != null">
+          <ion-segment has-header [(ngModel)]="selectedItem">
+            <ion-segment-button *ngFor="let page of data.pages" value="{{page.pageId}}">
+              {{page.pageName}}
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+    </ion-toolbar>
+    <ion-grid  *ngFor="let page of data.pages">    
+      <ion-row *ngIf="isEnabled(page.pageId)" >
+        <ion-col col-12>
+          <div *ngFor="let rec of page.records;" [ngStyle]="{'background-color': white}">
+          <ion-item>
+            <h1 item-title>{{rec.name}}</h1>
+            <p><a href="tel:{{rec.number}}" target="_blank">{{rec.number}}</a></p>
+            <p><a href="{{rec.url}}" target="_blank">{{rec.url}}</a></p>
+            <p><a href="mailto:{{rec.email}}" target="_blank">{{rec.email}}</a></p>
+           <!--<p>{{rec.number}}</p>
+            <p>{{rec.url}}</p>
+            <p>{{rec.email}}</p>-->
+            <!--<div item-content>
+              <span span-small>{{rec.number}}</span>
+              <span span-small>{{rec.url}}</span>
+              <span span-small>{{rec.email}}</span>
+            </div>
+            -->
+          </ion-item>
+          </div>        
+        </ion-col>
+      </ion-row>    
+    </ion-grid>
+    </div>
+  </ion-content>
+  

@@ -1,0 +1,24 @@
+html-content-viewer-field-component {
+    [item-spacing] {            
+        padding-bottom: 1.5rem;
+    }    
+
+    [debug-field-set-spacing] {
+        padding: 0px;
+    }
+
+    [debug-field-set-legend] {
+        color: darkgreen;
+    }
+
+    ion-item {            
+        .item-inner {
+          border-bottom-color: theme-colors('mainColors', 'accent-other') !important;
+          box-shadow: none !important;
+      }
+
+      ion-label {
+        margin: 0 !important;
+      }
+    } 
+}

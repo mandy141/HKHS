@@ -1,0 +1,42 @@
+<ion-grid padding-left-right-zero>
+    <ion-row>
+        <ion-col [attr.col-12]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                    [attr.col-11]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                    [attr.col-10]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                    [attr.col-9]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                    [attr.col-8]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                    [attr.col-7]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                    [attr.col-6]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_HALF? '' : null"
+                    [attr.col-5]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                    [attr.col-4]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                    [attr.col-3]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                    [attr.col-2]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                    [attr.col-1]="inputFieldModel.confirmColWidth.labelWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null"
+                    default-label-font
+                    [class]="confirmLabelClass(inputFieldModel)" [ngStyle]="toJSONObject(confirmLabelStyle(inputFieldModel))">{{confirmLabel}}</ion-col>
+        <ion-col [attr.col-12]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_FULL ? '' : null"
+                    [attr.col-11]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ELEVEN_TWELEVETH ? '' : null"
+                    [attr.col-10]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_FIVE_SIXTH ? '' : null"
+                    [attr.col-9]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_THREE_QUARTER ? '' : null"
+                    [attr.col-8]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_TWO_THIRD ? '' : null"
+                    [attr.col-7]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_SEVEN_TWELEVETH ? '' : null"
+                    [attr.col-6]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_HALF ? '' : null"
+                    [attr.col-5]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_FIVE_TWELEVETH ? '' : null"
+                    [attr.col-4]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_THIRD ? '' : null"
+                    [attr.col-3]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_QUARTER ? '' : null"
+                    [attr.col-2]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_SIXTH ? '' : null"
+                    [attr.col-1]="inputFieldModel.confirmColWidth.valueWidth == ConstantAttributes.COLWIDTH_ONE_TWELEVETH ? '' : null" 
+                    default-value-font
+                    [class]="confirmValueClass(inputFieldModel)" [ngStyle]="toJSONObject(confirmValueStyle(inputFieldModel))">
+                <ng-container *ngIf="inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_CHECKLIST && !inputFieldModel.confirmValueIsLink">
+                    {{showFieldValue(form, inputFieldModel)}}
+                </ng-container>
+                <a *ngIf="inputFieldModel.controlType != ConstantAttributes.CONTROL_TYPE_CHECKLIST && inputFieldModel.confirmValueIsLink" [href]="showFieldValue(form, inputFieldModel)" target="_blank">
+                    {{showFieldValue(form, inputFieldModel)}}
+                </a>
+                <ng-container *ngIf="inputFieldModel.controlType == ConstantAttributes.CONTROL_TYPE_CHECKLIST">
+                    <p *ngFor="let desc of showCheckListValues(form, inputFieldModel)">{{desc}}</p>
+                </ng-container>
+        </ion-col>                                
+    </ion-row>
+</ion-grid>

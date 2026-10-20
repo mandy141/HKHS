@@ -1,0 +1,29 @@
+{
+    "formTitle": "勵德邨",
+    "crudMode": "R",
+    "headerItems": [{"headerImg":"assets/ckah/hkhs_logo.svg","headerBg":"assets/eliving/logo_background/image_banner_2x.png"},{"headerImg":"","headerBg":"assets/eliving/logo_background/banner6_2x.png"},{"headerImg":"","headerBg":"assets/eliving/logo_background/banner3_2x.png"},{"headerImg":"","headerBg":"assets/eliving/logo_background/banner5_2x.png"},{"headerImg":"","headerBg":"assets/eliving/logo_background/banner4_2x.png"}],
+    "bannerItems": [],
+    "dashboardItems": [],
+    "shortcutItems": [    
+        {"backgroundImg": "custom-info", 
+            "title": "房協之友", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "icon-library", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        },
+        {"backgroundImg": "custom-management", 
+            "title": "樂得耆所", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "icon-library", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        },
+        {"backgroundImg": "bulb", 
+            "title": "生活資訊", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "bulb", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        },
+        {"backgroundImg": "md-paper", 
+            "title": "繳付租金", 
+            "minHeight": "1rem", 
+            "openForm": { "key": "proj-info-page", "title": "聯繫我們", "icon": "bulb", "componentName": "InputFormPage", "entityName": "proj-info-input-form", "crudMode": "R" } 
+        }
+    ]
+}

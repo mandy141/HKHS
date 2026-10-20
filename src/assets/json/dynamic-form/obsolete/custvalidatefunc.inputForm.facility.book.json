@@ -1,0 +1,203 @@
+{
+    "crudMode": "C",
+    "entityName": "facility-book-input-form",
+    "inputFormCloseButtonLabel": "關閉",
+    "inputFormInnerTitle": "設施預訂及查詢",
+    "inputFormNextButtonLabel": "下一步",
+    "inputFormPrevButtonLabel": "上一步",
+    "inputFormShowTabBar": false,
+    "inputFormSubmitButtonLabel": "提交",
+    "inputFormSubmitButtonRemark": "",
+    "inputFormTitle": "設施預訂及查詢",
+    "inputFormTabs" : [
+        {
+            "showTabTitle": false,
+            "tabIndex": "0",
+            "tabTitle": "桌球室1",
+            "tabTitleClass": "",
+            "tabTitleStyle": "",
+            "tabType": "input"
+        }       
+    ],
+    "inputFieldModels" : [
+        {
+          "colWidth": "1-2",
+          "inputStyle": "{\"margin-top\": \"30px\"}",
+          "disable": false,
+          "key": "bookDate",
+          "label": "日期",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "placeHolder": "請選擇",
+          "showPlaceHolder": true,
+          "controlType": "dropdown",
+          "isAsyncOptions": false,
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "cancelText": "取消",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+            "width": "1-2",
+            "labelWidth": "1-3",
+            "valueWidth": "2-3"
+          },
+          "options": [{
+              "key": "20/12/2018",
+              "desc": "20/12/2018 (Thur)"
+            },
+            {
+              "key": "21/12/2018",
+              "desc": "21/12/2018 (Fri)"
+            },
+            {
+              "key": "22/12/2018",
+              "desc": "22/12/2018 (Sat)"
+            }
+          ],
+          "defValue": "20/12/2018",
+          "validations": [{
+            "type": "required",
+            "message": "請選取日期"
+          }]
+        }, {
+          "colWidth": "1-2",
+          "inputStyle": "{\"margin-top\": \"30px\"}",
+          "disable": false,
+          "key": "facId",
+          "label": "設施",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "stacked",
+          "labelHidden": false,
+          "hidden": false,
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "placeHolder": "請選擇",
+          "showPlaceHolder": true,
+          "controlType": "dropdown",
+          "isAsyncOptions": true,
+          "asyncOptRefCtrlKeys": ["bookDate"],
+          "asyncOptValueChangesCtrlKeys": ["bookDate"],
+          "validationStyle": "",
+          "validationClass": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "confirmLabelClass": "",
+          "cancelText": "取消",
+          "confirmLabelStyle": "",
+          "confirmValueClass": "",
+          "confirmValueStyle": "",
+          "confirmColWidth": {
+            "width": "1-2",
+            "labelWidth": "1-3",
+            "valueWidth": "2-3"
+          },
+          "validations": [{
+            "type": "required",
+            "message": "請選取設施"
+          }]
+        },
+        {
+          "colWidth": "1-6",
+          "hidden": false,
+          "key": "lblGreen",
+          "controlType": "label",
+          "controlStyle": "{\"background-color\": \"green\"}",
+          "label": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "disable": false
+        },
+        {
+          "colWidth": "1-6",
+          "hidden": false,
+          "key": "lblBook",
+          "controlType": "label",
+          "controlStyle": "",
+          "label": "可以預訂",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "disable": false
+        }, {
+          "colWidth": "1-6",
+          "hidden": false,
+          "key": "lblBlue",
+          "controlType": "label",
+          "controlStyle": "{\"background-color\": \"blue\"}",
+          "label": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "disable": false
+        }, {
+          "colWidth": "1-6",
+          "hidden": false,
+          "key": "lblBookByYou",
+          "controlType": "label",
+          "controlStyle": "",
+          "label": "已被你或你的家人預訂",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "disable": false
+        }, {
+          "colWidth": "1-6",
+          "hidden": false,
+          "key": "lblBlue",
+          "controlType": "label",
+          "controlStyle": "{\"background-color\": \"red\"}",
+          "label": "",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "disable": false
+        }, {
+          "colWidth": "1-6",
+          "hidden": false,
+          "key": "lblCannotBook",
+          "controlType": "label",
+          "controlStyle": "",
+          "label": "已被預訂",
+          "locateAtTabIndex": "0",
+          "requireConfirm": true,
+          "disable": false
+        },
+        {
+          "key": "bookTimePeriodId",
+          "label": "時段",
+          "labelClass": "",
+          "labelStyle": "",
+          "labelPlacement": "fixed",
+          "labelHidden": false,
+          "defValue": "",
+          "controlClass": "",
+          "controlStyle": "",
+          "inputClass": "",
+          "inputStyle": "",
+          "validations": [
+            {"type":"customvalidationfunc", "custValidationFunc":"validateBookTimePeriodMandat", "messages":["Should Select at least 1 time slot"], "param":[]}                                 
+          ],
+          "controlType": "checklist",
+          "isAsyncOptions":true,
+          "options":[],
+          "asyncOptRefCtrlKeys": ["bookDate", "facId"],
+          "asyncOptValueChangesCtrlKeys": ["facId"],
+          "validationStyle": "",
+          "validationClass": "red-color",
+          "colWidth": "1",
+          "locateAtTabIndex": "0",
+          "requireConfirm": false
+        }
+    ]
+
+
+}

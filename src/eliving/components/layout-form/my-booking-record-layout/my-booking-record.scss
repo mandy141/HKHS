@@ -1,0 +1,35 @@
+my-booking-record-form {
+    [after_login]{
+        background: none;
+        background-color: theme-colors('mainColors', 'form');
+      }
+      
+    [default-title-style] {
+        color: theme-colors('mainColors', 'primary');
+        font-size: $h2-font-size;
+        text-align: center;
+        font-weight: bold;     
+        margin-bottom: 50px;
+    }
+
+    [default-label-font] 
+    {
+        color: theme-colors('textColors', 'dark') !important;
+    }
+
+    .input-content-min-height {
+        min-height: calc(100vh - 200px);
+    }
+
+    [back-button] {
+        width: 100%;
+    }
+
+    [default-validation-color] {
+        color: theme-colors('textColors', 'validation');
+    }
+
+    [text-center] {
+        text-align: center;
+    }
+}

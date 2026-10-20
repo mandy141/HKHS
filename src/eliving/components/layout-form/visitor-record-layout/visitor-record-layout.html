@@ -1,0 +1,61 @@
+<!-- Theme Segment - Segment List -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="data">{{data.formTitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onBackToHome()">
+        <ion-icon name="custom-hsHome"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+<!-- Content-->
+<ion-content>
+
+  <div *ngIf="data != null">
+  <!--Segment Section -->
+  <ion-toolbar no-padding>
+      <div *ngIf="data != null">
+        <ion-segment has-header [(ngModel)]="selectedItem">
+          <ion-segment-button *ngFor="let page of data.pages" value="{{page.pageId}}">
+            {{page.pageName}}
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+  </ion-toolbar>
+  <ion-grid  *ngFor="let page of data.pages;let pageIndex = index">    
+    <ion-row *ngIf="pageIndex==0 && isEnabled(page.pageId)">
+      <ion-col>
+        <button ion-button small button-clear-outline round outline
+          (click)="onNew()">{{data.btnNew}}</button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="isEnabled(page.pageId)" >
+      <ion-col col-12>
+        <div *ngFor="let record of page.records;let recordIndex= index" [ngStyle]="{'background-color': white}">          
+        <ion-item >
+          <ion-grid>
+            <ion-row>
+              <ion-col col-10 (click)="onShowDtl(pageIndex, record.uniqueIdentifier)">
+                <h2 item-title>{{record.name}}</h2>
+                <h3 item-subitem>{{record.recordDateTime}}</h3>          
+              </ion-col>
+              <ion-col col-2>
+                <ion-icon icon-medium item-end cursor-pointer *ngIf="pageIndex==0" (click)="onMarkDelete(record, pageIndex, recordIndex)">
+                <i class="icon {{data.deleteIcon}}"></i>
+                </ion-icon>
+              </ion-col>
+            </ion-row>          
+          </ion-grid>
+        </ion-item>
+        </div>        
+      </ion-col>
+    </ion-row>    
+  </ion-grid>    
+
+  </div>
+</ion-content>
